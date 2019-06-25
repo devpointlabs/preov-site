@@ -16,13 +16,13 @@ before_action :set_post, only:[:show, :update, :destroy]
     else
       render json: post.errors, status: 422
     end
-
   end
 
   def update
     if @post.update(post_params)
       render json: @post
-    else render json: post.errors, status: 422
+    else 
+      render json: post.errors, status: 422
     end
   end
 
