@@ -1,15 +1,30 @@
 import React from 'react'
 import axios from 'axios'
 import { Form, } from 'semantic-ui-react'
+import ImageUploader from 'react-images-upload'
 
 class PostForm extends React.Component {
-  state = { title: "", body: ""}
+  state = { title: "", body: "", image: [], categories:[], post_categories: []  }
+
+  constructor(props) {
+    super(props);
+     this.state = { title: "", body: "", image: "", categories:[]  };
+     this.onDrop = this.onDrop.bind(this);
+}
+
+onDrop(image) {
+    this.setState({
+        image: image[0],
+    });
+}
+  
 
   handleChange = (e, { name, value }) => {
     this.setState({ [name]: value })
   }
 
   render(){
+    const { value } = this.state
     return(
       <Form onSubmit={this.handleSubmit}>
         <Form.Input 
@@ -20,7 +35,7 @@ class PostForm extends React.Component {
         onChange={this.handleChange}
         required
         />
-        <Form.Input 
+        <Form.TextArea 
         label="Body"
         placeholder="Body"
         name="body"
@@ -28,6 +43,32 @@ class PostForm extends React.Component {
         onChange={this.handleChange}
         required
         />
+        <ImageUploader
+                withIcon={true}
+                buttonText='Choose image'
+                onChange={this.onDrop}
+                imgExtension={['.jpg', '.gif', '.png', '.gif']}
+                maxFileSize={5242880}
+                singleImage = {true}
+            />
+        <Form.Group inline>
+          <label>Category (select all that apply):</label>
+          <Form.Radio
+          label="Family"
+          value='family'
+          checked={value === 'family'}
+          onChange={this.handleChange} />
+          <Form.Radio
+          label="Relationships"
+          value='relationships'
+          checked={value === 'relationships'}
+          onChange={this.handleChange} />
+          <Form.Radio
+          label="Health"
+          value='health'
+          checked={value === 'health'}
+          onChange={this.handleChange} />
+        </Form.Group>
         <Form.Button>Post</Form.Button>
       </Form>
     )
