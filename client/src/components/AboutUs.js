@@ -2,6 +2,7 @@
 // MEET THE TEAM grid
 
 import React from 'react'
+import Icon from '../Images/PreOvIcon.jpg'
 import { Container, Grid, Image, Divider, Header, Segment } from "semantic-ui-react";
 const AboutUs = () => {
 
@@ -12,7 +13,7 @@ return (
   <Container text >
     <Segment>
       <Header as='h1'>
-      <Image circular src='../images/PreOvIcon.jpg'/>
+      <Image src= { Icon } />
         About Us
       </Header>
       <h3> Our Story </h3>
