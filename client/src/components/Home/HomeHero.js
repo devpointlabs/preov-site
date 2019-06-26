@@ -1,4 +1,5 @@
 import React from "react"
+import Phone from "../../Images/iPhoneXDark.jpg"
 import { Header, Button, Image, Container, } from "semantic-ui-react"
 
 const HomeHero = () => (
@@ -17,7 +18,7 @@ const HomeHero = () => (
       </Container>
     </div>
     <div id="right">
-      <Image src="../Images/iPhoneXDark.svg" />
+      <Image src={ Phone } />
     </div>
   </Container>
 )
