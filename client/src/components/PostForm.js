@@ -10,6 +10,7 @@ class PostForm extends React.Component {
   }
 
   render(){
+    const { value } = this.state
     return(
       <Form onSubmit={this.handleSubmit}>
         <Form.Input 
@@ -20,7 +21,7 @@ class PostForm extends React.Component {
         onChange={this.handleChange}
         required
         />
-        <Form.Input 
+        <Form.TextArea 
         label="Body"
         placeholder="Body"
         name="body"
@@ -28,6 +29,24 @@ class PostForm extends React.Component {
         onChange={this.handleChange}
         required
         />
+        <Form.Group inline>
+          <label>Category (select all that apply):</label>
+          <Form.Radio
+          label="Family"
+          value='family'
+          checked={value === 'family'}
+          onChange={this.handleChange} />
+          <Form.Radio
+          label="Relationships"
+          value='relationships'
+          checked={value === 'relationships'}
+          onChange={this.handleChange} />
+          <Form.Radio
+          label="Health"
+          value='health'
+          checked={value === 'health'}
+          onChange={this.handleChange} />
+        </Form.Group>
         <Form.Button>Post</Form.Button>
       </Form>
     )
