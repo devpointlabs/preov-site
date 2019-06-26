@@ -12,12 +12,34 @@ class PostForm extends React.Component {
      this.onDrop = this.onDrop.bind(this);
 }
 
-onDrop(image) {
+  componentDidMount(){
+    axios.get('/api/categories')
+      .then( res => {
+        this.setState({ categories: res.data, });
+      })
+      .catch( err => {
+        console.log(err.response);
+      })
+  }
+
+  categoryCheckboxes = () => {
+    return this.state.categories.map( cat => (
+      <Form.Checkbox
+        key={cat.id} 
+        id={cat.id}
+        name={cat.label} 
+        label={cat.label}
+        // checked={} 
+        // onChange={} 
+      />
+    ));
+  };
+
+  onDrop(image) {
     this.setState({
         image: image[0],
     });
-}
-  
+  }
 
   handleChange = (e, { name, value }) => {
     this.setState({ [name]: value })
@@ -52,22 +74,10 @@ onDrop(image) {
                 singleImage = {true}
             />
         <Form.Group inline>
-          <label>Category (select all that apply):</label>
-          <Form.Radio
-          label="Family"
-          value='family'
-          checked={value === 'family'}
-          onChange={this.handleChange} />
-          <Form.Radio
-          label="Relationships"
-          value='relationships'
-          checked={value === 'relationships'}
-          onChange={this.handleChange} />
-          <Form.Radio
-          label="Health"
-          value='health'
-          checked={value === 'health'}
-          onChange={this.handleChange} />
+        <label>Categories</label>
+          <Form.Checkbox>
+            { this.categoryCheckboxes() }
+          </Form.Checkbox>
         </Form.Group>
         <Form.Button>Post</Form.Button>
       </Form>
