@@ -6,6 +6,8 @@
 import Home from "./components/Home/Home"
 import PostForm from './components/PostForm'
 import AboutUs from './components/AboutUs';
+import HowItWorks from './components/HowItWorks';
+
 
 // Other Imports
 import {Switch, Route} from 'react-router-dom'
@@ -18,6 +20,8 @@ const App = () => (
       <Route exact path="/home" component={Home} />
       <Route exact path="/postform" component={PostForm} />
       <Route exact path="/AboutUs" component={AboutUs} />
+      <Route exact path="/HowItWorks" component={HowItWorks} />
+
     </Switch>
   </Container>
 )
