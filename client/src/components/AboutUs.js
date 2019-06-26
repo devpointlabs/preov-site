@@ -12,7 +12,7 @@ return (
   <Container text >
     <Segment>
       <Header as='h1'>
-      {/* <Image circular src='images/preOV'/> */}
+      <Image circular src='../images/PreOvIcon.jpg'/>
         About Us
       </Header>
       <h3> Our Story </h3>
