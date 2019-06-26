@@ -12,6 +12,37 @@ code {
     monospace;
 }
 
+body {
+  color: #5d6870 !important;
+}
+
+.ui.blue {
+  background-color: #a5d4ef !important;
+  color: white;
+}
+
+#wrapper {
+  width: 100%;
+  overflow: hidden;
+  height: 500px;
+  padding: 2em;
+}
+
+#left {
+  width: 50%;
+  float: left;
+  background-color: white;
+  ;
+}
+
+#right {
+  margin-left: 51%;
+  padding: 10px;
+  overflow: hidden;
+  background: rgb(165,212,239);
+  background: linear-gradient(163deg, rgba(165,212,239,1) 15%, rgba(247,177,183,1) 62%);
+}
+
 /* 
 #f8f8f8 : offwhite
 #a5d4ef 
