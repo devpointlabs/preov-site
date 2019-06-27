@@ -9,6 +9,7 @@ import Post from './components/Post';
 import AboutUs from './components/AboutUs';
 import HowItWorks from './components/HowItWorks';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 
 
@@ -30,6 +31,7 @@ const App = () => (
 
     </Switch>
   </Container>
+  <Footer />
   </>
 )
 
