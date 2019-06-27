@@ -47,7 +47,9 @@ class PostForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('/api/posts',{...this.state})
+    let data = new FormData
+    data.append('file', this.state.image)
+    axios.post(`/api/posts?title=${this.state.title}&body=${this.state.body}`, data)
       .then(res => {
         const {history } = this.props
         history.push("/posts")

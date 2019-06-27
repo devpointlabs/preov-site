@@ -10,13 +10,27 @@ before_action :set_post, only:[:show, :update, :destroy]
   end
 
   def create
-    binding.pry
-    post = Post.new(post_params)
+    post = Post.new
+    post.title = params[:title] ? params[:title] : post.title
+    post.body = params[:body] ? params[:body] : post.body
+    
+    file = params[:file]
+    if file
+      begin
+        ext = File.extname(file.tempfile)
+        cloud_image = Cloudinary::Uploader.upload(file, public_id: file.original_filename, secure: true)
+        post.image = cloud_image["secure_url"]
+      rescue => e
+        render json: { errors: e }, status: 422
+      end
+    end
     if post.save
       render json: post
     else
       render json: post.errors, status: 422
     end
+
+    
   end
 
   def update
@@ -36,8 +50,8 @@ before_action :set_post, only:[:show, :update, :destroy]
     @post = Post.find(params[:id])
   end
 
-  def post_params
-    params.require(:post).permit(:title, :body, :image)
-  end
+  # def post_params
+  #   params.require(:post).permit(:title, :body, :image)
+  # end
 
 end
