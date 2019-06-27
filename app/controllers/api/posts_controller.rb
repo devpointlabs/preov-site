@@ -10,6 +10,7 @@ before_action :set_post, only:[:show, :update, :destroy]
   end
 
   def create
+    binding.pry
     post = Post.new(post_params)
     if post.save
       render json: post

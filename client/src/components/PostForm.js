@@ -4,34 +4,33 @@ import { Form, } from 'semantic-ui-react'
 import ImageUploader from 'react-images-upload'
 
 class PostForm extends React.Component {
-  state = { title: "", body: "", image: [], categories:[], post_categories: []  }
-
+  defaultValues = { title: "", body: "", image: "", categories:[], post_categories: []  }
+  state = {...this.defaultValues}
   constructor(props) {
     super(props);
-     this.state = { title: "", body: "", image: "", categories:[]  };
      this.onDrop = this.onDrop.bind(this);
 }
 
   componentDidMount(){
-    debugger
     axios.get('/api/categories')
-      .then( res => {
-        this.setState({ categories: res.data, });
+    .then( res => {
+      this.setState({ categories: res.data, });
       })
       .catch( err => {
         console.log(err.response);
       })
-  }
+    }
 
   categoryCheckboxes = () => {
+    // debugger
     return this.state.categories.map( cat => (
       <Form.Checkbox
         key={cat.id} 
         id={cat.id}
         name={cat.label} 
         label={cat.label}
-        // checked={} 
-        // onChange={} 
+        // todo checked={} 
+        // todo onChange={} 
       />
     ));
   };
@@ -46,8 +45,20 @@ class PostForm extends React.Component {
     this.setState({ [name]: value })
   }
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    axios.post('/api/posts',{...this.state}) //!something goes here
+      .then(res => {
+        const {history } = this.props
+        history.push("/posts")
+      })
+      .catch(err => {
+        console.log(err.response)
+      })
+      this.setState({ ...this.defaultValues, })
+  }
+
   render(){
-    const { value } = this.state
     return(
       <Form onSubmit={this.handleSubmit}>
         <Form.Input 
@@ -64,6 +75,7 @@ class PostForm extends React.Component {
           name="body"
           value={this.state.body}
           onChange={this.handleChange}
+          style={{ minHeight: 300 }} 
           required
         />
         <ImageUploader
@@ -76,9 +88,7 @@ class PostForm extends React.Component {
         />
         <Form.Group inline>
         <label>Categories</label>
-          <Form.Checkbox>
             { this.categoryCheckboxes() }
-          </Form.Checkbox>
         </Form.Group>
         <Form.Button>Post</Form.Button>
       </Form>
