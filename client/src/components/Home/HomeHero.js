@@ -5,7 +5,7 @@ import { Header, Button, Image, Container, } from "semantic-ui-react"
 const HomeHero = () => (
   <Container id="wrapper">
     <div id="left">
-      <Container style={{ alignItems: "left", }} >
+      <Container style={{ alignItems: "left", padding: "100px"}} >
         <Header as="h1" color="black">PreOv</Header>
         <br />
         <p>Emporwering you in family planning.</p>
