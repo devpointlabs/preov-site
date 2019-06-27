@@ -8,6 +8,7 @@ import PostForm from './components/PostForm';
 import Post from './components/Post';
 import AboutUs from './components/AboutUs';
 import HowItWorks from './components/HowItWorks';
+import Blog from './components/Blog';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
@@ -27,6 +28,7 @@ const App = () => (
       <Route exact path="/postform" component={PostForm} />
       <Route exact path="/about" component={AboutUs} />
       <Route exact path="/howitworks" component={HowItWorks} />
+      <Route exact path="/blog" component={Blog} />
      
 
     </Switch>

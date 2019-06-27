@@ -20,7 +20,7 @@ const NavBar = () => (
       How It Works
       </Menu.Item>
     </Link>
-    <Link to="/blogs">
+    <Link to="/blog">
       <Menu.Item>
       Blog
       </Menu.Item>

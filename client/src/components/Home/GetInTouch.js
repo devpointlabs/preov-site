@@ -5,7 +5,7 @@ const GetInTouch = () => (
   <Container style={{ height: "500px", padding: "220px"}}>
     <div style={{ textAlign: "center" }}>
       <Header as="h1" style={styles.header}>Get In Touch</Header>
-      <p>PreOv,LLC is continually building upon our technology,
+      <p>PreOv, LLC is continually building upon our technology,
         so stay in touch to learn more about our progress.</p>
       <Button style={styles.button}>
         PreOvLLC@gmail.com
