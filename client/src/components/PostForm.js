@@ -14,7 +14,7 @@ class PostForm extends React.Component {
 
   componentDidMount(){
     debugger
-    axios.get('/api/categories/path')
+    axios.get('/api/categories')
       .then( res => {
         this.setState({ categories: res.data, });
       })
