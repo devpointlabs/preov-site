@@ -13,7 +13,8 @@ class PostForm extends React.Component {
 }
 
   componentDidMount(){
-    axios.get('/api/categories')
+    debugger
+    axios.get('/api/categories/path')
       .then( res => {
         this.setState({ categories: res.data, });
       })
@@ -50,29 +51,29 @@ class PostForm extends React.Component {
     return(
       <Form onSubmit={this.handleSubmit}>
         <Form.Input 
-        label="Title"
-        placeholder="Title"
-        name="title"
-        value={this.state.title}
-        onChange={this.handleChange}
-        required
+          label="Title"
+          placeholder="Title"
+          name="title"
+          value={this.state.title}
+          onChange={this.handleChange}
+          required
         />
         <Form.TextArea 
-        label="Body"
-        placeholder="Body"
-        name="body"
-        value={this.state.body}
-        onChange={this.handleChange}
-        required
+          label="Body"
+          placeholder="Body"
+          name="body"
+          value={this.state.body}
+          onChange={this.handleChange}
+          required
         />
         <ImageUploader
-                withIcon={true}
-                buttonText='Choose image'
-                onChange={this.onDrop}
-                imgExtension={['.jpg', '.gif', '.png', '.gif']}
-                maxFileSize={5242880}
-                singleImage = {true}
-            />
+          withIcon={true}
+          buttonText='Choose image'
+          onChange={this.onDrop}
+          imgExtension={['.jpg', '.gif', '.png', '.gif']}
+          maxFileSize={5242880}
+          singleImage = {true}
+        />
         <Form.Group inline>
         <label>Categories</label>
           <Form.Checkbox>
