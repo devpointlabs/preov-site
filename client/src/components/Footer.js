@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, } from 'react-router-dom';
 import PreIcon from '../Images/PreOvIcon.jpg'
-import { Menu, Divider, Grid,Image, Icon, Container, Segment } from "semantic-ui-react";
+import { Menu, Grid, Image, Icon, Segment, Header } from "semantic-ui-react";
 
 const Footer = () => (
 <>
@@ -10,10 +10,6 @@ const Footer = () => (
     
     <Grid.Column>
   <Menu compact vertical>
-
-    {/* <Menu.Item>
-    <Image src= { PreIcon } />
-    </Menu.Item> */}
 
     <Link to="/">
       <Menu.Item >
@@ -100,6 +96,9 @@ const Footer = () => (
   </div>
 
   </Segment>
+  <Header as="h1" textAlign="center">
+    <Image src= { PreIcon } />
+    </Header>
 </>
 )
 

@@ -10,6 +10,8 @@ import AboutUs from './components/AboutUs';
 import HowItWorks from './components/HowItWorks';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import NoMatch from './components/NoMatch';
+
 
 
 
@@ -27,8 +29,7 @@ const App = () => (
       <Route exact path="/postform" component={PostForm} />
       <Route exact path="/about" component={AboutUs} />
       <Route exact path="/howitworks" component={HowItWorks} />
-     
-
+      <Route component={NoMatch} />
     </Switch>
   </Container>
   <Footer />
