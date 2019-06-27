@@ -3,7 +3,7 @@ import { Container, } from "semantic-ui-react"
 
 const UnderHero = () => (
   <Container style={styles.underhero}>
-    <p>Take control of your health with convinience and ease.</p>
+    <p>Take control of your health with convenience and ease.</p>
   </Container>
 )
 
@@ -13,6 +13,8 @@ const styles = {
     color: "white",
     textAlign: "center",
     fontSize: "2em",
+    height: "200px",
+    padding: "90px",
   }
 }
 

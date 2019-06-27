@@ -17,10 +17,16 @@ const HomeHero = () => (
         </Button>
       </Container>
     </div>
-    <div id="right">
+    <div id="right" style={styles.right}>
       <Image src={ Phone } />
     </div>
   </Container>
 )
+
+const styles = {
+  right: {
+    background: "linear-gradient(163deg, rgba(165,212,239,1) 15%, rgba(247,177,183,1) 62%)",
+  }
+}
 
 export default HomeHero;

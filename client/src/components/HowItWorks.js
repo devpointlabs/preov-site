@@ -2,6 +2,7 @@
 // a footer with reviews?
 
 import React from 'react'
+import Icon from '../Images/PreOvIcon.jpg'
 import { Container, Grid, Image, Divider, Header, Segment } from "semantic-ui-react";
 
 const HowItWorks = () => {
@@ -13,7 +14,7 @@ return (
   <Container text >
     <Segment>
       <Header as='h1'>
-      <Image src='../images/PreOvIcon.jpg'/>
+      <Image src= { Icon }/>
         How It Works
       </Header>
       <h3> Our Technology </h3>

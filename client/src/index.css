@@ -31,16 +31,12 @@ body {
 #left {
   width: 50%;
   float: left;
-  background-color: white;
-  ;
 }
 
 #right {
   margin-left: 51%;
   padding: 10px;
   overflow: hidden;
-  background: rgb(165,212,239);
-  background: linear-gradient(163deg, rgba(165,212,239,1) 15%, rgba(247,177,183,1) 62%);
 }
 
 /* 
