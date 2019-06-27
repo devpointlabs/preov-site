@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, } from 'react-router-dom';
 import PreIcon from '../Images/PreOvIcon.jpg'
-import { Menu, Divider, Grid,Image, Icon, Container, Segment } from "semantic-ui-react";
+import { Menu, Grid, Icon, Segment } from "semantic-ui-react";
 
 const Footer = () => (
 <>
