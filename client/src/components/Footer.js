@@ -7,6 +7,7 @@ const Footer = () => (
 <>
   <Segment>
   <Grid columns={3}>
+    
     <Grid.Column>
   <Menu compact vertical>
 
@@ -36,9 +37,10 @@ const Footer = () => (
     </Link>
   </Menu>
     </Grid.Column>
-
+    
+    
     <Grid.Column>
-    <Menu compact >
+    <Menu compact vertical>
     <Link to="/">
       <Menu.Item>
       Category
@@ -62,30 +64,36 @@ const Footer = () => (
   </Menu>
     </Grid.Column>
     
+    
     <Grid.Column>
-    <Menu compact >
+    <Menu compact vertical>
     <Link to="/">
       <Menu.Item>
       <Icon size= 'big' name = 'instagram'/>
+      Instagram
       </Menu.Item>
     </Link>
     <Link to="/">
       <Menu.Item>
       <Icon size= 'big' name = 'facebook'/>
+      Facebook
       </Menu.Item>
     </Link>
     <Link to="/">
       <Menu.Item>
       <Icon size= 'big' name = 'twitter'/>
+      Twitter
       </Menu.Item>
     </Link>
     <Link to="/">
       <Menu.Item>
       <Icon size= 'big' name = 'youtube'/>
+      Youtube
       </Menu.Item>
     </Link>
   </Menu>
     </Grid.Column>
+    
   </Grid>
   <div>
     <h4 style={{textAlign:'center'}}>© 2019 by PreOv, LLC. </h4>
