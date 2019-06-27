@@ -4,6 +4,7 @@ import HomeHero from "./HomeHero"
 import UnderHero from "./UnderHero"
 import OurStory from "./OurStory"
 import OurTech from "./OurTech"
+import GetInTouch from "./GetInTouch"
 
 const Home = () => (
   <>
@@ -11,6 +12,7 @@ const Home = () => (
     <UnderHero />
     <OurStory />
     <OurTech />
+    <GetInTouch />
   </>
 )
 
