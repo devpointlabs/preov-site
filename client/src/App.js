@@ -3,8 +3,9 @@
     import './App.css';
   // Component Imports
   
-import Home from "./components/Home/Home"
-import PostForm from './components/PostForm'
+import Home from "./components/Home/Home";
+import PostForm from './components/PostForm';
+import Post from './components/Post';
 import AboutUs from './components/AboutUs';
 import HowItWorks from './components/HowItWorks';
 import Navbar from './components/Navbar';
@@ -20,10 +21,11 @@ const App = () => (
   <Navbar />
   <Container>
     <Switch>
-      <Route exact path="/home" component={Home} />
+      <Route exact path="/" component={Home} />
+      <Route exact path="/post" component={Post} />
       <Route exact path="/postform" component={PostForm} />
-      <Route exact path="/AboutUs" component={AboutUs} />
-      <Route exact path="/HowItWorks" component={HowItWorks} />
+      <Route exact path="/about" component={AboutUs} />
+      <Route exact path="/howitworks" component={HowItWorks} />
      
 
     </Switch>
