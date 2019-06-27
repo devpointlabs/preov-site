@@ -8,11 +8,9 @@ import Home from "./components/Home/Home";
 import PostForm from './components/PostForm';
 import Post from './components/Post';
 import Posts from "./components/Posts";
-import AboutUs from './components/AboutUs';
 import HowItWorks from './components/HowItWorks';
 import Blog from './components/Blog';
 import Navbar from './components/Navbar';
-import Footer from './components/Footer';
 import NoMatch from './components/NoMatch';
 
 // Other Imports
