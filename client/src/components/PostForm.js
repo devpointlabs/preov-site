@@ -47,7 +47,7 @@ class PostForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('/api/posts',{...this.state}) //!something goes here
+    axios.post('/api/posts',{...this.state})
       .then(res => {
         const {history } = this.props
         history.push("/posts")
