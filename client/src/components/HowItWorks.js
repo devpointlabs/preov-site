@@ -3,7 +3,7 @@
 
 import React from 'react'
 import Icon from '../Images/PreOvIcon.jpg'
-import { Container, Grid, Image, Divider, Header, Segment } from "semantic-ui-react";
+import { Container, Image, Header, Segment } from "semantic-ui-react";
 
 const HowItWorks = () => {
 
