@@ -1,5 +1,5 @@
 import React from "react"
-import Icon from "../../Images/PreOvIcon.jpg"
+import founders from "../../Images/founders.png"
 import { Container, Header, Button, Image, } from "semantic-ui-react"
 
 const OurStory = () => (
@@ -16,7 +16,7 @@ const OurStory = () => (
       </Button>
     </div>
     <div id="right">
-      <Image src={ Icon } style={styles.image} />
+      <Image src={ founders } style={styles.image} />
     </div>
   </Container>
 )
@@ -32,7 +32,7 @@ const styles = {
     marginLeft: "0",
   },
   image: {
-    transform: "rotate(-20deg)",
+    // transform: "rotate(-20deg)",
   }
 }
 
