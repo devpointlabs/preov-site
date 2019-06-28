@@ -37,11 +37,12 @@ const Footer = () => (
     
     <Grid.Column>
     <Menu compact vertical>
-    <Link to="/">
+    <Link to="/blog">
       <Menu.Item>
-      Category
+      <Header as='h4'>All Topics</Header>
       </Menu.Item>
     </Link>
+    {/* TODO: render these dynamically */}
     <Link to="/">
       <Menu.Item>
       Health
@@ -91,14 +92,14 @@ const Footer = () => (
     </Grid.Column>
     
   </Grid>
-  <div>
-    <h4 style={{textAlign:'center'}}>© 2019 by PreOv, LLC. </h4>
-  </div>
-
-  </Segment>
   <Header as="h1" textAlign="center">
     <Image src= { PreIcon } />
     </Header>
+  <div>
+    <h5 style={{textAlign:'center'}}>© 2019 by PreOv, LLC. </h5>
+  </div>
+
+  </Segment>
 </>
 )
 
