@@ -7,7 +7,6 @@ import Footer from "./components/Footer";
 import Home from "./components/Home/Home";
 import PostForm from './components/PostForm';
 import Post from './components/Post';
-import Posts from "./components/Posts";
 import HowItWorks from './components/HowItWorks';
 import Blog from './components/Blog';
 import Navbar from './components/Navbar';
@@ -23,12 +22,11 @@ const App = () => (
   <Container>
     <Switch>
       <Route exact path="/" component={Home} />
-      <Route exact path="/post" component={Post} />
-      <Route exact path="/posts" component={Posts} />
-      <Route exact path="/postform" component={PostForm} />
+      <Route exact path="/blog" component={Blog} />
+      <Route exact path="/blog/posts/new" component={PostForm} />
+      <Route exact path="/post/:id" component={Post} />
       <Route exact path="/about" component={AboutUs} />
       <Route exact path="/howitworks" component={HowItWorks} />
-      <Route exact path="/blog" component={Blog} />
       <Route component={NoMatch} />
     </Switch>
   </Container>
