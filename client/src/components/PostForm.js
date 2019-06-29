@@ -69,7 +69,8 @@ class PostForm extends React.Component {
     data.append('file', this.state.image)
     //TODO need to include post_categories in axios post:
     //? data.append('post_categories', this.state.post_categories)
-    //! database pathy doesn't have post_categories to append..how to get these stored IDs to different model
+    //? we get the category id stored in the post's state, but how do we get the post ID stored and sent to model?
+    //! database path doesn't have post_categories to append..how to get these stored IDs to different model (post_category)
     axios.post(`/api/posts?title=${this.state.title}&body=${this.state.body}`, data)
     .then(res => {
       const {history } = this.props
