@@ -1,6 +1,6 @@
 import React from "react"
 import axios from "axios"
-import { Menu, Dropdown, Input, } from "semantic-ui-react"
+import { Menu, Dropdown, Input, SearchCategory, } from "semantic-ui-react"
 
 class Categories extends React.Component {
   state = { categories: [] }
@@ -9,11 +9,20 @@ class Categories extends React.Component {
     axios.get('/api/categories')
     .then( res => {
       this.setState({ categories: res.data, });
-      })
-    }
-
+    })
+  }
+  
   handleAllPosts = () => {
     // TODO render posts component
+    
+  }
+  
+  renderCats = () =>
+  {
+    this.state.categories.map(cat => (
+      <Dropdown.Item text={cat.label} />
+    ))
+
   }
 
   render() {
@@ -27,11 +36,10 @@ class Categories extends React.Component {
         </Menu.Item>
         <Dropdown item text="Posts by Category">
           <Dropdown.Menu>
-            <Dropdown.Item>
+                {this.renderCats()}
               {/* TODO show each categories
               TODO make each category clikable
               TODO render all posts in each catergory when clicked */}
-            </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
         <Menu.Menu position='right'>
