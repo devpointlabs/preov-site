@@ -21,16 +21,36 @@ class PostForm extends React.Component {
       })
     }
 
+    handleChecked = (e, props) => {
+      const {post_categories} = this.state
+      //if props.checked is true
+      if (props.checked){
+        //if post_categories does NOT already include that category id
+        //if it does already include it, this prevents adding duplicate ids
+        if(!post_categories.includes(props.id)){
+          //take what post_categories already is and add category id
+          this.setState({ post_categories: [...post_categories, props.id]})
+        }
+        //if props.checked is false (ie unchecking a box)
+      }else{
+        //TODO: setState to not include props.id (remove it if it's there)
+        let unchecked = post_categories.filter(cat => cat !== props.id)
+        this.setState({ post_categories: unchecked })
+      }
+    }
+
   categoryCheckboxes = () => {
-    // debugger
-    return this.state.categories.map( cat => (
+    const { categories, post_categories } = this.state
+    return categories.map( cat => (
       <Form.Checkbox
         key={cat.id} 
         id={cat.id}
         name={cat.label} 
         label={cat.label}
-        // todo checked={} 
-        // todo onChange={} 
+        checked={post_categories.includes(cat.id)} 
+        //if post_categories includes category id, it will render a checked box
+        onChange={(e, props) => this.handleChecked(e, props)} 
+        //when the checkbox is checked or unchecked (event/e), it will pass the checkbox's props to handleChecked (we will use id and checked)
       />
     ));
   };
@@ -49,6 +69,8 @@ class PostForm extends React.Component {
     e.preventDefault();
     let data = new FormData
     data.append('file', this.state.image)
+    //TODO need to include post_categories in axios post:
+    data.append('post_categories', this.state.post_categories)
     axios.post(`/api/posts?title=${this.state.title}&body=${this.state.body}`, data)
       .then(res => {
         const {history } = this.props
