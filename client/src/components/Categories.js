@@ -17,14 +17,11 @@ class Categories extends React.Component {
     
   }
   
-  renderCats = () =>
-  {
-    this.state.categories.map(cat => (
+  renderCats = () => {
+    return this.state.categories.map(cat => (
       <Dropdown.Item text={cat.label} />
     ))
-
   }
-
   render() {
     return (
       <Menu borderless secondary>
@@ -34,9 +31,9 @@ class Categories extends React.Component {
           {/* TODO default emphasis here */}
           All Posts
         </Menu.Item>
-        <Dropdown item text="Posts by Category">
+        <Dropdown item text="Filter by Category">
           <Dropdown.Menu>
-                {this.renderCats()}
+            {this.renderCats()}
               {/* TODO show each categories
               TODO make each category clikable
               TODO render all posts in each catergory when clicked */}
@@ -49,5 +46,4 @@ class Categories extends React.Component {
     )
   }
 }
-
 export default Categories;
