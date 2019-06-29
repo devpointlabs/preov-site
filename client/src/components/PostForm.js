@@ -33,8 +33,9 @@ class PostForm extends React.Component {
         }
         //if props.checked is false (ie unchecking a box)
       }else{
-        //TODO: setState to not include props.id (remove it if it's there)
+        //map through post_categories and return all where the id doesn't match the unchecked category id
         let unchecked = post_categories.filter(cat => cat !== props.id)
+        // setState to not include props.id (remove it if it's there)
         this.setState({ post_categories: unchecked })
       }
     }
@@ -50,7 +51,8 @@ class PostForm extends React.Component {
         checked={post_categories.includes(cat.id)} 
         //if post_categories includes category id, it will render a checked box
         onChange={(e, props) => this.handleChecked(e, props)} 
-        //when the checkbox is checked or unchecked (event/e), it will pass the checkbox's props to handleChecked (we will use id and checked)
+        /*when the checkbox is checked or unchecked (event/e), 
+        it will pass the checkbox's props to handleChecked (we will use id and checked)*/
       />
     ));
   };
@@ -70,11 +72,12 @@ class PostForm extends React.Component {
     let data = new FormData
     data.append('file', this.state.image)
     //TODO need to include post_categories in axios post:
-    data.append('post_categories', this.state.post_categories)
+    //? data.append('post_categories', this.state.post_categories)
+    //! database pathy doesn't have post_categories to append..how to get these stored IDs to different model
     axios.post(`/api/posts?title=${this.state.title}&body=${this.state.body}`, data)
-      .then(res => {
-        const {history } = this.props
-        history.push("/posts")
+    .then(res => {
+      const {history } = this.props
+      history.push("/blog")
       })
       .catch(err => {
         console.log(err.response)
