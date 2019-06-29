@@ -25,13 +25,9 @@ class PostForm extends React.Component {
       const {post_categories} = this.state
       //if props.checked is true
       if (props.checked){
-        //if post_categories does NOT already include that category id
-        //if it does already include it, this prevents adding duplicate ids
-        if(!post_categories.includes(props.id)){
-          //take what post_categories already is and add category id
+          //take what post_categories already is and add this category id
           this.setState({ post_categories: [...post_categories, props.id]})
-        }
-        //if props.checked is false (ie unchecking a box)
+        //if props.checked is false (for unchecking a box)
       }else{
         //map through post_categories and return all where the id doesn't match the unchecked category id
         let unchecked = post_categories.filter(cat => cat !== props.id)
