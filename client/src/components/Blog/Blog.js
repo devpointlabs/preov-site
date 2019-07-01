@@ -1,10 +1,10 @@
 import React from "react"
-import Categories from "./Categories"
+import CategoriesBar from "./CategoriesBar"
 import Posts from "./Posts"
 
 const Blog = () => (
   <>
-    <Categories />
+    <CategoriesBar />
     <Posts />
   </>
 )

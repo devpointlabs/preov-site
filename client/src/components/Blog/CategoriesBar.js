@@ -19,7 +19,7 @@ class Categories extends React.Component {
   
   renderCats = () => {
     return this.state.categories.map(cat => (
-      <Dropdown.Item text={cat.label} />
+        <Dropdown.Item text={cat.label} />
     ))
   }
   render() {
