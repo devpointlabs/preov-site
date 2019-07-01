@@ -3,6 +3,7 @@ import React from "react";
 import "./App.css";
 // Component Imports
 import AboutUs from "./components/AboutUs";
+import EmailForm from "./components/EmailForm";
 import Footer from "./components/Footer";
 import Home from "./components/Home/Home";
 import PostForm from './components/PostForm';
@@ -27,6 +28,7 @@ const App = () => (
       <Route exact path="/post/:id" component={Post} />
       <Route exact path="/about" component={AboutUs} />
       <Route exact path="/howitworks" component={HowItWorks} />
+      <Route exact path="/emailform" component={EmailForm} />
       <Route component={NoMatch} />
     </Switch>
   </Container>
