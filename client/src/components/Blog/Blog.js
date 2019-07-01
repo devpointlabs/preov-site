@@ -1,5 +1,5 @@
 import React from "react"
-import CategoriesBar from "./CategoriesBar"
+import CategoriesBar from "./Categories/CategoriesBar"
 import Posts from "./Posts"
 
 const Blog = () => (

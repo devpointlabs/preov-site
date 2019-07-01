@@ -10,8 +10,9 @@ import Blog from './components/Blog/Blog';
 import Footer from "./components/Footer";
 import NoMatch from './components/NoMatch';
 import EmailForm from "./components/EmailForm";
-import PostForm from './components/PostForm';
-import Post from './components/Post';
+import PostForm from './components/Blog/PostForm';
+import Post from './components/Blog/Post';
+import Categories from "./components/Blog/Categories/Categories"
 
 // Other Imports
 import { Switch, Route } from "react-router-dom";
@@ -29,6 +30,7 @@ const App = () => (
       <Route exact path="/blog/posts/new" component={PostForm} />
       <Route exact path="/post/:id" component={Post} />
       <Route exact path="/emailform" component={EmailForm} />
+      <Route exact path="/categories" component={Categories} />
       <Route component={NoMatch} />
     </Switch>
   </Container>
