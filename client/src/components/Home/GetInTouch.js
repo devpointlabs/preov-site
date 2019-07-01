@@ -1,4 +1,5 @@
 import React from "react"
+import { Link, } from 'react-router-dom';
 import { Container, Header, Button, } from "semantic-ui-react"
 
 const GetInTouch = () => (
@@ -7,9 +8,11 @@ const GetInTouch = () => (
       <Header as="h1" style={styles.header}>Get In Touch</Header>
       <p>PreOv, LLC is continually building upon our technology,
         so stay in touch to learn more about our progress.</p>
+        <Link to="/EmailForm">
       <Button style={styles.button}>
         PreOvLLC@gmail.com
       </Button>
+      </Link>
     </div>
   </Container>
 )
