@@ -14,9 +14,9 @@ class EmailForm extends React.Component {
       <Form.Input
         width={3}
         label="Name:"
-        type="text"
-        name="username"
-        placeholder="Your Name"
+         type="text"
+          name="username"
+           placeholder="Your Name"
         // value={username}
         
         />
