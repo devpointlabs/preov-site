@@ -1,6 +1,7 @@
 import React from "react"
 import axios from "axios"
-import { Menu, Dropdown, Input, SearchCategory, } from "semantic-ui-react"
+import { Link, } from "react-router-dom"
+import { Button, Menu, Dropdown, Input, } from "semantic-ui-react"
 
 class Categories extends React.Component {
   state = { categories: [] }
@@ -24,6 +25,7 @@ class Categories extends React.Component {
       text={cat.label} />
     ))
   }
+
   render() {
     return (
       <Menu borderless secondary>
@@ -41,6 +43,10 @@ class Categories extends React.Component {
               TODO render all posts in each catergory when clicked */}
           </Dropdown.Menu>
         </Dropdown>
+        {/* TODO make this button available only when admin is logged in */}
+        <Button basic as={Link} to="/categories" color="blue">
+          Add/Edit Categories
+        </Button>
         <Menu.Menu position='right'>
           <Input icon='search' placeholder='Search...' />
         </Menu.Menu>
