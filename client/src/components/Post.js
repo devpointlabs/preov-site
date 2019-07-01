@@ -12,14 +12,18 @@ class Post extends React.Component {
     });
   }
 
+  timeFormat = (props) => {
+    const newDate = new Date(props);
+    return newDate.toDateString();
+  };
+
   render() {
     const { title, body, image, created_at } = this.state.post;
     return (
       <> 
         <Image size='small' src={image}></Image>
         <Header as="h2">{title}</Header>
-        <p>Published {created_at}</p>
-        {/* TODO format time */}
+        Published {this.timeFormat(created_at)}
         <p>{body}</p>
         <Link to={{pathname: '/blog'}}>
           <Button standard>Back</Button>

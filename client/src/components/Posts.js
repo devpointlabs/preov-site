@@ -12,7 +12,7 @@ class Posts extends React.Component {
     });
   }
 
-  timeFormat = props => {
+  timeFormat = (props) => {
     const newDate = new Date(props);
     return newDate.toDateString();
   };
