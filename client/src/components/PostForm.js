@@ -118,7 +118,7 @@ class PostForm extends React.Component {
         </Form.Group>
         <Form.Button primary>Post</Form.Button>
         <Link to={{pathname: '/blog'}}>
-          <Form.Button className='ui color2 button'>Cancel</Form.Button>
+          <Form.Button standard>Cancel</Form.Button>
         </Link>
       </Form>
     )

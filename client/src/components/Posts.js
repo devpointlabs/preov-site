@@ -28,7 +28,9 @@ class Posts extends React.Component {
   adminButtons = (post) => (
     // TODO conditional render if auth
     <Button.Group>
+      <Link to={{pathname: `/post/${post.id}`}}>
       <Button primary>View</Button>
+      </Link>
       <Button.Or />
       <Button standard>Edit</Button>
       {/* TODO onclick edit Post  */}

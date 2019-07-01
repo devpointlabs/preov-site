@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
-import {Header, Image} from 'semantic-ui-react'
+import { Link, } from 'react-router-dom'
+import {Header, Image, Button} from 'semantic-ui-react'
 
 class Post extends React.Component {
   state = { post: {} };
@@ -20,6 +21,9 @@ class Post extends React.Component {
         <p>Published {created_at}</p>
         {/* TODO format time */}
         <p>{body}</p>
+        <Link to={{pathname: '/blog'}}>
+          <Button standard>Back</Button>
+        </Link>
       </>
     );
   }
