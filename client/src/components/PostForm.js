@@ -2,6 +2,8 @@ import React from 'react'
 import axios from 'axios'
 import { Form, } from 'semantic-ui-react'
 import ImageUploader from 'react-images-upload'
+import { Link } from "react-router-dom";
+
 
 class PostForm extends React.Component {
   defaultValues = { title: "", body: "", image: "", categories:[], post_categories: []  }
@@ -85,6 +87,14 @@ class PostForm extends React.Component {
   render(){
     return(
       <Form onSubmit={this.handleSubmit}>
+      <ImageUploader
+        withIcon={true}
+        buttonText='Choose image'
+        onChange={this.onDrop}
+        imgExtension={['.jpg', '.gif', '.png', '.gif']}
+        maxFileSize={5242880}
+        singleImage = {true}
+      />
         <Form.Input 
           label="Title"
           placeholder="Title"
@@ -99,22 +109,17 @@ class PostForm extends React.Component {
           name="body"
           value={this.state.body}
           onChange={this.handleChange}
-          style={{ minHeight: 300 }} 
+          style={{ minHeight: 200 }} 
           required
-        />
-        <ImageUploader
-          withIcon={true}
-          buttonText='Choose image'
-          onChange={this.onDrop}
-          imgExtension={['.jpg', '.gif', '.png', '.gif']}
-          maxFileSize={5242880}
-          singleImage = {true}
         />
         <Form.Group inline>
         <label>Categories</label>
             { this.categoryCheckboxes() }
         </Form.Group>
-        <Form.Button>Post</Form.Button>
+        <Form.Button primary>Post</Form.Button>
+        <Link to={{pathname: '/blog'}}>
+          <Form.Button standard>Cancel</Form.Button>
+        </Link>
       </Form>
     )
   }
