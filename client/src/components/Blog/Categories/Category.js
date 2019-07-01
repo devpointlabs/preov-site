@@ -21,7 +21,7 @@ class Category extends React.Component {
             />
           :
             <div>
-              <Header as="h3">{this.props.name}</Header>
+              <Header as="h3">{this.props.label}</Header>
             </div>
         }
         <div>
