@@ -32,7 +32,9 @@ class Posts extends React.Component {
       <Button primary>View</Button>
       </Link>
       <Button.Or />
+      <Link to={`/blog${id}/edit`}>
       <Button standard>Edit</Button>
+      </Link>
       {/* TODO onclick edit Post  */}
       <Button.Or />
       <Button color="red" onClick={() => this.deletePost(post.id)}>
