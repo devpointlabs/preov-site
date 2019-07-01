@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
-import {Header, Image} from 'semantic-ui-react'
+import { Link, } from 'react-router-dom'
+import {Header, Image, Button} from 'semantic-ui-react'
 
 class Post extends React.Component {
   state = { post: {} };
@@ -11,15 +12,22 @@ class Post extends React.Component {
     });
   }
 
+  timeFormat = (props) => {
+    const newDate = new Date(props);
+    return newDate.toDateString();
+  };
+
   render() {
     const { title, body, image, created_at } = this.state.post;
     return (
       <> 
         <Image size='small' src={image}></Image>
         <Header as="h2">{title}</Header>
-        <p>Published {created_at}</p>
-        {/* TODO format time */}
+        Published {this.timeFormat(created_at)}
         <p>{body}</p>
+        <Link to={{pathname: '/blog'}}>
+          <Button standard>Back</Button>
+        </Link>
       </>
     );
   }
