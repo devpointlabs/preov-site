@@ -1,20 +1,29 @@
 import React from 'react'
 import axios from 'axios'
-import { Form, } from 'semantic-ui-react'
+import { Form, Header,  } from 'semantic-ui-react'
 import ImageUploader from 'react-images-upload'
 import { Link } from "react-router-dom";
 
 
 class PostForm extends React.Component {
   defaultValues = { title: "", body: "", image: "", categories:[], post_categories: []  }
-  state = {...this.defaultValues}
+  state = { post: {...this.defaultValues}}
   constructor(props) {
     super(props);
      this.onDrop = this.onDrop.bind(this);
 }
 
+
+  
   // TODO check if editing
   componentDidMount(){
+    if (this.props.match.params.id){
+      axios.get(`/api/posts/${this.props.match.params.id}`)
+      .then(res => {
+        this.setState({ post: res.data})
+        console.log(this.state.post)
+      })
+    }
     axios.get('/api/categories')
     .then( res => {
       this.setState({ categories: res.data, });
@@ -40,7 +49,7 @@ class PostForm extends React.Component {
     }
 
   categoryCheckboxes = () => {
-    const { categories, post_categories } = this.state
+    const { categories, post_categories } = this.state.post
     return categories.map( cat => (
       <Form.Checkbox
         key={cat.id} 
@@ -85,6 +94,9 @@ class PostForm extends React.Component {
   render(){
     return(
       <Form onSubmit={this.handleSubmit}>
+        <Header>
+          {this.props.match.params.id ? "edit" : "new"}
+        </Header>
       <ImageUploader
         withIcon={true}
         buttonText='Choose image'
