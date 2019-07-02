@@ -8,8 +8,9 @@ class Post extends React.Component {
   state = { post: {} };
 
   componentDidMount() {
-    axios.get(`/api/posts/${this.props.match.params.id}`).then(res => {
-      this.setState({ post: res.data });
+    axios.get(`/api/posts/${this.props.match.params.id}`)
+      .then(res => {
+        this.setState({ post: res.data });
     });
   }
 
@@ -36,7 +37,7 @@ class Post extends React.Component {
           <Button standard>Back</Button>
         </Link>
         <hr />
-        <Header as='h3'>Check out more of our posts!</Header>
+        <Header as='h3'>Check out more of our posts</Header>
         <Posts /> 
       </>
     );

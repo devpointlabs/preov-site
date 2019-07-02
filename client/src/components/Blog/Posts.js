@@ -72,7 +72,6 @@ class Posts extends React.Component {
       <br />
       <br />
       {this.postCards(posts)}
-      {/* {this.} */}
       </>
     );
   }
