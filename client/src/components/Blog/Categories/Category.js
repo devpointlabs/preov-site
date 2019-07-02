@@ -1,5 +1,5 @@
 import React from "react"
-import { Button, Header, Icon, Segment, Menu, } from "semantic-ui-react"
+import { Button, Header, Icon, Segment, } from "semantic-ui-react"
 import CategoryForm from "./CategoryForm"
 
 class Category extends React.Component {

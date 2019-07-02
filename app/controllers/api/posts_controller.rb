@@ -25,6 +25,10 @@ before_action :set_post, only:[:show, :update, :destroy]
       end
     end
     if post.save
+      categories = ActiveSupport::JSON.decode(params[:categories])
+      categories.each do |c|
+        Category.find(c).posts << post
+      end
       render json: post
     else
       render json: post.errors, status: 422
@@ -49,8 +53,8 @@ before_action :set_post, only:[:show, :update, :destroy]
     @post = Post.find(params[:id])
   end
 
-  # def post_params
-  #   params.require(:post).permit(:title, :body, :image)
-  # end
+  def post_params
+    params.require(:post).permit(:title, :body, :image)
+  end
 
 end
