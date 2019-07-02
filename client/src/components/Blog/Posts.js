@@ -33,7 +33,7 @@ class Posts extends React.Component {
       </Link>
       <Button.Or />
       <Link to={`/blog/posts/${post.id}/edit`}>
-      <Button standard>Edit</Button>
+      <Button>Edit</Button>
       </Link>
       {/* TODO onclick edit Post  */}
       <Button.Or />

@@ -119,7 +119,7 @@ class PostForm extends React.Component {
         </Form.Group>
         <Form.Button primary>Post</Form.Button>
         <Link to={{pathname: '/blog'}}>
-          <Form.Button standard>Cancel</Form.Button>
+          <Form.Button>Cancel</Form.Button>
         </Link>
       </Form>
     )

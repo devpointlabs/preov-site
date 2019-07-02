@@ -33,7 +33,7 @@ class Post extends React.Component {
       <> 
         {this.renderPost(title, body, image, created_at)}
         <Link to={{pathname: '/blog'}}>
-          <Button standard>Back</Button>
+          <Button>Back</Button>
         </Link>
         <hr />
         <Header as='h3'>Check out more of our posts!</Header>
