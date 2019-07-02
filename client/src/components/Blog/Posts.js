@@ -35,12 +35,11 @@ class Posts extends React.Component {
       <Link to={`/blog/posts/${post.id}/edit`}>
       <Button standard>Edit</Button>
       </Link>
-      {/* TODO onclick edi =t Post  */}
+      {/* TODO onclick edit Post  */}
       <Button.Or />
       <Button color="red" onClick={() => this.deletePost(post.id)}>
         Delete
       </Button>
-      {/* TODO onClick method to delete */}
     </Button.Group>
   );
 
@@ -48,7 +47,7 @@ class Posts extends React.Component {
     <Card.Group itemsPerRow={4}>
       {posts.map(post => (
         <Card key={post.id}>
-          <Link to={{ pathname: `/post/${post.id}`}}>
+          <Link to={{ pathname:`/post/${post.id}`}}>
             <Image src={post.image} />
           </Link>
           <Card.Content>
