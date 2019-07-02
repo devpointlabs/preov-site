@@ -80,6 +80,7 @@ class PostForm extends React.Component {
     e.preventDefault();
     let data = new FormData
     data.append('file', this.state.image)
+    data.append('categories', JSON.stringify(this.state.post_categories))
     //TODO need to include post_categories in axios post:
     //? data.append('post_categories', this.state.post_categories)
     //? we get the category id stored in the post's state, but how do we get the post ID stored and sent to model?
