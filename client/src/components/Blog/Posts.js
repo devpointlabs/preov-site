@@ -17,6 +17,8 @@ class Posts extends React.Component {
     return newDate.toDateString();
   };
 
+  
+
   deletePost = (id, post) => {
     axios.delete(`/api/posts/${id}`, post)
     .then(res => {
@@ -72,7 +74,6 @@ class Posts extends React.Component {
       <br />
       <br />
       {this.postCards(posts)}
-      {/* {this.} */}
       </>
     );
   }

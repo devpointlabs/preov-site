@@ -3,7 +3,9 @@ import { Link, } from 'react-router-dom';
 import PreIcon from '../Images/PreOvIcon.jpg'
 import { Menu, Grid, Image, Icon, Segment, Header } from "semantic-ui-react";
 
-const Footer = () => (
+class Footer extends React.Component {
+state = {categories: []}
+render(){return(
 <>
   <Segment>
   <Grid columns={3}>
@@ -101,7 +103,7 @@ const Footer = () => (
 
   </Segment>
 </>
-)
-
+)}
+}
 
 export default Footer;
