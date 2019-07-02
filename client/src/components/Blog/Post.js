@@ -3,15 +3,18 @@ import axios from "axios";
 import { Link, } from 'react-router-dom'
 import {Header, Image, Button} from 'semantic-ui-react'
 import Posts from './Posts'
+import PostForm from './PostForm'
 
 class Post extends React.Component {
-  state = { post: {} };
+  state = { post: {}, editing: false };
 
   componentDidMount() {
-    axios.get(`/api/posts/${this.props.match.params.id}`).then(res => {
-      this.setState({ post: res.data });
+    axios.get(`/api/posts/${this.props.match.params.id}`)
+      .then(res => {
+        this.setState({ post: res.data, editing: false });
     });
   }
+  toggleEdit = () => {this.setState({editing: !this.state.editing})}
 
   timeFormat = (props) => {
     const newDate = new Date(props);
@@ -31,12 +34,25 @@ class Post extends React.Component {
     const { title, body, image, created_at } = this.state.post;
     return (
       <> 
-        {this.renderPost(title, body, image, created_at)}
+        {
+          this.state.editing ? 
+          <PostForm 
+          {...this.props}
+          />
+          :
+          this.renderPost(title, body, image, created_at)
+        }
+        
+        { !this.state.editing ?
+        <Button onClick={this.toggleEdit}>Edit</Button>
+          :
+          null
+        }
         <Link to={{pathname: '/blog'}}>
           <Button standard>Back</Button>
         </Link>
         <hr />
-        <Header as='h3'>Check out more of our posts!</Header>
+        <Header as='h3'>Check out more of our posts</Header>
         <Posts /> 
       </>
     );
