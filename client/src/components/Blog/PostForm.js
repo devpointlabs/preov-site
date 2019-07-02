@@ -13,6 +13,17 @@ class PostForm extends React.Component {
      this.onDrop = this.onDrop.bind(this);
 }
 
+  // componentDidMount(){
+  //   debugger
+  //   if(this.props.match.params.id){
+  //     axios.get(`/api/posts/${this.props.match.params.id}`)
+  //     .then(res => {
+  //       const { title, body, image, categories } = res.data
+  //       this.setState({title, body, image, categories})
+  //     })
+  //   }
+  // }
+  
   componentDidMount(){
     axios.get('/api/categories')
     .then( res => {
