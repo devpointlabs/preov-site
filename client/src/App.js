@@ -28,6 +28,7 @@ const App = () => (
       <Route exact path="/howitworks" component={HowItWorks} />
       <Route exact path="/blog" component={Blog} />
       <Route exact path="/blog/posts/new" component={PostForm} />
+      <Route exact path="/blog/posts/:id/edit" component={PostForm} />
       <Route exact path="/post/:id" component={Post} />
       <Route exact path="/emailform" component={EmailForm} />
       <Route exact path="/categories" component={Categories} />

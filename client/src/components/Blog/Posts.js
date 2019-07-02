@@ -32,15 +32,35 @@ class Posts extends React.Component {
       <Button primary>View</Button>
       </Link>
       <Button.Or />
+      <Link to={`/blog/posts/${post.id}/edit`}>
       <Button standard>Edit</Button>
+      </Link>
       {/* TODO onclick edit Post  */}
       <Button.Or />
       <Button color="red" onClick={() => this.deletePost(post.id)}>
         Delete
       </Button>
-      {/* TODO onClick method to delete */}
     </Button.Group>
   );
+
+  postCards = (posts) => (
+    <Card.Group itemsPerRow={4}>
+      {posts.map(post => (
+        <Card key={post.id}>
+          <Link to={{ pathname:`/post/${post.id}`}}>
+            <Image src={post.image} />
+          </Link>
+          <Card.Content>
+            <Card.Header>{post.title}</Card.Header>
+            <Card.Meta>
+              Published {this.timeFormat(post.created_at)}
+            </Card.Meta>
+          </Card.Content>
+          <Card.Content extra>{this.adminButtons(post)}</Card.Content>
+        </Card>
+        ))}
+      </Card.Group>
+  )
 
   render() {
     const { posts } = this.state;
@@ -51,22 +71,8 @@ class Posts extends React.Component {
       </Link>
       <br />
       <br />
-      <Card.Group itemsPerRow={4}>
-        {posts.map(post => (
-          <Card key={post.id}>
-            <Link to={{ pathname: `/post/${post.id}`}}>
-              <Image src={post.image} />
-            </Link>
-            <Card.Content>
-              <Card.Header>{post.title}</Card.Header>
-              <Card.Meta>
-                Published {this.timeFormat(post.created_at)}
-              </Card.Meta>
-            </Card.Content>
-            <Card.Content extra>{this.adminButtons(post)}</Card.Content>
-          </Card>
-        ))}
-      </Card.Group>
+      {this.postCards(posts)}
+      {/* {this.} */}
       </>
     );
   }
