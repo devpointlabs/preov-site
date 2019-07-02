@@ -38,6 +38,7 @@ class Post extends React.Component {
           this.state.editing ? 
           <PostForm 
           {...this.props}
+          
           />
           :
           this.renderPost(title, body, image, created_at)

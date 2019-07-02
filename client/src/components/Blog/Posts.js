@@ -17,7 +17,17 @@ class Posts extends React.Component {
     return newDate.toDateString();
   };
 
-  
+  editPost = (post) => {
+    axios.put(`/api/posts/${post.id}`, post)
+    .then(res => {
+      const posts = this.state.posts.map(p => {
+        if(p.id === post.id)
+          return res.data;
+        return p
+      })
+      this.setState({posts, })
+    })
+  }
 
   deletePost = (id, post) => {
     axios.delete(`/api/posts/${id}`, post)
@@ -35,8 +45,13 @@ class Posts extends React.Component {
       </Link>
       <Button.Or />
       <Link to={`/blog/posts/${post.id}/edit`}>
+<<<<<<< HEAD
       <Button>Edit</Button>
       </Link>
+=======
+      <Button standard onClick={() => this.editPost(post)}>Edit</Button>
+      </Link>x
+>>>>>>> d03047a0c2a409d7aa203bb18b8ed78aa207af01
       {/* TODO onclick edit Post  */}
       <Button.Or />
       <Button color="red" onClick={() => this.deletePost(post.id)}>
