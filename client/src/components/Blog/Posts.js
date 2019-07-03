@@ -35,7 +35,7 @@ class Posts extends React.Component {
       const {posts} = this.state
       this.setState({posts: posts.filter(post => post.id !== id)})
     })
-  }
+  } 
 
   adminButtons = (post) => (
     // TODO conditional render if auth
@@ -45,13 +45,8 @@ class Posts extends React.Component {
       </Link>
       <Button.Or />
       <Link to={`/blog/posts/${post.id}/edit`}>
-<<<<<<< HEAD
-      <Button>Edit</Button>
-      </Link>
-=======
-      <Button standard onClick={() => this.editPost(post)}>Edit</Button>
+      <Button onClick={() => this.editPost(post)}>Edit</Button>
       </Link>x
->>>>>>> d03047a0c2a409d7aa203bb18b8ed78aa207af01
       {/* TODO onclick edit Post  */}
       <Button.Or />
       <Button color="red" onClick={() => this.deletePost(post.id)}>
