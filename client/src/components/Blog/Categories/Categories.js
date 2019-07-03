@@ -15,7 +15,7 @@ class Categories extends React.Component {
       .catch( err => {
         console.log(err);
       })
-  }
+  } 
 
   addCategory = (label) => {
     axios.post("/api/categories", {label})

@@ -50,7 +50,7 @@ class Post extends React.Component {
           null
         }
         <Link to={{pathname: '/blog'}}>
-          <Button standard>Back</Button>
+          <Button>Back</Button>
         </Link>
         <hr />
         <Header as='h3'>Check out more of our posts</Header>

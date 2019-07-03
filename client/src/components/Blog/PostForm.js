@@ -12,26 +12,26 @@ class PostForm extends React.Component {
     super(props);
      this.onDrop = this.onDrop.bind(this);
 }
-
+ 
 
   
   // TODO check if editing
-  componentDidMount(){
-    if (this.props.match.params.id){
-      axios.get(`/api/posts/${this.props.match.params.id}`)
+  componentDidMount(id){
+    const post_id = this.props.match.params.id
+    axios.get(`/api/posts/${post_id}`)
       .then(res => {
-        this.setState({ post: res.data})
+        this.setState({...res.data})
         console.log(this.state.post)
       })
     }
-    axios.get('/api/categories')
-    .then( res => {
-      this.setState({ categories: res.data, });
-      })
-      .catch( err => {
-        console.log(err.response);
-      })
-    }
+    // axios.get('/api/categories')
+    // .then( res => {
+    //   this.setState({ categories: res.data, });
+    //   })
+    //   .catch( err => {
+    //     console.log(err.response);
+    //   })
+    // }
 
     handleChecked = (e, props) => {
       const {post_categories} = this.state
@@ -48,22 +48,22 @@ class PostForm extends React.Component {
       }
     }
 
-  categoryCheckboxes = () => {
-    const { categories, post_categories } = this.state.post
-    return categories.map( cat => (
-      <Form.Checkbox
-        key={cat.id} 
-        id={cat.id}
-        name={cat.label} 
-        label={cat.label}
-        checked={post_categories.includes(cat.id)} 
-        //if post_categories includes category id, it will render a checked box
-        onChange={(e, props) => this.handleChecked(e, props)} 
-        /*when the checkbox is checked or unchecked (event/e), 
-        it will pass the checkbox's props to handleChecked (we will use id and checked)*/
-      />
-    ));
-  };
+  // categoryCheckboxes = () => {
+  //   const { categories, post_categories } = this.state.post
+  //   return categories.map( cat => (
+  //     <Form.Checkbox
+  //       key={cat.id} 
+  //       id={cat.id}
+  //       name={cat.label} 
+  //       label={cat.label}
+  //       checked={post_categories.includes(cat.id)} 
+  //       //if post_categories includes category id, it will render a checked box
+  //       onChange={(e, props) => this.handleChecked(e, props)} 
+  //       /*when the checkbox is checked or unchecked (event/e), 
+  //       it will pass the checkbox's props to handleChecked (we will use id and checked)*/
+  //     />
+  //   ));
+  // };
 
   onDrop(image) {
     this.setState({
@@ -122,13 +122,13 @@ class PostForm extends React.Component {
           style={{ minHeight: 200 }} 
           required
         />
-        <Form.Group inline>
+        {/* <Form.Group inline>
         <label>Categories</label>
             { this.categoryCheckboxes() }
-        </Form.Group>
+        </Form.Group> */}
         <Form.Button primary>Post</Form.Button>
         <Link to={{pathname: '/blog'}}>
-          <Form.Button standard>Cancel</Form.Button>
+          <Form.Button>Cancel</Form.Button>
         </Link>
       </Form>
     )
