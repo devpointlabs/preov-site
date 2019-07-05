@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { Card, Image, Button } from "semantic-ui-react";
+import styled from 'styled-components'
 
 class Posts extends React.Component {
   state = { posts: [] };
@@ -77,16 +78,18 @@ class Posts extends React.Component {
   render() {
     const { posts } = this.state;
     return (
-      <>
+      <StyledDiv>
       <Link to={{pathname: '/blog/posts/new'}}>
       <Button className='green'>New Post</Button>
       </Link>
       <br />
       <br />
       {this.postCards(posts)}
-      </>
+      </StyledDiv>
     );
   }
 }
-
+const StyledDiv = styled.div`
+  margin: 1em;
+`
 export default Posts;
