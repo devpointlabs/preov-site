@@ -13,11 +13,6 @@ code {
     monospace;
 }
 
-.ui.blue {
-  background-color: #a5d4ef !important;
-  color: white;
-}
-
 #wrapper {
   width: 100%;
   overflow: hidden;

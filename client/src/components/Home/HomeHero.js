@@ -13,9 +13,9 @@ const HomeHero = () => (
         <StyledParagraph>Wherever that may be.</StyledParagraph>
         <br />
         <br />
-        <Button className="ui blue">
+        <StyledButton>
           Learn More
-        </Button>
+        </StyledButton>
       </Container>
     </div>
     <div id="right" >
@@ -27,13 +27,24 @@ const StyledHeader = styled(Header)`
   color: black !important;
   font-size: 5em !important;
 `
-
 const StyledParagraph = styled.p`
   font-size: 20px;
   margin-bottom: 0 !important;
   color:  #5d6870;
 `
+const StyledButton = styled(Button)`
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.2) !important;
+  background-color: #a5d4ef !important;
+  color: white !important;
+  margin: 1.3em !important;
+  padding: 1.2em, 1.1em !important;
+  font-size: 1.4em !important;
+  transition: background 0.3s ease;
 
-
+  &:hover{
+    background: #AEE0FC !important;
+    transition: background 0.3s ease;
+  }
+`
 
 export default HomeHero;
