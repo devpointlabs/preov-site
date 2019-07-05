@@ -96,9 +96,9 @@ render(){return(
   </Grid>
   <Header as="h1" textAlign="center">
     <Image src= { PreIcon } />
-    </Header>
+  </Header>
   <div>
-    <h5 style={{textAlign:'center'}}>© 2019 by PreOv, LLC. </h5>
+    <p style={{textAlign:'center'}}>© 2019 by PreOv, LLC. </p>
   </div>
 
   </Segment>

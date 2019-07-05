@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link, } from 'react-router-dom';
-import { Menu, } from "semantic-ui-react";
+import {Image, } from 'semantic-ui-react'
 import styled from 'styled-components'
+import icon from '../Images/PreOvIcon.jpg'
 
 const NavBar = () => (
   <StyledList>
+      <Image size="tiny " src={icon} style={{display: "inline"}} />
     <StyledLink to='/' style={{ margin: '.5em'}}>
       Home 
     </StyledLink>
