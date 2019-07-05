@@ -24,14 +24,10 @@ class PostForm extends React.Component {
       axios.get(`/api/posts/${post_id}`).then(res => {
         this.setState({ ...res.data });
       });
-    } else {
-      console.log("nothing");
-    }
-    axios
-    .get("/api/categories")
-    .then(res => {
+    } 
+    axios.get("/api/categories")
+     .then(res => {
       this.setState({ post: { ...this.state.post, categories: res.data, } });
-      // console.log(this.state)
       })
       .catch(err => {
         console.log(err.response);
@@ -39,24 +35,23 @@ class PostForm extends React.Component {
   }
 
   handleChecked = (e, props) => {
-    const { post_categories } = this.state;
+    const { post_categories } = this.state.post;
     //if props.checked is true
     if (props.checked) {
       //take what post_categories already is and add this category id
-      this.setState({ post_categories: [...post_categories, props.id] });
+      this.setState({ post: {...this.state.post, post_categories: [...post_categories, props.id]} });
       //if props.checked is false (for unchecking a box)
     } else {
+      debugger
       //map through post_categories and return all where the id doesn't match the unchecked category id
       let unchecked = post_categories.filter(cat => cat !== props.id);
       // setState to not include props.id (remove it if it's there)
-      this.setState({ post_categories: unchecked });
+      this.setState({ post: {...this.state.post, post_categories: unchecked} });
     }
   };
 
   categoryCheckboxes = () => {
     const { categories, post_categories } = this.state.post;
-    console.log("--------");
-    console.log(this.state.post);
     return categories.map(cat => (
       <Form.Checkbox
         key={cat.id}
@@ -84,27 +79,41 @@ class PostForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    let data = new FormData
+    let data = new FormData()
     data.append('file', this.state.image)
     data.append('categories', JSON.stringify(this.state.post_categories))
     
-  
+    const postData = {...this.state}
+    const post_id = this.props.match.params.id;
+    if(post_id){
+      debugger
+      axios.put(`/api/posts/${post_id}`, postData)
+      .then(res => {
+        const {history } = this.props
+        history.push("/blog")
+        })
+        .catch(err => {
+          console.log(err.response)
+        })
+    }else{
     axios.post(`/api/posts?title=${this.state.title}&body=${this.state.body}`, data)
     .then(res => {
       const {history } = this.props
-      history.push("/blog")
+      history.goBack()
       })
       .catch(err => {
-        console.log(err.response)
+        console.log("error")
       })
-      this.setState({ ...this.defaultValues, })
+      this.setState({title: "", body: "", image: ""})
+    }
   }
 
   render() {
     return (
       <Form onSubmit={this.handleSubmit}>
-        <Header>{this.props.match.params.id ? "edit" : "new"}</Header>
+        <Header>{this.props.match.params.id ? "Edit" : "New"}</Header>
         <ImageUploader
+          withPreview={true}
           withIcon={true}
           buttonText="Choose image"
           onChange={this.onDrop}

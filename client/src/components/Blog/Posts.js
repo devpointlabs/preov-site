@@ -55,24 +55,24 @@ class Posts extends React.Component {
     </Button.Group>
   );
 
-  // postCards = (posts) => (
-  //   <Card.Group itemsPerRow={4}>
-  //     {posts.map(post => (
-  //       <Card key={post.id}>
-  //         <Link to={{ pathname:`/post/${post.id}`}}>
-  //           <Image src={post.image} />
-  //         </Link>
-  //         <Card.Content>
-  //           <Card.Header>{post.title}</Card.Header>
-  //           <Card.Meta>
-  //             Published {this.timeFormat(post.created_at)}
-  //           </Card.Meta>
-  //         </Card.Content>
-  //         <Card.Content extra>{this.adminButtons(post)}</Card.Content>
-  //       </Card>
-  //       ))}
-  //     </Card.Group>
-  // )
+  postCards = (posts) => (
+    <Card.Group itemsPerRow={4}>
+      {posts.map(post => (
+        <Card key={post.id}>
+          <Link to={{ pathname:`/post/${post.id}`}}>
+            <Image src={post.image} />
+          </Link>
+          <Card.Content>
+            <Card.Header>{post.title}</Card.Header>
+            <Card.Meta>
+              Published {this.timeFormat(post.created_at)}
+            </Card.Meta>
+          </Card.Content>
+          <Card.Content extra>{this.adminButtons(post)}</Card.Content>
+        </Card>
+        ))}
+      </Card.Group>
+  )
 
   render() {
     const { posts } = this.state;
@@ -83,12 +83,7 @@ class Posts extends React.Component {
       </Link>
       <br />
       <br />
-      <PostsList
-        posts = {this.state.posts}
-        editPost = {this.editPost}
-        deletePost = {this.deletePost}
-        addPost = {this.addPost}
-      />
+      {this.postCards(posts)}
       </>
     );
   }

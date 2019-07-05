@@ -51,7 +51,7 @@ before_action :set_post, only:[:show, :update, :destroy]
         render json: { errors: e }, status: 422
       end
     end
-    if post.update
+    if post.save
       categories = ActiveSupport::JSON.decode(params[:categories])
       categories.each do |c|
         Category.find(c).posts << post
