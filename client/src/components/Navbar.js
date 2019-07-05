@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link, } from 'react-router-dom';
 import { Menu, } from "semantic-ui-react";
+import styled from 'styled-components'
 
 const NavBar = () => (
-  <Menu>
+  <Menu as={StyledMenu}>
     <Link to="/">
       <Menu.Item>
         Home
@@ -26,5 +27,11 @@ const NavBar = () => (
     </Link>
   </Menu>
 )
+
+const StyledMenu = styled(Menu)`
+ padding: 1.3em;
+ margin: 0;
+ border-radius: 0;
+`
 
 export default NavBar;
