@@ -4,34 +4,42 @@ import { Menu, } from "semantic-ui-react";
 import styled from 'styled-components'
 
 const NavBar = () => (
-  <Menu as={StyledMenu}>
-    <Link to="/">
-      <Menu.Item>
-        Home
-      </Menu.Item>
-    </Link>
-    <Link to="/about">
-      <Menu.Item>
-        About Us
-      </Menu.Item>
-    </Link>
-    <Link to="/howitworks">
-      <Menu.Item>
+  <StyledList>
+    <StyledLink to='/' style={{ margin: '.5em'}}>
+      Home 
+    </StyledLink>
+    <StyledLink to='/about' style={{ margin: '.5em'}}>
+      About 
+    </StyledLink> 
+    <StyledLink to='/howitworks' style={{ margin: '.5em'}}>
       How It Works
-      </Menu.Item>
-    </Link>
-    <Link to="/blog">
-      <Menu.Item>
+    </StyledLink>
+    <StyledLink to='/blog' style={{ margin: '.5em'}}>
       Blog
-      </Menu.Item>
-    </Link>
-  </Menu>
+    </StyledLink>
+  </StyledList>
 )
 
-const StyledMenu = styled(Menu)`
- padding: 1.3em;
- margin: 0;
- border-radius: 0;
+const StyledList = styled.ul`
+  background-color: white;
+  margin: 0;
+  padding: 1.5em;
+`
+
+const StyledLink = styled(Link) `
+  text-decoration: none;
+  color: #5d6870;
+  font-weight: 700;
+  font-size: 1.4em;
+  transition: background 0.4s ease;
+  padding: 1em 1.5em;
+
+  &:hover {
+    background-color: #f7b1b7;
+    color: white;
+    border-radius: 4px;
+    transition: background 0.4s ease;
+  }
 `
 
 export default NavBar;

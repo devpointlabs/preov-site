@@ -5,6 +5,7 @@ import styled from 'styled-components'
 
 const OurStory = () => (
   <Container id="wrapper">
+    <StyledHr />
     <div id="left">
       <Header as="h1" style={styles.header}>Our Story</Header>
       <hr style={styles.hr} />
@@ -17,10 +18,17 @@ const OurStory = () => (
       </Button>
     </div>
     <div id="right">
-      <Image src={ founders } style={styles.image} />
+    <StyledHr />
+      <Image src={ founders } />
     </div>
   </Container>
 )
+const StyledHr = styled.hr` 
+    height: 12px;
+    border: 0;
+    box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.3);
+    margin: 0 !important;
+`
 
 const StyledButton = styled(Button)`
   box-shadow: 0px 5px 10px rgba(0,0,0,0.2) !important;
@@ -32,7 +40,7 @@ const StyledButton = styled(Button)`
   transition: background 0.3s ease;
 
   &:hover{
-    background: #94BED6 !important;
+    background: #AEE0FC !important;
     transition: background 0.3s ease;
   }
 `
@@ -54,9 +62,6 @@ const styles = {
     width: "41%",
     marginLeft: "0",
   },
-  image: {
-    // transform: "rotate(-20deg)",
-  }
 }
 
 export default OurStory;

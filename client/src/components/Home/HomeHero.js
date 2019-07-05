@@ -1,6 +1,7 @@
 import React from "react"
-import Phone from "../../Images/iPhoneXDark.jpg"
+import Phone from "../../Images/phone.png"
 import { Header, Button, Image, Container, } from "semantic-ui-react"
+import styled from 'styled-components'
 
 const HomeHero = () => (
   <Container id="wrapper">
@@ -8,8 +9,8 @@ const HomeHero = () => (
       <Container style={{ alignItems: "left", padding: "100px"}} >
         <Header as="h1" color="black">PreOv</Header>
         <br />
-        <p>Emporwering you in family planning.</p>
-        <p>Wherever that may be.</p>
+        <StyledParagraph>Emporwering you in family planning.</StyledParagraph>
+        <StyledParagraph>Wherever that may be.</StyledParagraph>
         <br />
         <br />
         <Button className="ui blue">
@@ -17,16 +18,18 @@ const HomeHero = () => (
         </Button>
       </Container>
     </div>
-    <div id="right" style={styles.right}>
+    <div id="right" >
       <Image src={ Phone } />
     </div>
   </Container>
 )
 
-const styles = {
-  right: {
-    background: "linear-gradient(163deg, rgba(165,212,239,1) 15%, rgba(247,177,183,1) 62%)",
-  }
-}
+
+const StyledParagraph = styled.p`
+  margin: 1em !important;
+  font-size: 16px;
+`
+
+
 
 export default HomeHero;
