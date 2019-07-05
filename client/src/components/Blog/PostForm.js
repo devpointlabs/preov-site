@@ -87,7 +87,7 @@ class PostForm extends React.Component {
     //! how to update post
     const post_id = this.props.match.params.id;
     if(post_id){
-      axios.put(`/api/posts/${post_id}`, {...this.state})
+      axios.put(`/api/posts/${post_id}`, data)
       .then(res => {
         const {history } = this.props
         history.goBack()
@@ -125,7 +125,7 @@ class PostForm extends React.Component {
           label="Title"
           placeholder="Title"
           name="title"
-          value={this.state.post.title}
+          value={this.state.title}
           onChange={this.handleChange}
           required
         />
@@ -133,7 +133,7 @@ class PostForm extends React.Component {
           label="Body"
           placeholder="Body"
           name="body"
-          value={this.state.post.body}
+          value={this.state.body}
           onChange={this.handleChange}
           style={{ minHeight: 200 }}
           required
