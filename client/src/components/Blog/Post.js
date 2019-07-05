@@ -31,21 +31,21 @@ class Post extends React.Component {
   )
 
   render() {
-    const { title, body, image, created_at } = this.state.post;
+    const { id, title, body, image, created_at } = this.state.post;
     return (
       <> 
         {
           this.state.editing ? 
           <PostForm 
-          {...this.props}
-          
           />
           :
           this.renderPost(title, body, image, created_at)
         }
         
         { !this.state.editing ?
+        <Link to={`/blog/posts/${id}/edit`}>
         <Button onClick={this.toggleEdit}>Edit</Button>
+        </Link>
           :
           null
         }

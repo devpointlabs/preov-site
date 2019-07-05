@@ -21,7 +21,8 @@ class PostForm extends React.Component {
   componentDidMount() {
     const post_id = this.props.match.params.id;
     if (post_id) {
-      axios.get(`/api/posts/${post_id}`).then(res => {
+      axios.get(`/api/posts/${post_id}`)
+        .then(res => {
         this.setState({ ...res.data });
       });
     } 
@@ -30,7 +31,7 @@ class PostForm extends React.Component {
       this.setState({ post: { ...this.state.post, categories: res.data, } });
       })
       .catch(err => {
-        console.log(err.response);
+        console.log("error in componentDidMount");
       });
   }
 
@@ -73,7 +74,8 @@ class PostForm extends React.Component {
     });
   }
 
-  handleChange = (e, { name, value }) => {
+  handleChange = (e) => { 
+    const {target: { name, value }} = e
     this.setState({ [name]: value });
   };
 
@@ -82,18 +84,16 @@ class PostForm extends React.Component {
     let data = new FormData()
     data.append('file', this.state.image)
     data.append('categories', JSON.stringify(this.state.post_categories))
-    
-    const postData = {...this.state}
+    //! how to update post
     const post_id = this.props.match.params.id;
     if(post_id){
-      debugger
-      axios.put(`/api/posts/${post_id}`, postData)
+      axios.put(`/api/posts/${post_id}`, {...this.state})
       .then(res => {
         const {history } = this.props
-        history.push("/blog")
+        history.goBack()
         })
         .catch(err => {
-          console.log(err.response)
+          console.log("error in handleSubmit")
         })
     }else{
     axios.post(`/api/posts?title=${this.state.title}&body=${this.state.body}`, data)
@@ -102,7 +102,7 @@ class PostForm extends React.Component {
       history.goBack()
       })
       .catch(err => {
-        console.log("error")
+        console.log("error in handleSubmit(axios.post)")
       })
       this.setState({title: "", body: "", image: ""})
     }
@@ -125,7 +125,7 @@ class PostForm extends React.Component {
           label="Title"
           placeholder="Title"
           name="title"
-          value={this.state.title}
+          value={this.state.post.title}
           onChange={this.handleChange}
           required
         />
@@ -133,7 +133,7 @@ class PostForm extends React.Component {
           label="Body"
           placeholder="Body"
           name="body"
-          value={this.state.body}
+          value={this.state.post.body}
           onChange={this.handleChange}
           style={{ minHeight: 200 }}
           required
