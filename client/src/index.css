@@ -24,7 +24,7 @@ code {
 #left {
   width: 50%;
   float: left;
-  padding: 1em;
+  padding: 1em 1em 1em 2em;
 }
 
 #right {
