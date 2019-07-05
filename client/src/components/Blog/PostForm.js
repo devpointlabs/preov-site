@@ -20,6 +20,7 @@ class PostForm extends React.Component {
   // TODO check if editing
   componentDidMount() {
     const post_id = this.props.match.params.id;
+    debugger
     if (post_id) {
       axios.get(`/api/posts/${post_id}`)
         .then(res => {
