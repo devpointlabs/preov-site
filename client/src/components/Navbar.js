@@ -6,7 +6,7 @@ import icon from '../Images/PreOvIcon.jpg'
 
 const NavBar = () => (
   <StyledList>
-      <Image size="tiny " src={icon} style={{display: "inline"}} />
+      <Image size="tiny" src={icon} style={{display: "inline", marginRight: ".3em"}} />
     <StyledLink to='/' style={{ margin: '.5em'}}>
       Home 
     </StyledLink>
@@ -25,7 +25,7 @@ const NavBar = () => (
 const StyledList = styled.ul`
   background-color: white;
   margin: 0;
-  padding: 1.5em;
+  padding: 1em;
 `
 
 const StyledLink = styled(Link) `
@@ -34,12 +34,12 @@ const StyledLink = styled(Link) `
   font-weight: 700;
   font-size: 1.4em;
   transition: background 0.4s ease;
-  padding: 1em 1.5em;
+  padding: .75em 1em;
 
   &:hover {
     background-color: #f7b1b7;
     color: white;
-    border-radius: 4px;
+    border-radius: 3px;
     transition: background 0.4s ease;
   }
 `
