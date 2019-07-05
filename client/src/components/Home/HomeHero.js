@@ -7,9 +7,9 @@ const HomeHero = () => (
   <Container id="wrapper">
     <div id="left">
       <Container style={{ alignItems: "left", padding: "100px"}} >
-        <Header as="h1" color="black">PreOv</Header>
+        <StyledHeader>PreOv</StyledHeader>
         <br />
-        <StyledParagraph>Emporwering you in family planning.</StyledParagraph>
+        <StyledParagraph>Empowering you in family planning.</StyledParagraph>
         <StyledParagraph>Wherever that may be.</StyledParagraph>
         <br />
         <br />
@@ -23,11 +23,15 @@ const HomeHero = () => (
     </div>
   </Container>
 )
-
+const StyledHeader = styled(Header)`
+  color: black !important;
+  font-size: 5em !important;
+`
 
 const StyledParagraph = styled.p`
-  margin: 1em !important;
-  font-size: 16px;
+  font-size: 20px;
+  margin-bottom: 0 !important;
+  color:  #5d6870;
 `
 
 
