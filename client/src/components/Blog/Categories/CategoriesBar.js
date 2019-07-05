@@ -28,7 +28,7 @@ class Categories extends React.Component {
 
   render() {
     return (
-      <Menu borderless secondary>
+      <Menu borderless secondary style={{margin: "1em"}}>
         <Menu.Item>
         {/* onClick={handleAllPosts} */}
           {/* TODO: show all posts */}

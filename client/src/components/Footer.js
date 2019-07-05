@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PreIcon from "../Images/PreOvIcon.jpg";
-import { Menu, Grid, Image, Icon, Segment, Header } from "semantic-ui-react";
+import { Menu, Grid, Image, Icon, Segment, Header, } from "semantic-ui-react";
+import styled from 'styled-components'
 // ! render categories dynamically
 
 class Footer extends React.Component {
   state = { categories: [] };
   render() {
     return (
-      <>
         <Segment style={{marginTop: "0", padding: "0", border: "none"}}>
           <Grid columns={3} style={{padding: "3em", backgroundColor: "#a5d4ef"}}>
             <Grid.Column >
@@ -77,15 +77,23 @@ class Footer extends React.Component {
             </Grid.Column>
           </Grid>
           <Header as="h1" textAlign="center">
+          <StyledHr />
             <Image src={PreIcon} />
           </Header>
           <div>
             <p style={{ textAlign: "center" }}>© 2019 by PreOv, LLC. </p>
           </div>
         </Segment>
-      </>
     );
   }
 }
+
+
+const StyledHr = styled.hr` 
+    height: 12px;
+    border: 0;
+    box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.3);
+    margin: 0 !important;
+`
 
 export default Footer;
