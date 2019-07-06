@@ -44,8 +44,9 @@ const StyledButton = styled(Button)`
 const styles = {
   header: {
     color: "#5d6870",
-    fontSize: "40px",
-    margin: ".4em"
+    fontSize: "3em",
+    margin: ".4em",
+    fontWeight: "200"
   }
 };
 

@@ -51,7 +51,7 @@ const styles = {
   },
   header: {
     color: "#5d6870",
-    fontSize: "50px",
+    fontSize: "4em",
   },
   hr: {
     border: "3px solid #a5d4ef",
