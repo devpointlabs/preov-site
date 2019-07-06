@@ -47,4 +47,10 @@ const StyledButton = styled(Button)`
   }
 `
 
+const StyledContainer = styled(Container)`
+  width: 100% !important;
+  margin: 0;
+  padding: 0;
+`
+
 export default HomeHero;

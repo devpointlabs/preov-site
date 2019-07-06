@@ -14,9 +14,8 @@ code {
 }
 
 #wrapper {
-  width: 100%;
   overflow: hidden;
-  height: 500px;
+  height: 620px;
   /* padding: 2em; */
   background-color: white;
 }
