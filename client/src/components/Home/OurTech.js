@@ -56,7 +56,7 @@ const styles = {
   hr: {
     border: "3px solid #a5d4ef",
     borderRadius: "6px",
-    width: "66%",
+    width: "75%",
     marginLeft: "0",
   },
   image: {

@@ -59,7 +59,7 @@ const styles = {
   hr: {
     border: "3px solid #a5d4ef",
     borderRadius: "6px",
-    width: "41%",
+    width: "45%",
     marginLeft: "0",
   },
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, } from 'react-router-dom';
-import {Image, } from 'semantic-ui-react'
+import {Image, Menu} from 'semantic-ui-react'
 import styled from 'styled-components'
 import icon from '../Images/PreOvIcon.jpg'
 
@@ -36,6 +36,10 @@ const StyledLink = styled(Link) `
   transition: background 0.4s ease;
   padding: .75em 1em;
 
+  @media(max-width: 602px){
+    font-size: .9em !important;
+  }
+
   &:hover {
     background-color: #f7b1b7;
     color: white;
@@ -43,5 +47,7 @@ const StyledLink = styled(Link) `
     transition: background 0.4s ease;
   }
 `
+
+
 
 export default NavBar;
