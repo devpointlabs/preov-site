@@ -9,8 +9,8 @@ class Footer extends React.Component {
   state = { categories: [] };
   render() {
     return (
-        <Segment style={{marginTop: "0", padding: "0", border: "none"}}>
-          <Grid columns={3} style={{padding: "3em", backgroundColor: "#a5d4ef"}}>
+        <Segment style={{marginTop: "0 !important", padding: "0 !important", border: "none"}}>
+          <Grid columns={3} style={{padding: "2.5em", backgroundColor: "#a5d4ef"}}>
             <Grid.Column >
               <Menu compact vertical>
                 <Link to="/">
@@ -77,7 +77,6 @@ class Footer extends React.Component {
             </Grid.Column>
           </Grid>
           <Header as="h1" textAlign="center">
-          <StyledHr />
             <Image src={PreIcon} />
           </Header>
           <div>
@@ -89,11 +88,5 @@ class Footer extends React.Component {
 }
 
 
-const StyledHr = styled.hr` 
-    height: 12px;
-    border: 0;
-    box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.3);
-    margin: 0 !important;
-`
 
 export default Footer;

@@ -15,6 +15,10 @@ const ContainerStyled = styled(Container)`
   font-size: 2em;
   height: 200px;
   padding: 90px;
+
+  @media (max-width: 768px) {
+    height: 100% !important;
+  }
 `;
 
 export default UnderHero;

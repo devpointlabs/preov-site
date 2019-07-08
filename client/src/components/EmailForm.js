@@ -5,7 +5,7 @@ class EmailForm extends React.Component {
 
   render () {
     return(
-      <Container margin="50">
+      <Container text>
         <Header as='h3'>We Would Love to Hear From You</Header>
         <br />
         <br />
