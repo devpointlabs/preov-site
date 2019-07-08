@@ -4,12 +4,11 @@ import { Container, Header, Button, } from "semantic-ui-react";
 import styled from "styled-components";
 
 const GetInTouch = () => (
-  <Container
-    style={{ height: "100%", padding: "100px", backgroundColor: "white" }}>
-    <div style={{ textAlign: "center", width: "70%", margin: "0 auto" }}>
-      <Header as="h1" style={styles.header}>
+  <StyledContainer>
+    <StyledDiv>
+      <StyledHeader>
         Get In Touch
-      </Header>
+      </StyledHeader>
       <StyledParagraph>
         PreOv, LLC is continually building upon our technology, so stay in touch
         to learn more about our progress.
@@ -17,13 +16,42 @@ const GetInTouch = () => (
       <Link to="/EmailForm">
         <Button as={StyledButton}>PreOvLLC@gmail.com</Button>
       </Link>
-    </div>
-  </Container>
+    </StyledDiv>
+  </StyledContainer>
 );
+
+const StyledContainer = styled(Container)`
+  height: 320px;
+  overflow: visible !important;
+  background-color: white;
+  
+  @media (max-width: 768px) {
+    display: block !important;
+    width: 100%;
+    height: 100% !important;
+    margin: 2em !important;
+  }
+  `
+const StyledDiv = styled.div`
+  width: 70%;
+  margin: 2em auto;
+  padding-top: 2em;
+  text-align: center;
+  `
+const StyledHeader = styled(Header)`
+color: #5d6870 !important;
+font-size: 3em !important;
+margin-top: 1em !important;
+
+@media (max-width: 768px) {
+  font-size: 3em !important;
+}
+`;
 
 const StyledParagraph = styled.p`
   margin: 1em !important;
   font-size: 16px;
+  }
 `;
 
 const StyledButton = styled(Button)`
@@ -39,14 +67,19 @@ const StyledButton = styled(Button)`
     background: #f8c3cd !important;
     transition: background 0.3s ease;
   }
+    @media (max-width: 768px) {
+    display: block !important;
+    margin: 2em auto !important;
+    font-size: 1em !important;
+  }
 `;
+
 
 const styles = {
   header: {
     color: "#5d6870",
-    fontSize: "3em",
-    margin: ".4em",
-    fontWeight: "200"
+    fontSize: "40px",
+    margin: ".4em"
   }
 };
 

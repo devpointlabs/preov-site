@@ -4,7 +4,7 @@ import { Header, Button, Image, Container } from "semantic-ui-react";
 import styled from "styled-components";
 
 const HomeHero = () => (
-  <StyledContainer id="wrapper">
+  <StyledContainer>
     <StyledLeftDiv>
       <Container style={{ alignItems: "left", padding: "100px" }}>
         <StyledHeader>PreOv</StyledHeader>
@@ -22,7 +22,6 @@ const HomeHero = () => (
 const StyledContainer = styled(Container)`
   overflow: hidden;
   height: 620px;
-  /* padding: 2em; */
   background-color: white;
 
   @media (max-width: 768px) {
@@ -85,6 +84,7 @@ const StyledButton = styled(Button)`
   @media (max-width: 768px) {
     display: block !important;
     margin: 2em auto !important;
+    font-size: 1.2em !important;
   }
 `;
 const StyledRightDiv = styled.div`

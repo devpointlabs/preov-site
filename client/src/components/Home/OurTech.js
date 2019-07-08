@@ -4,7 +4,7 @@ import { Container, Header, Button, Image } from "semantic-ui-react";
 import styled from "styled-components";
 
 const OurTech = () => (
-  <StyledContainer id="wrapper" style={styles.cont}>
+  <StyledContainer>
     <StyledLeftDiv>
       <StyledHeader>Our Technology</StyledHeader>
       <Underline />
@@ -30,11 +30,9 @@ const OurTech = () => (
 );
 
 const StyledContainer = styled(Container)`
-  overflow: hidden;
-  height: 620px;
-  /* padding: 2em; */
-  background-color: white;
-
+  height: 720px;
+  background-color: #f8f8f8;
+  overflow: hidden !important;
   @media (max-width: 768px) {
     overflow: visible !important;
     display: block !important;
@@ -45,7 +43,7 @@ const StyledContainer = styled(Container)`
 const StyledLeftDiv = styled.div`
   width: 50%;
   float: left;
-  padding: 1em 1em 1em 2em;
+  padding: 1em 2em 1em 4em;
   background-color: #f8f8f8 !important;
   
   @media (max-width: 768px) {
@@ -103,6 +101,8 @@ const StyledButton = styled(Button)`
   @media (max-width: 768px) {
     display: block !important;
     margin: 2em auto !important;
+    font-size: 1em !important;
+
   }
 `;
 const StyledRightDiv = styled.div`

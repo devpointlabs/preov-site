@@ -4,7 +4,7 @@ import { Container, Header, Button, Image } from "semantic-ui-react";
 import styled from "styled-components";
 
 const OurStory = () => (
-  <StyledContainer id="wrapper">
+  <StyledContainer>
     <StyledHr />
     <StyledLeftDiv>
       <Image src={founders} />
@@ -31,7 +31,6 @@ const OurStory = () => (
 const StyledContainer = styled(Container)`
   overflow: hidden !important;
   height: 620px;
-  /* padding: 2em; */
   background-color: white;
 
   @media (max-width: 768px) {
@@ -46,6 +45,7 @@ const StyledHr = styled.hr`
   border: 0;
   box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.3);
   margin: 0 !important;
+  width: 100% !important;
 
   @media (max-width: 768px) {
     display: none !important;
@@ -116,6 +116,7 @@ const StyledButton = styled(Button)`
     display: block !important;
     margin: 2em auto !important;
     float: none;
+    font-size: 1em !important;
   }
 `;
 
@@ -124,7 +125,7 @@ const StyledRightDiv = styled.div`
   justify-content: center;
   align-content: center;
   margin: 0 !important;
-  padding: 1em 2em 1em 1em;
+  padding: 1em 4em 1em 1em;
 
   @media (max-width: 768px) {
     display: block !important;

@@ -9,16 +9,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.ui.container {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
-#wrapper {
-  overflow: hidden;
-  background-color: white;
-}
-
 
 /* 
 #f8f8f8 : offwhite
