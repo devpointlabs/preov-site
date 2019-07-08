@@ -31,7 +31,7 @@ const StyledList = styled.ul`
 const StyledLink = styled(Link) `
   text-decoration: none;
   color: #5d6870;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 1.4em;
   transition: background 0.4s ease;
   padding: .75em 1em;

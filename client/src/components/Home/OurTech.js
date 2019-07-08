@@ -121,7 +121,7 @@ const styles = {
     backgroundColor: "#f8f8f8"
   },
   image: {
-    width: "90%",
+    width: "80%",
   }
 };
 

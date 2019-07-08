@@ -9,8 +9,8 @@ class Footer extends React.Component {
   state = { categories: [] };
   render() {
     return (
-        <Segment style={{marginTop: "0", padding: "0", border: "none"}}>
-          <Grid columns={3} style={{padding: "3em", backgroundColor: "#a5d4ef"}}>
+        <Segment style={{marginTop: "0 !important", padding: "0 !important", border: "none"}}>
+          <Grid columns={3} style={{padding: "2.5em", backgroundColor: "#a5d4ef"}}>
             <Grid.Column >
               <Menu compact vertical>
                 <Link to="/">
