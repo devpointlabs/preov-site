@@ -3,6 +3,7 @@ import React from "react";
 import "./App.css";
 // Component Imports
 import AboutUs from "./components/AboutUs";
+import ContactUs from "./components/ContactUs";
 import EmailForm from "./components/EmailForm";
 import Footer from "./components/Footer";
 import Home from "./components/Home/Home";
@@ -29,6 +30,8 @@ const App = () => (
       <Route exact path="/about" component={AboutUs} />
       <Route exact path="/howitworks" component={HowItWorks} />
       <Route exact path="/emailform" component={EmailForm} />
+      <Route exact path="/contactus" component={ContactUs} />
+
       <Route component={NoMatch} />
     </Switch>
   </Container>
