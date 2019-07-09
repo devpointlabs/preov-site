@@ -1,5 +1,5 @@
 class Api::PostsController < ApplicationController
-before_action :set_post, only:[:show, :update, :destroy]
+before_action :set_post, only:[:show, :destroy]
 
   def index
     render json: Post.all

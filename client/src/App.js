@@ -2,13 +2,16 @@
 import React from "react";
 import "./App.css";
 // Component Imports
+
 import Navbar from './components/Navbar';
+import ContactUs from "./components/ContactUs";
 import Home from "./components/Home/Home";
 import AboutUs from "./components/AboutUs";
 import HowItWorks from './components/HowItWorks';
 import Blog from './components/Blog/Blog';
 import Footer from "./components/Footer";
 import NoMatch from './components/NoMatch';
+import ContactUs from './components/ContactUs';
 import EmailForm from "./components/EmailForm";
 import PostForm from './components/Blog/PostForm';
 import Post from './components/Blog/Post';
@@ -31,6 +34,7 @@ const App = () => (
       <Route exact path="/blog/posts/:id/edit" component={PostForm} />
       <Route exact path="/post/:id" component={Post} />
       <Route exact path="/emailform" component={EmailForm} />
+      <Route exact path="/contactus" component={ContactUs} />
       <Route exact path="/categories" component={Categories} />
       <Route component={NoMatch} />
     </Switch>
