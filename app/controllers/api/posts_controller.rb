@@ -80,6 +80,10 @@ before_action :set_post, only:[:show, :destroy]
     @post.destroy
   end
 
+  def filter_category
+    render json: Post.filter_category(params[:id])
+  end
+
   private
   def set_post
     @post = Post.find(params[:id])

@@ -2,25 +2,35 @@ import React from "react"
 import axios from "axios"
 import { Link, } from "react-router-dom"
 import { Button, Menu, Dropdown, Input, } from "semantic-ui-react"
+import Posts from "../Posts"
 
 class CategoriesBar extends React.Component {
-  state = { categories: [], activeItem: "All Posts" }
+  state = { categories: [], posts: []}
 
   componentDidMount(){
     axios.get('/api/categories')
     .then( res => {
       this.setState({ categories: res.data, });
-    })
+    });
+    axios.get("/api/posts").then(res => {
+      this.setState({ posts: res.data });
+    });
   }
   
   handleAllPosts = () => {
-    // TODO render posts component
-    
+    axios.get("/api/posts").then(res => {
+      this.setState({ posts: res.data });
+    });
   }
   
+  handleCatPosts = (e, {value}) => {
+    const { posts } = this.state;
+    axios.get(`/api/filter_category/${value}`)
+      .then( res => this.setState({ posts: res.data }));
+  }
+
   dropdownCatSelect = () => {
     const { categories } = this.state
-    const catOptions = []
     return (
       <Dropdown 
         text="Filter Posts" 
@@ -31,19 +41,14 @@ class CategoriesBar extends React.Component {
         className="icon"
       >
         <Dropdown.Menu>
-          <Input icon="search" iconPosition="left" className="search" />
-          <Dropdown.Divider />
           <Dropdown.Header content="Categories" />
           <Dropdown.Menu scrolling>
             {categories.map(cat => (
               <Dropdown.Item 
-                multiple
-                selection
                 key={cat.id}
-                // {...cat}
-                text={cat.label} 
-                options={catOptions}
-                // onClick={}
+                text={cat.label}
+                value={cat.id}
+                onClick={this.handleCatPosts}
               />
             ))}
           </Dropdown.Menu>
@@ -54,24 +59,31 @@ class CategoriesBar extends React.Component {
 
   render() {
     return (
-      <Menu borderless secondary style={{margin: "1em"}}>
+      <div>
+        <Menu borderless secondary style={{margin: "1em"}}>
         <Menu.Item
           name="All Posts"
-          // active={activeItem === "All Posts"} 
-          // onClick={handleAllPosts}
-        >
+          activeIndex
+          onClick={this.handleAllPosts}
+          >
         </Menu.Item>
         <Menu.Item>
           {this.dropdownCatSelect()}
         </Menu.Item>
-        {/* TODO make this button available only when admin is logged in */}
-        <Button basic as={Link} to="/categories" color="blue">
-          Add/Edit Categories
-        </Button>
+        <Menu.Item>
+          {/* TODO make this button available only when admin is logged in */}
+          <Button basic as={Link} to="/categories" color="blue">
+            Add/Edit Categories
+          </Button>
+        </Menu.Item>
         <Menu.Menu position='right'>
           <Input icon='search' placeholder='Search...' />
         </Menu.Menu>
       </Menu>
+      <Posts 
+        posts = {this.state.posts}
+      />
+      </div>
     )
   }
 }

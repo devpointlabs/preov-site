@@ -11,7 +11,7 @@ import HowItWorks from './components/HowItWorks';
 import Blog from './components/Blog/Blog';
 import Footer from "./components/Footer";
 import NoMatch from './components/NoMatch';
-import ContactUs from './components/ContactUs';
+// import ContactUs from './components/ContactUs';
 import EmailForm from "./components/EmailForm";
 import PostForm from './components/Blog/PostForm';
 import Post from './components/Blog/Post';

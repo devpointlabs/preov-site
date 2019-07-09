@@ -76,7 +76,7 @@ class Posts extends React.Component {
   )
 
   render() {
-    const { posts } = this.state;
+    const { posts } = this.props;
     return (
       <StyledDiv>
       <Link to={{pathname: '/blog/posts/new'}}>
