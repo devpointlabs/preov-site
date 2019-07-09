@@ -2,6 +2,7 @@ import React from "react";
 import Phone from "../../Images/phone.png";
 import { Header, Button, Image, Container } from "semantic-ui-react";
 import styled from "styled-components";
+import { Link, } from "react-router-dom"
 
 const HomeHero = () => (
   <StyledContainer>
@@ -11,7 +12,9 @@ const HomeHero = () => (
         <br />
         <StyledParagraph>Empowering you in family planning.</StyledParagraph>
         <StyledParagraph>Wherever that may be.</StyledParagraph>
-        <StyledButton>Learn More</StyledButton>
+        <Link to="/howitworks">
+          <StyledButton>Learn More</StyledButton>
+        </Link>
       </Container>
     </StyledLeftDiv>
     <StyledRightDiv>

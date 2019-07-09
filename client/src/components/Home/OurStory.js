@@ -2,6 +2,7 @@ import React from "react";
 import founders from "../../Images/founders.png";
 import { Container, Header, Button, Image } from "semantic-ui-react";
 import styled from "styled-components";
+import { Link, } from "react-router-dom"
 
 const OurStory = () => (
   <StyledContainer>
@@ -23,7 +24,9 @@ const OurStory = () => (
           PreOv is a female-led company focused on empowering women and couples
           in all stages of life.
         </StyledParagraph>
-        <Button as={StyledButton}>Read More</Button>
+        <Link to="/about">
+          <Button as={StyledButton}>Read More</Button>
+        </Link>
       </Container>
     </StyledRightDiv>
   </StyledContainer>
