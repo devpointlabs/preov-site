@@ -5,7 +5,7 @@ import Posts from "./Posts"
 const Blog = () => (
   <>
     <CategoriesBar />
-    <Posts />
+    {/* <Posts /> */}
   </>
 )
 

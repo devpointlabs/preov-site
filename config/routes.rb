@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :categories
     resources :posts
+    get "filter_category/:id", to: "posts#filter_category"
   end
 
 end
