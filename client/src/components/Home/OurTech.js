@@ -2,6 +2,7 @@ import React from "react";
 import circle from "../../Images/ring.png";
 import { Container, Header, Button, Image } from "semantic-ui-react";
 import styled from "styled-components";
+import { Link, } from "react-router-dom"
 
 const OurTech = () => (
   <StyledContainer>
@@ -21,7 +22,9 @@ const OurTech = () => (
         Our system allows you to plan ahead, and spend less time on tracking
         your menstrual cycle alleviating stress and giving more time for you.
       </StyledParagraph>
-      <Button as={StyledButton}>Read More</Button>
+      <Link to="/howitworks">
+        <Button as={StyledButton}>Read More</Button>
+      </Link>
     </StyledLeftDiv>
     <StyledRightDiv>
       <Image src={circle} style={styles.image} />
