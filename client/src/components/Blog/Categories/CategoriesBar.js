@@ -3,8 +3,8 @@ import axios from "axios"
 import { Link, } from "react-router-dom"
 import { Button, Menu, Dropdown, Input, } from "semantic-ui-react"
 
-class Categories extends React.Component {
-  state = { categories: [] }
+class CategoriesBar extends React.Component {
+  state = { categories: [], activeItem: "All Posts" }
 
   componentDidMount(){
     axios.get('/api/categories')
@@ -18,31 +18,52 @@ class Categories extends React.Component {
     
   }
   
-  renderCats = () => {
-    return this.state.categories.map(cat => (
-      <Dropdown.Item 
-      key={cat.id}
-      text={cat.label} />
-    ))
+  dropdownCatSelect = () => {
+    const { categories } = this.state
+    const catOptions = []
+    return (
+      <Dropdown 
+        text="Filter Posts" 
+        icon="filter" 
+        floating
+        labeled
+        button
+        className="icon"
+      >
+        <Dropdown.Menu>
+          <Input icon="search" iconPosition="left" className="search" />
+          <Dropdown.Divider />
+          <Dropdown.Header content="Categories" />
+          <Dropdown.Menu scrolling>
+            {categories.map(cat => (
+              <Dropdown.Item 
+                multiple
+                selection
+                key={cat.id}
+                // {...cat}
+                text={cat.label} 
+                options={catOptions}
+                // onClick={}
+              />
+            ))}
+          </Dropdown.Menu>
+        </Dropdown.Menu>
+      </Dropdown>
+    )
   }
 
   render() {
     return (
       <Menu borderless secondary style={{margin: "1em"}}>
-        <Menu.Item>
-        {/* onClick={handleAllPosts} */}
-          {/* TODO: show all posts */}
-          {/* TODO default emphasis here */}
-          All Posts
+        <Menu.Item
+          name="All Posts"
+          // active={activeItem === "All Posts"} 
+          // onClick={handleAllPosts}
+        >
         </Menu.Item>
-        <Dropdown item text="Filter by Category">
-          <Dropdown.Menu>
-            {this.renderCats()}
-              {/* TODO show each categories
-              TODO make each category clikable
-              TODO render all posts in each catergory when clicked */}
-          </Dropdown.Menu>
-        </Dropdown>
+        <Menu.Item>
+          {this.dropdownCatSelect()}
+        </Menu.Item>
         {/* TODO make this button available only when admin is logged in */}
         <Button basic as={Link} to="/categories" color="blue">
           Add/Edit Categories
@@ -54,4 +75,4 @@ class Categories extends React.Component {
     )
   }
 }
-export default Categories;
+export default CategoriesBar;
