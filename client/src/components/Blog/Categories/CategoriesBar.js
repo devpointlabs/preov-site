@@ -62,7 +62,6 @@ class CategoriesBar extends React.Component {
         <Menu borderless secondary style={{margin: "1em"}}>
         <Menu.Item
           name="All Posts"
-          activeIndex
           onClick={this.handleAllPosts}
           >
         </Menu.Item>

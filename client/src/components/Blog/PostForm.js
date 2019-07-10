@@ -104,18 +104,18 @@ class PostForm extends React.Component {
     data.append("body", body);
     const post_id = this.props.match.params.id;
     if(post_id){
-      axios.put(`/api/posts/${post_id}`, data).then(res => {
+      axios.put(`/api/posts/${post_id}`, data)
+      .then( res => {
         const {history } = this.props
         history.push('/blog')
-        })
-        .catch(err => {
-          console.log("error in handleSubmit")
-        })
+      })
+      .catch(err => {
+        console.log("error in handleSubmit")
+      })
     }else{
     axios.post(`/api/posts?title=${title}&body=${body}`, data)
-    debugger
       history.push('/blog')
-      this.setState({title: "", body: "", image: ""})
+      // this.setState({title: "", body: "", image: ""})
     }
   }
 

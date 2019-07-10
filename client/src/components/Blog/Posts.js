@@ -19,6 +19,7 @@ class Posts extends React.Component {
   };
 
   editPost = (post) => {
+    debugger
     axios.put(`/api/posts/${post.id}`, post)
     .then(res => {
       const posts = this.state.posts.map(p => {
@@ -46,7 +47,7 @@ class Posts extends React.Component {
       </Link>
       <Button.Or />
       <Link to={`/blog/posts/${post.id}/edit`}>
-      <Button onClick={() => this.editPost(post)}>Edit</Button>
+        <Button>Edit</Button>
       </Link>x
       {/* TODO onclick edit Post  */}
       <Button.Or />
