@@ -1,8 +1,9 @@
 import React from "react";
 import axios from "axios";
-import { Form, Header, } from "semantic-ui-react";
+import { Form, Header, Container } from "semantic-ui-react";
 import ImageUploader from "react-images-upload";
 import { Link } from "react-router-dom";
+import styled from 'styled-components'
 
 class PostForm extends React.Component {
   state = {
@@ -39,21 +40,16 @@ class PostForm extends React.Component {
 
   handleChecked = (e, target) => {
     const { post_categories } = this.state;
-    // debugger
     //if props.checked is true
     if (target.checked) {
       //take what post_categories already is and add this category id
       this.setState({...this.state.post, post_categories: [...post_categories, { id: target.id }]});
       //if target.checked is false (for unchecking a box)
     } else {
-
       //map through post_categories and return all where the id doesn't match the unchecked category id
       let unchecked = post_categories.filter(cat => {
-        // console.log(cat)
-        // console.log(target)
         return cat.id !== target.id
       });
-      
       // setState to not include target.id (remove it if it's there)
       this.setState({...this.state, post_categories: unchecked});
     }
@@ -70,7 +66,7 @@ class PostForm extends React.Component {
   };
 
   categoryCheckboxes = () => {
-    const { categories, post_categories } = this.state;
+    const { categories, } = this.state;
     return categories.map(cat => {
       return <Form.Checkbox
         key={cat.id}
@@ -98,43 +94,39 @@ class PostForm extends React.Component {
   };
 
   handleSubmit = (e) => {
+    const {history } = this.props
     e.preventDefault();
-    const { post_categories, title, body, image, categories } = this.state
+    const { post_categories, title, body, image, } = this.state
     let data = new FormData()
     data.append('file', image)
     data.append('categories', JSON.stringify(post_categories))
     data.append("title", title);
     data.append("body", body);
-    //! how to update post
     const post_id = this.props.match.params.id;
     if(post_id){
-      axios.put(`/api/posts/${post_id}`, data)
-      .then(res => {
+      axios.put(`/api/posts/${post_id}`, data).then(res => {
         const {history } = this.props
-        history.goBack()
+        history.push('/blog')
         })
         .catch(err => {
           console.log("error in handleSubmit")
         })
     }else{
     axios.post(`/api/posts?title=${title}&body=${body}`, data)
-    .then(res => {
-      const {history } = this.props
-      history.goBack()
-      })
-      .catch(err => {
-        console.log("error in handleSubmit(axios.post)")
-      })
+    debugger
+      history.push('/blog')
       this.setState({title: "", body: "", image: ""})
     }
   }
 
   render() {
     return (
+      <StyledContainer>
+
       <Form onSubmit={this.handleSubmit}>
         <Header>{this.props.match.params.id ? "Edit" : "New"}</Header>
         {/* render the current image */}
-        {/* <img src={this.state.post.image} style={{ height: "300px", width: "300px"}} /> */}
+        <img src={this.state.image} alt="" style={{ height: "300px", width: "300px"}} />
         <ImageUploader
           withPreview={true}
           withIcon={true}
@@ -143,7 +135,7 @@ class PostForm extends React.Component {
           imgExtension={[".jpg", ".gif", ".png", ".gif"]}
           maxFileSize={5242880}
           singleImage={true}
-        />
+          />
         <Form.Input
           label="Title"
           placeholder="Title"
@@ -151,7 +143,7 @@ class PostForm extends React.Component {
           value={this.state.title}
           onChange={this.handleChange}
           required
-        />
+          />
         <Form.TextArea
           label="Body"
           placeholder="Body"
@@ -160,7 +152,7 @@ class PostForm extends React.Component {
           onChange={this.handleChange}
           style={{ minHeight: 200 }}
           required
-        />
+          />
         <Form.Group inline>
           <label>Categories</label>
           {this.categoryCheckboxes()}
@@ -170,8 +162,20 @@ class PostForm extends React.Component {
           <Form.Button>Cancel</Form.Button>
         </Link>
       </Form>
+       </StyledContainer>
     );
   }
 }
+const StyledContainer = styled(Container)`
+  overflow: hidden;
+  height: 620px;
+  background-color: white;
 
+  @media (max-width: 768px) {
+    overflow: visible !important;
+    display: block !important;
+    width: 100%;
+    height: 100% !important;
+  }
+`;
 export default PostForm;

@@ -2,7 +2,6 @@
 import React from "react";
 import "./App.css";
 // Component Imports
-
 import Navbar from './components/Navbar';
 import ContactUs from "./components/ContactUs";
 import Home from "./components/Home/Home";

@@ -12,7 +12,9 @@ before_action :set_post, only:[:show, :destroy]
       body: @post.body,
       image: @post.image,
       categories: Category.all,
-      post_categories: @post.categories
+      post_categories: @post.categories,
+      updated_at: @post.updated_at
+
     }
 
     render json: post
@@ -33,16 +35,16 @@ before_action :set_post, only:[:show, :destroy]
         render json: { errors: e }, status: 422
       end
     end
+
     if post.save
       categories = ActiveSupport::JSON.decode(params[:categories])
       categories.each do |c|
         Category.find(c["id"]).posts << post
       end
-      render json: post
+      # render json: post
     else
       render json: post.errors, status: 422
     end
-
   end
 
   def update
@@ -50,7 +52,7 @@ before_action :set_post, only:[:show, :destroy]
     title = params[:title] ? params[:title] : post.title
     body = params[:body] ? params[:body] : post.body
     image = params[:file] ? "" : post.image
-
+    
     file = params[:file]
     if file != ""
       begin
@@ -61,23 +63,31 @@ before_action :set_post, only:[:show, :destroy]
         render json: { errors: e }, status: 422
       end
     end
+
     if post.update(title: title, body: body, image: image)
       categories = ActiveSupport::JSON.decode(params[:categories])
-      categories.each do |c|
-        Category.find(c["id"]).posts << post
-        # create new records, remove existing records that aren't included in categories params 
+      post.categories.each do |p|
+        if categories.include?(p["id"]) === false
+          post.categories.delete(p)
       end
-      render json: post
-    else
-      render json: post.errors, status: 422
     end
-
-
-
+      categories.each do |c|
+        category = Category.find(c["id"])
+        if category.posts.ids.include?(post.id)
+          nil
+        else
+         category.posts << post
+        end 
+      end
+      
+  else
+      render json: post.errors, status: 422
   end
+end
 
   def destroy
     @post.destroy
+    render json: Post.all
   end
 
   def filter_category
@@ -88,9 +98,5 @@ before_action :set_post, only:[:show, :destroy]
   def set_post
     @post = Post.find(params[:id])
   end
-
-  # def post_params
-  #   params.require(:post).permit(:title, :body, :image)
-  # end
-
 end
+
