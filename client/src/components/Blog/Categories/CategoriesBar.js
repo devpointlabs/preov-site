@@ -24,7 +24,6 @@ class CategoriesBar extends React.Component {
   }
   
   handleCatPosts = (e, {value}) => {
-    const { posts } = this.state;
     axios.get(`/api/filter_category/${value}`)
       .then( res => this.setState({ posts: res.data }));
   }

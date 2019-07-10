@@ -74,13 +74,4 @@ const StyledButton = styled(Button)`
   }
 `;
 
-
-const styles = {
-  header: {
-    color: "#5d6870",
-    fontSize: "40px",
-    margin: ".4em"
-  }
-};
-
 export default GetInTouch;

@@ -3,24 +3,7 @@ import {withGoogleMap, withScriptjs, GoogleMap,} from 'react-google-maps';
 import EmailForm from "./EmailForm";
 import styled from "styled-components";
 import MapStyles from "./MapStyles";
-import {Table, Icon, } from "semantic-ui-react";
 
-// const ContactUs = () => {
-
-//     return(
-//       <>
-//       <Segment>
-//         <Header>GET IN TOUCH </Header>
-//         <div>CONTACT</div>
-//         <div> MAP of LOCATION 
-//         </div>
-//         <div>MAM</div>
-//         <hr />
-        // < EmailForm />
-//       </Segment>
-//       </>
-//     )
-// };
 function Map(){
   return(
     <GoogleMap 
