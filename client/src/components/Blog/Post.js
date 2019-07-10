@@ -23,7 +23,7 @@ class Post extends React.Component {
 
   renderPost = (title, body, image, created_at) => (
     <>
-    <Image size='small' src={image}></Image>
+    <Image size='medium' src={image}></Image>
     <Header as="h2">{title}</Header>
     Published {this.timeFormat(created_at)}
     <p>{body}</p>
@@ -31,13 +31,13 @@ class Post extends React.Component {
   )
 
   render() {
-    const { id, title, body, image, created_at } = this.state.post;
+    const { id, title, body, image, created_at} = this.state.post;
+    // const {created_at} = this.state.post_categories
     return (
       <> 
         {
           this.state.editing ? 
-          <PostForm 
-          />
+          <PostForm />
           :
           this.renderPost(title, body, image, created_at)
         }
