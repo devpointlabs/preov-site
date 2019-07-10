@@ -41,7 +41,7 @@ class Posts extends React.Component {
   adminButtons = (post) => (
     // TODO conditional render if auth
     <Button.Group>
-      <Link to={{pathname: `/post/${post.id}`}}>
+      <Link to={`/post/${post.id}`}>
       <Button primary>View</Button>
       </Link>
       <Button.Or />
@@ -76,7 +76,8 @@ class Posts extends React.Component {
   )
 
   render() {
-    const { posts } = this.props;
+    const { posts } = this.state;
+    //this used to be this.props - changing it to state seemed to fix it
     return (
       <StyledDiv>
       <Link to={{pathname: '/blog/posts/new'}}>
