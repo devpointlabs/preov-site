@@ -51,10 +51,10 @@ before_action :set_post, only:[:show, :destroy]
     post = Post.find(params[:id])
     title = params[:title] ? params[:title] : post.title
     body = params[:body] ? params[:body] : post.body
-    image = params[:file] ? "" : post.image
+    image = params[:file] == "null" ? params[:file] : post.image
     
     file = params[:file]
-    if file != ""
+    if !file.is_a? String
       begin
         ext = File.extname(file.tempfile)
         cloud_image = Cloudinary::Uploader.upload(file, public_id: file.original_filename, secure: true)
@@ -71,15 +71,16 @@ before_action :set_post, only:[:show, :destroy]
           post.categories.delete(p)
       end
     end
-      categories.each do |c|
-        category = Category.find(c["id"])
-        if category.posts.ids.include?(post.id)
-          nil
-        else
-         category.posts << post
-        end 
-      end
-      
+
+    categories.each do |c|
+      category = Category.find(c["id"])
+      if category.posts.ids.include?(post.id)
+        nil
+      else
+        category.posts << post
+      end 
+    end
+
   else
       render json: post.errors, status: 422
   end
