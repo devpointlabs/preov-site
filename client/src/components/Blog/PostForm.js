@@ -167,9 +167,8 @@ class PostForm extends React.Component {
   }
 }
 const StyledContainer = styled(Container)`
-  overflow: hidden;
-  height: 620px;
   background-color: white;
+  padding: 1.3em !important;
 
   @media (max-width: 768px) {
     overflow: visible !important;

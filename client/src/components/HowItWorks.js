@@ -2,8 +2,7 @@
 // a footer with reviews?
 
 import React from "react";
-import Icon from "../Images/PreOvIcon.jpg";
-import { Container, Image, Header, Segment } from "semantic-ui-react";
+import { Container, Header, Segment } from "semantic-ui-react";
 import styled from 'styled-components'
 
 const HowItWorks = () => {

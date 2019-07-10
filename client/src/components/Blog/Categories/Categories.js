@@ -2,7 +2,8 @@ import React from "react"
 import axios from "axios"
 import CategoryForm from "./CategoryForm"
 import CategoriesList from "./CategoriesList"
-import { Container, Header, } from "semantic-ui-react"
+import { Container, Header, Button } from "semantic-ui-react"
+import { Link, } from 'react-router-dom'
 
 class Categories extends React.Component {
   state = { categories: [], };
@@ -48,7 +49,10 @@ class Categories extends React.Component {
   render() {
     return (
       <Container style={{ padding: "30px 0", }}>
-        <Header as="h1" textAlign="center">Categories</Header>
+        <Link to="/blog">
+          <Button basic floated= "right" color="blue">Go Back</Button>
+        </Link>
+        <Header as='h1' textAlign='center'>Categories</Header>
         <hr />
         <br />
         <CategoryForm addCategory={this.addCategory} />

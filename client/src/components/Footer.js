@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PreIcon from "../Images/PreOvIcon.jpg";
 import { Menu, Grid, Image, Icon, Segment, Header, } from "semantic-ui-react";
-import styled from 'styled-components'
+// import styled from 'styled-components'
 // ! render categories dynamically
 
 class Footer extends React.Component {
