@@ -42,6 +42,7 @@ class Posts extends React.Component {
   );
 
   postCards = (posts) => (
+    <>
     <Card.Group itemsPerRow={4}>
       {posts.map(post => (
         <Card key={post.id}>
@@ -58,6 +59,7 @@ class Posts extends React.Component {
         </Card>
         ))}
       </Card.Group>
+      </>
   )
   
   render() {
@@ -70,7 +72,7 @@ class Posts extends React.Component {
       </Link>
       <br />
       <br />
-      {this.postCards(posts)}
+      {this.postCards(this.props.posts)}
       </StyledDiv>
     );
   }
