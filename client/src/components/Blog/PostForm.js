@@ -124,7 +124,7 @@ class PostForm extends React.Component {
       <StyledContainer>
       <Form onSubmit={this.handleSubmit}>
         <Header>{this.props.match.params.id ? "Edit This Post" : "Create New Post"}</Header>
-        <StyledImg src={this.state.image} alt={this.state.image.name} />
+        {this.state.image === "" ? null : <StyledImg src={this.state.image} alt={this.state.image.name} /> }
         <ImageUploader
           withPreview={true}
           withIcon={true}

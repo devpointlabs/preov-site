@@ -55,9 +55,6 @@ class Posts extends React.Component {
     const { posts } = this.props;
     return (
       <StyledDiv>
-
-      <br />
-      <br />
       {this.postCards(posts)}
       </StyledDiv>
     );
