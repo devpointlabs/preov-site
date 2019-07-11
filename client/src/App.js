@@ -3,6 +3,8 @@ import React from "react";
 import "./App.css";
 // Component Imports
 import Navbar from './components/Navbar';
+import Login from './components/Login';
+import Register from './components/Register';
 import ContactUs from "./components/ContactUs";
 import Home from "./components/Home/Home";
 import AboutUs from "./components/AboutUs";
@@ -18,13 +20,19 @@ import Categories from "./components/Blog/Categories/Categories"
 // Other Imports
 import { Switch, Route } from "react-router-dom";
 import { Container } from "semantic-ui-react";
+import FetchUser from './components/FetchUser';
+
 
 const App = () => (
   <>
+  <FetchUser>
   <Navbar />
+
   <Container>
     <Switch>
       <Route exact path="/" component={Home} />
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/register" component={Register} />
       <Route exact path="/about" component={AboutUs} />
       <Route exact path="/howitworks" component={HowItWorks} />
       <Route exact path="/blog" component={Blog} />
@@ -37,7 +45,9 @@ const App = () => (
       <Route component={NoMatch} />
     </Switch>
   </Container>
+  
   <Footer />
+  </FetchUser>
   </>
 );
 
