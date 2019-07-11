@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import { Card, Image, Button } from "semantic-ui-react";
 import styled from 'styled-components'
@@ -10,30 +9,20 @@ class Posts extends React.Component {
     return newDate.toDateString();
   };
 
-  editPost = (post) => {
-    debugger
-    axios.put(`/api/posts/${post.id}`, post)
-    .then(res => {
-      const posts = this.props.posts.map(p => {
-        if(p.id === post.id)
-          return res.data;
-        return p
-      })
-      this.setState({posts, })
-    })
-  }
-
   adminButtons = (post) => (
     // TODO conditional render if auth
     <Button.Group>
       <Link to={`/post/${post.id}`}>
-      <Button primary>View</Button>
+        <Button primary>
+          View
+        </Button>
       </Link>
       <Button.Or />
       <Link to={`/blog/posts/${post.id}/edit`}>
-        <Button>Edit</Button>
-      </Link>x
-      {/* TODO onclick edit Post  */}
+        <Button>
+          Edit
+        </Button>
+      </Link>
       <Button.Or />
       <Button color="red" onClick={() => this.props.delete(post.id)}>
         Delete
@@ -64,7 +53,6 @@ class Posts extends React.Component {
   
   render() {
     const { posts } = this.props;
-    //this used to be this.props - changing it to state seemed to fix it
     return (
       <StyledDiv>
       <Link to={{pathname: '/blog/posts/new'}}>
@@ -72,7 +60,7 @@ class Posts extends React.Component {
       </Link>
       <br />
       <br />
-      {this.postCards(this.props.posts)}
+      {this.postCards(posts)}
       </StyledDiv>
     );
   }
