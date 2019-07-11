@@ -35,7 +35,7 @@ class Posts extends React.Component {
     <Card.Group itemsPerRow={4}>
       {posts.map(post => (
         <Card key={post.id}>
-          <Link to={{ pathname:`/post/${post.id}`}}>
+          <Link to={`/post/${post.id}`}>
             <Image src={post.image} />
           </Link>
           <Card.Content>
@@ -55,7 +55,7 @@ class Posts extends React.Component {
     const { posts } = this.props;
     return (
       <StyledDiv>
-      <Link to={{pathname: '/blog/posts/new'}}>
+      <Link to={'/blog/posts/new'}>
       <Button className='green'>New Post</Button>
       </Link>
       <br />

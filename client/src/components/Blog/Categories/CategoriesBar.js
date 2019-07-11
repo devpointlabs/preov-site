@@ -90,7 +90,6 @@ class CategoriesBar extends React.Component {
         delete={this.deletePost}
         posts = {this.state.posts}
       />
-      {/* {console.log(this.state)} */}
       </div>
     )
   }
