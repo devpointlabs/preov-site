@@ -55,9 +55,7 @@ class Posts extends React.Component {
     const { posts } = this.props;
     return (
       <StyledDiv>
-      <Link to={'/blog/posts/new'}>
-      <Button className='green'>New Post</Button>
-      </Link>
+
       <br />
       <br />
       {this.postCards(posts)}
