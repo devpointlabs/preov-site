@@ -14,27 +14,27 @@ class Post extends React.Component {
         this.setState({ post: res.data, editing: false });
     });
     axios.get("/api/posts").then(res => {
-      this.setState({ posts: res.data });
-    });
+          this.setState({ posts: res.data });
+        });
   }
   toggleEdit = () => {this.setState({editing: !this.state.editing})}
 
-  timeFormat = (props) => {
-    const newDate = new Date(props);
+  timeFormat = (updated_at) => {
+    const newDate = new Date(updated_at);
     return newDate.toDateString();
   };
 
-  renderPost = (title, body, image, created_at) => (
+  renderPost = (title, body, image, updated_at) => (
     <>
     <Image size='medium' src={image}></Image>
     <Header as="h2">{title}</Header>
-    Published {this.timeFormat(created_at)}
+    Published {this.timeFormat(updated_at)}
     <p>{body}</p>
     </>
   )
 
   render() {
-    const { id, title, body, image, created_at} = this.state.post;
+    const { id, title, body, image, updated_at} = this.state.post;
     // const {created_at} = this.state.post_categories
     return (
       <> 
@@ -42,7 +42,7 @@ class Post extends React.Component {
           this.state.editing ? 
           <PostForm />
           :
-          this.renderPost(title, body, image, created_at)
+          this.renderPost(title, body, image, updated_at)
         }
         
         { !this.state.editing ?
@@ -57,7 +57,7 @@ class Post extends React.Component {
         </Link>
         <hr />
         <Header as='h3'>Check out more of our posts</Header>
-        <Posts {...this.state} /> 
+        <Posts posts={this.state.posts}/> 
       </>
     );
   }

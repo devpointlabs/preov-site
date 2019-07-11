@@ -28,6 +28,14 @@ class CategoriesBar extends React.Component {
       .then( res => this.setState({ posts: res.data }));
   }
 
+  deletePost = (id) => {
+    axios.delete(`/api/posts/${id}`)
+    .then(res => {
+      const {posts} = this.state
+      this.setState({posts: posts.filter(post => post.id !== id)})
+    })
+  } 
+
   dropdownCatSelect = () => {
     const { categories } = this.state
     return (
@@ -70,18 +78,21 @@ class CategoriesBar extends React.Component {
         </Menu.Item>
         <Menu.Item>
           {/* TODO make this button available only when admin is logged in */}
-          <Button basic as={Link} to="/categories" color="blue">
+          <Button as={Link} to="/categories" color="blue" style={{marginRight: "5px"}}>
             Add/Edit Categories
           </Button>
+          <Link to={'/blog/posts/new'}>
+            <Button className='green'>New Post</Button>
+          </Link>
         </Menu.Item>
         <Menu.Menu position='right'>
           <Input icon='search' placeholder='Search...' />
         </Menu.Menu>
       </Menu>
       <Posts 
-        {...this.state}
+        delete={this.deletePost}
+        posts = {this.state.posts}
       />
-      {/* {console.log(this.state)} */}
       </div>
     )
   }
