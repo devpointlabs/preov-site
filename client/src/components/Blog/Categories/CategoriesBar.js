@@ -28,6 +28,14 @@ class CategoriesBar extends React.Component {
       .then( res => this.setState({ posts: res.data }));
   }
 
+  deletePost = (id) => {
+    axios.delete(`/api/posts/${id}`)
+    .then(res => {
+      const {posts} = this.state
+      this.setState({posts: posts.filter(post => post.id !== id)})
+    })
+  } 
+
   dropdownCatSelect = () => {
     const { categories } = this.state
     return (
@@ -79,6 +87,7 @@ class CategoriesBar extends React.Component {
         </Menu.Menu>
       </Menu>
       <Posts 
+        delete={this.deletePost}
         posts = {this.state.posts}
       />
       </div>

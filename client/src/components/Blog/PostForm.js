@@ -115,18 +115,16 @@ class PostForm extends React.Component {
     }else{
     axios.post(`/api/posts?title=${title}&body=${body}`, data)
       history.push('/blog')
-      // this.setState({title: "", body: "", image: ""})
+      this.setState({title: "", body: "", image: ""})
     }
   }
 
   render() {
     return (
       <StyledContainer>
-
       <Form onSubmit={this.handleSubmit}>
-        <Header>{this.props.match.params.id ? "Edit" : "New"}</Header>
-        {/* render the current image */}
-        <img src={this.state.image} alt="" style={{ height: "300px", width: "300px"}} />
+        <Header>{this.props.match.params.id ? "Edit This Post" : "Create New Post"}</Header>
+        <StyledImg src={this.state.image} alt={this.state.image.name} />
         <ImageUploader
           withPreview={true}
           withIcon={true}
@@ -154,10 +152,10 @@ class PostForm extends React.Component {
           required
           />
         <Form.Group inline>
-          <label>Categories</label>
+          <h3 style={{ marginRight:"1.4em"}}><label>Categories:</label></h3>
           {this.categoryCheckboxes()}
         </Form.Group>
-        <Form.Button primary>Post</Form.Button>
+        <Form.Button primary>{this.props.match.params.id ? "Update Post" : "Post"}</Form.Button>
         <Link to={{ pathname: "/blog" }}>
           <Form.Button>Cancel</Form.Button>
         </Link>
@@ -166,6 +164,14 @@ class PostForm extends React.Component {
     );
   }
 }
+
+const StyledImg = styled.img`
+display: block;
+margin: 0 auto;
+height: 300px;
+width: 300px;
+border: 1px dotted grey;
+`
 const StyledContainer = styled(Container)`
   background-color: white;
   padding: 1.3em !important;

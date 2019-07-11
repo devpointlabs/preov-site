@@ -5,14 +5,6 @@ import { Card, Image, Button } from "semantic-ui-react";
 import styled from 'styled-components'
 
 class Posts extends React.Component {
-  state = { posts: [] };
-
-  componentDidMount() {
-    axios.get("/api/posts").then(res => {
-      this.setState({ posts: res.data });
-    });
-  }
-
   timeFormat = (props) => {
     const newDate = new Date(props);
     return newDate.toDateString();
@@ -22,7 +14,7 @@ class Posts extends React.Component {
     debugger
     axios.put(`/api/posts/${post.id}`, post)
     .then(res => {
-      const posts = this.state.posts.map(p => {
+      const posts = this.props.posts.map(p => {
         if(p.id === post.id)
           return res.data;
         return p
@@ -30,14 +22,6 @@ class Posts extends React.Component {
       this.setState({posts, })
     })
   }
-
-  deletePost = (id) => {
-    axios.delete(`/api/posts/${id}`)
-    .then(res => {
-      const {posts} = this.state
-      this.setState({posts: posts.filter(post => post.id !== id)})
-    })
-  } 
 
   adminButtons = (post) => (
     // TODO conditional render if auth
@@ -51,7 +35,7 @@ class Posts extends React.Component {
       </Link>x
       {/* TODO onclick edit Post  */}
       <Button.Or />
-      <Button color="red" onClick={() => this.deletePost(post.id)}>
+      <Button color="red" onClick={() => this.props.delete(post.id)}>
         Delete
       </Button>
     </Button.Group>
@@ -67,7 +51,7 @@ class Posts extends React.Component {
           <Card.Content>
             <Card.Header>{post.title}</Card.Header>
             <Card.Meta>
-              Published {this.timeFormat(post.created_at)}
+              Published {this.timeFormat(post.updated_at)}
             </Card.Meta>
           </Card.Content>
           <Card.Content extra>{this.adminButtons(post)}</Card.Content>
@@ -75,9 +59,9 @@ class Posts extends React.Component {
         ))}
       </Card.Group>
   )
-
+  
   render() {
-    const { posts } = this.state;
+    const { posts } = this.props;
     //this used to be this.props - changing it to state seemed to fix it
     return (
       <StyledDiv>
