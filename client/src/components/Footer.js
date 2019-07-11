@@ -25,6 +25,9 @@ class Footer extends React.Component {
                 <Link to="/blogs">
                   <Menu.Item>Blog</Menu.Item>
                 </Link>
+                <Link to="/contactus">
+                  <Menu.Item>Contact</Menu.Item>
+                </Link>
               </Menu>
             </Grid.Column>
 
