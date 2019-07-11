@@ -6,12 +6,15 @@ import Posts from './Posts'
 import PostForm from './PostForm'
 
 class Post extends React.Component {
-  state = { post: {}, editing: false };
+  state = { posts: [], post: {}, editing: false };
 
   componentDidMount() {
     axios.get(`/api/posts/${this.props.match.params.id}`)
       .then(res => {
         this.setState({ post: res.data, editing: false });
+    });
+    axios.get("/api/posts").then(res => {
+      this.setState({ posts: res.data });
     });
   }
   toggleEdit = () => {this.setState({editing: !this.state.editing})}
@@ -54,7 +57,7 @@ class Post extends React.Component {
         </Link>
         <hr />
         <Header as='h3'>Check out more of our posts</Header>
-        <Posts /> 
+        <Posts {...this.state} /> 
       </>
     );
   }
