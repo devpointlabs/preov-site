@@ -5,7 +5,7 @@ import { Card, Image, Button } from "semantic-ui-react";
 import styled from 'styled-components'
 
 class Posts extends React.Component {
-  state = { posts: [] };
+  state = { posts: []} ;
 
   componentDidMount() {
     axios.get("/api/posts").then(res => {
@@ -58,6 +58,8 @@ class Posts extends React.Component {
   );
 
   postCards = (posts) => (
+    <>
+    {console.log(posts)}
     <Card.Group itemsPerRow={4}>
       {posts.map(post => (
         <Card key={post.id}>
@@ -74,19 +76,23 @@ class Posts extends React.Component {
         </Card>
         ))}
       </Card.Group>
+      </>
   )
 
   render() {
-    const { posts } = this.state;
+    const posts = this.state.posts;
+    
     //this used to be this.props - changing it to state seemed to fix it
     return (
       <StyledDiv>
+        {/* {console.log(this.state.posts)}
+        {console.log(this.props.posts)} */}
       <Link to={{pathname: '/blog/posts/new'}}>
       <Button className='green'>New Post</Button>
       </Link>
       <br />
       <br />
-      {this.postCards(posts)}
+      {this.postCards(this.props.posts)}
       </StyledDiv>
     );
   }

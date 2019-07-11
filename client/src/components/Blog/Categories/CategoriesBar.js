@@ -79,8 +79,9 @@ class CategoriesBar extends React.Component {
         </Menu.Menu>
       </Menu>
       <Posts 
-        posts = {this.state.posts}
+        {...this.state}
       />
+      {/* {console.log(this.state)} */}
       </div>
     )
   }
