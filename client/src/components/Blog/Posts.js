@@ -5,13 +5,13 @@ import { Card, Image, Button } from "semantic-ui-react";
 import styled from 'styled-components'
 
 class Posts extends React.Component {
-  state = { posts: []} ;
+  // state = { posts: []} ;
 
-  componentDidMount() {
-    axios.get("/api/posts").then(res => {
-      this.setState({ posts: res.data });
-    });
-  }
+  // componentDidMount() {
+  //   axios.get("/api/posts").then(res => {
+  //     this.setState({ posts: res.data });
+  //   });
+  // }
 
   timeFormat = (props) => {
     const newDate = new Date(props);
@@ -34,7 +34,7 @@ class Posts extends React.Component {
   deletePost = (id) => {
     axios.delete(`/api/posts/${id}`)
     .then(res => {
-      const {posts} = this.state
+      const posts = this.props.posts
       this.setState({posts: posts.filter(post => post.id !== id)})
     })
   } 
@@ -59,7 +59,6 @@ class Posts extends React.Component {
 
   postCards = (posts) => (
     <>
-    {console.log(posts)}
     <Card.Group itemsPerRow={4}>
       {posts.map(post => (
         <Card key={post.id}>
@@ -80,7 +79,7 @@ class Posts extends React.Component {
   )
 
   render() {
-    const posts = this.state.posts;
+    // const posts = this.state.posts;
     
     //this used to be this.props - changing it to state seemed to fix it
     return (
