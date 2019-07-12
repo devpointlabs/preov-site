@@ -33,6 +33,15 @@ class Post extends React.Component {
     </>
   )
 
+  deletePost = (id) => {
+    axios.delete(`/api/posts/${id}`)
+    .then(res => {
+      const {history} = this.props
+      history.push('/blog')
+    })
+    .catch( "err" )
+  }
+
   render() {
     const { id, title, body, image, updated_at} = this.state.post;
     // const {created_at} = this.state.post_categories
@@ -47,11 +56,14 @@ class Post extends React.Component {
         
         { !this.state.editing ?
         <Link to={`/blog/posts/${id}/edit`}>
-        <Button onClick={this.toggleEdit}>Edit</Button>
+          <Button color="blue" onClick={this.toggleEdit}>Edit</Button>
         </Link>
           :
           null
         }
+        <Button color="pink" onClick={() => this.deletePost(id)}>
+          Delete
+        </Button>
         <Link to={{pathname: '/blog'}}>
           <Button>Back</Button>
         </Link>
