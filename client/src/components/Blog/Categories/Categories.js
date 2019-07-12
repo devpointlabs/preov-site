@@ -4,6 +4,7 @@ import CategoryForm from "./CategoryForm"
 import CategoriesList from "./CategoriesList"
 import { Container, Header, Button } from "semantic-ui-react"
 import { Link, } from 'react-router-dom'
+import styled from 'styled-components'
 
 class Categories extends React.Component {
   state = { categories: [], };
@@ -48,12 +49,7 @@ class Categories extends React.Component {
 
   render() {
     return (
-      <Container style={{ padding: "30px 0", }}>
-        <Link to="/blog">
-          <Button basic floated= "right" color="blue">Go Back</Button>
-        </Link>
-        <Header as='h1' textAlign='center'>Categories</Header>
-        <hr />
+      <StyledContainer>
         <br />
         <CategoryForm addCategory={this.addCategory} />
         <br />
@@ -63,9 +59,14 @@ class Categories extends React.Component {
           editCategory={this.editCategory}
           deleteCategory={this.deleteCategory}
         />
-      </Container>
+      </StyledContainer>
     )
   }
 }
+
+const StyledContainer = styled(Container)`
+  background-color: white;
+  padding: 1em 10em !important;
+`
 
 export default Categories;

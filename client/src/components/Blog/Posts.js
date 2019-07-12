@@ -13,14 +13,14 @@ class Posts extends React.Component {
     // TODO conditional render if auth
     <Button.Group>
       <Link to={`/blog/posts/${post.id}/edit`}>
-        <Button color="blue">
+        <BlueButton>
           Edit
-        </Button>
+        </BlueButton>
       </Link>
       <Button.Or />
-      <Button color="pink" onClick={() => this.props.delete(post.id)}>
+      <PinkButton onClick={() => this.props.delete(post.id)}>
         Delete
-      </Button>
+      </PinkButton>
     </Button.Group>
   );
 
@@ -54,6 +54,15 @@ class Posts extends React.Component {
     );
   }
 }
+const PinkButton = styled(Button)`
+  background-color: #f4b4b4 !important;
+  color: #fff !important;
+`
+const BlueButton = styled(Button)`
+  background-color: #a5d4ef !important;
+  color: #fff !important;
+`
+
 const StyledDiv = styled.div`
   margin: 1em;
 `
