@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { Link, } from 'react-router-dom'
-import {Header, Image, Button} from 'semantic-ui-react'
+import {Header, Image, Button, Container} from 'semantic-ui-react'
 import Posts from './Posts'
 import PostForm from './PostForm'
 import styled from 'styled-components'
@@ -26,12 +26,12 @@ class Post extends React.Component {
   };
 
   renderPost = (title, body, image, updated_at) => (
-    <>
+    <StyledContainer>
     <Image size='medium' src={image}></Image>
     <Header as="h2">{title}</Header>
     Published {this.timeFormat(updated_at)}
     <p>{body}</p>
-    </>
+    </StyledContainer>
   )
 
   deletePost = (id) => {
@@ -73,6 +73,9 @@ class Post extends React.Component {
     );
   }
 }
+const StyledContainer = styled(Container)`
+  padding: 5em 6em;
+`
 
 const PinkButton = styled(Button)`
   background-color: #f4b4b4 !important;
