@@ -30,7 +30,18 @@ class Posts extends React.Component {
       {posts.map(post => (
         <Card key={post.id}>
           <Link to={`/post/${post.id}`}>
-            <Image src={post.image} style={{ height: "200px", width: "500px" }}/>
+          { this.props.swap ?
+            <Image 
+              src={post.image} 
+              style={{ height: "200px", width: "500px" }} 
+              onClick={() => this.props.swap(post.id)}
+            />
+            :
+            <Image 
+              src={post.image} 
+              style={{ height: "200px", width: "500px" }}
+            />
+          } 
           </Link>
           <Card.Content>
             <Card.Header>{post.title}</Card.Header>
