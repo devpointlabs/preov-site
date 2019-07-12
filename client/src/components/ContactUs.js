@@ -34,25 +34,25 @@ export default function ContactUs(){
   return  (
       <>
     <StyledLeftDiv>
-    <table class="ui table">
+    <table className="ui table">
   <tbody>
     <tr>
-      <td class="collapsing">
-        <i class="phone icon"></i> phone
+      <td className="collapsing">
+        <i className="phone icon"></i> phone
       </td>
       <td>00000-0000-000000</td>
   
     </tr>
     <tr>
       <td>
-        <i class="home icon"></i>location
+        <i className="home icon"></i>location
       </td>
       <td>addressssssssssss</td>
   
     </tr>
     <tr>
       <td>
-        <i class="computer icon"></i> email
+        <i className="computer icon"></i> email
       </td>
       <td>faker fake fake</td>
   
