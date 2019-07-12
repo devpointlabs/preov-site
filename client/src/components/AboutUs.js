@@ -17,7 +17,7 @@ const AboutUs = () => {
       </StyledHeader>
     <div>
        <p>
-        PreOv is a female-led comapny focused on empowering women and couples in all
+        PreOv is a female-led company focused on empowering women and couples in all
         stages of life.
       </p>
       <p> The idea for PreOv was conceived one late evening in Sugar House Coffee,
@@ -26,16 +26,16 @@ const AboutUs = () => {
       </p>
       <p>
         We began with the
-        <a target="_blank" href="https://uofuhealth.utah.edu/center-for-medical-innovation/bench-2-bedside/" style={{ margin: '.5em'}}>
+        <a target="_blank" href="https://uofuhealth.utah.edu/center-for-medical-innovation/bench-2-bedside/" style={{ margin: '.2em'}}>
             University of Utah Bench to Bedside Program 
           </a>
         where we won the 2018 Grand Prize.
         In January of 2019, we won the 
-        <a target="_blank" href="https://lassonde.utah.edu/oq" style={{ margin: '.5em'}}>
+        <a target="_blank" href="https://lassonde.utah.edu/oq" style={{ margin: '.2em'}}>
         University of Utah Opportunity Quest Grand Prize.
         </a>
         In April 2019, we won the 
-        <a target="_blank" href="https://www.preovring.com/post/preov-wins-the-fred-lampropoulos-innovation-award-at-bench-to-bedside" style={{ margin: '.5em'}}>
+        <a target="_blank" href="https://www.preovring.com/post/preov-wins-the-fred-lampropoulos-innovation-award-at-bench-to-bedside" style={{ margin: '.2em'}}>
         Fred Lampropoulos Innovation Award
         </a>
         at the 2019 University of Utah Bench to Bedside program.
@@ -67,14 +67,29 @@ const AboutUs = () => {
         </p>
         <p>
         <h5>June Chen</h5> Co-Founder and Active Advisor and member of the founding team with a dual background in medicine and English.  
-        She is a current Managing Partner at Mountain Pacific Venture Fund, Managing Partner at LDD Partners, and Co-Founder of Church 
-        & State.  She has extensive experience in business development, strategic communications and angel investing for start-ups and 
+        She is a current Managing Partner at Mountain Pacific Venture Fund, Managing Partner at 
+        < a target="_blank" href="https://ldd.com/" style={{ margin: '.2em'}}>
+          LDD Partners
+        </a>
+        , and Co-Founder of 
+        < a target="_blank" href="https://www.cs1893.com/" style={{ margin: '.2em'}}>
+          Church & State
+        </a>
+        .  She has extensive experience in business development, strategic communications and angel investing for start-ups and 
         established companies, including life sciences, finance, technology and consumer healthcare.      
         </p>
         <p>
         <h5>Ron Heffernan</h5> Co-Founder and Active Advisor and member of the founding team with extensive experience in executive leadership, 
         sales, strategy, finance and capital raising.  He is a current Managing Partner at Mountain Pacific Venture Partners, Managing 
-        Partner of LDD Partners, and Co-Founder of Church & State. He has been a CEO of multiple technology and medical device companies 
+        Partner of 
+        < a target="_blank" href="https://ldd.com/" style={{ margin: '.2em'}}>
+          LDD Partners
+        </a>
+        , and Co-Founder of 
+        < a target="_blank" href="https://www.cs1893.com/" style={{ margin: '.2em'}}>
+          Church & State
+        </a>
+        . He has been a CEO of multiple technology and medical device companies 
         and is a serial entrepreneur and angel investor.   
         </p>
     </div>
