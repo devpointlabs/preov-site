@@ -12,19 +12,19 @@ class Posts extends React.Component {
   adminButtons = (post) => (
     // TODO conditional render if auth
     <Button.Group>
-      <Link to={`/post/${post.id}`}>
+      {/* <Link to={`/post/${post.id}`}>
         <Button primary>
           View
         </Button>
-      </Link>
-      <Button.Or />
+      </Link> */}
+      {/* <Button.Or /> */}
       <Link to={`/blog/posts/${post.id}/edit`}>
-        <Button>
+        <Button color="blue">
           Edit
         </Button>
       </Link>
       <Button.Or />
-      <Button color="red" onClick={() => this.props.delete(post.id)}>
+      <Button color="pink" onClick={() => this.props.delete(post.id)}>
         Delete
       </Button>
     </Button.Group>
