@@ -52,6 +52,7 @@ class Post extends React.Component {
           :
           null
         }
+        <Button>Delete</Button>
         <Link to={{pathname: '/blog'}}>
           <Button>Back</Button>
         </Link>

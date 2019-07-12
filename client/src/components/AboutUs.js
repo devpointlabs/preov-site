@@ -1,58 +1,59 @@
 // Origin story <div>
 // MEET THE TEAM grid
 
-import React from 'react'
-import { Container, Header, Segment, } from "semantic-ui-react";
-import styled from 'styled-components'
-import { Link, } from 'react-router-dom';
-
+import React from "react";
+import { Container, Header, Segment, Image } from "semantic-ui-react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import owners from "../Images/owners.png";
 
 const AboutUs = () => {
-
-
-
-return (
-  <>
-  <StyledContainer text>
+  return (
+      <StyledContainer text>
         <StyledSeg>
-          <StyledHeader>
-        About Us
-      </StyledHeader>
-    <div>
-       <p>
-        PreOv is a female-led comapny focused on empowering women and couples in all
-        stages of life.
-      </p>
-      <p> The idea for PreOv was conceived one late evening in Sugar House Coffee,
-        over hot tea, cookies, and a shared passion for helping women better
-        understand their bodies without the guesswork and hassle of daily testing.
-      </p>
-      <p>
-        We began with the
-        <Link to='https://uofuhealth.utah.edu/center-for-medical-innovation/bench-2-bedside/' style={{ margin: '.5em'}}>
-            University of Utah Bench to Bedside Program 
-        </Link>
-        where we won the 2018 Grand Prize.
-        In January of 2019, we won the 
-        <Link to='https://uofuhealth.utah.edu/center-for-medical-innovation/bench-2-bedside/' style={{ margin: '.5em'}}>
-        University of Utah Opportunity Quest Grand Prize.
-        </Link>
-        In April 2019, we won the 
-        <Link to='https://uofuhealth.utah.edu/center-for-medical-innovation/bench-2-bedside/' style={{ margin: '.5em'}}>
-        Fred Lampropoulos Innovation Award
-        </Link>
-        at the 2019 University of Utah Bench to Bedside program.
-        We have also been busy with product development.  Check back soon for updates.
-      </p>
-
-    </div>
-    </StyledSeg>
-  </StyledContainer>
-  </>
-)
+          <StyledHeader>About Us</StyledHeader>
+            <Image src={owners} />
+            <p>
+              PreOv is a female-led comapny focused on empowering women and
+              couples in all stages of life.
+            </p>
+            <p>
+              {" "}
+              The idea for PreOv was conceived one late evening in Sugar House
+              Coffee, over hot tea, cookies, and a shared passion for helping
+              women better understand their bodies without the guesswork and
+              hassle of daily testing.
+            </p>
+            <p>
+              We began with the
+              <Link
+                to="https://uofuhealth.utah.edu/center-for-medical-innovation/bench-2-bedside/"
+                style={{ margin: ".5em" }}
+              >
+                University of Utah Bench to Bedside Program
+              </Link>
+              where we won the 2018 Grand Prize. In January of 2019, we won the
+              <Link
+                to="https://uofuhealth.utah.edu/center-for-medical-innovation/bench-2-bedside/"
+                style={{ margin: ".5em" }}
+              >
+                University of Utah Opportunity Quest Grand Prize.
+              </Link>
+              In April 2019, we won the
+              <Link
+                to="https://uofuhealth.utah.edu/center-for-medical-innovation/bench-2-bedside/"
+                style={{ margin: ".5em" }}
+              >
+                Fred Lampropoulos Innovation Award
+              </Link>
+              at the 2019 University of Utah Bench to Bedside program. We have
+              also been busy with product development. Check back soon for
+              updates.
+            </p>
+        </StyledSeg>
+      </StyledContainer>
+  );
 };
-
-
 
 const StyledContainer = styled(Container)`
   display: table;
@@ -69,7 +70,7 @@ const StyledSeg = styled(Segment)`
   `
 
 const StyledHeader = styled(Header)`
-display: table-cell;
+  display: table-cell;
   vertical-align: middle;
   color: #5d6870 !important;
   font-size: 3em !important;
@@ -82,16 +83,5 @@ display: table-cell;
     text-align: center;
   }
 `;
-const StyledLink = styled(Link) `
-  text-decoration: none;
-  color: #5d6870;
-  font-weight: 400;
-  font-size: 1.4em;
-  transition: background 0.4s ease;
-  padding: .75em 1em;
-
-  @media(max-width: 602px){
-    font-size: .9em !important;
-  }`
 
 export default AboutUs;

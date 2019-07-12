@@ -12,12 +12,6 @@ class Posts extends React.Component {
   adminButtons = (post) => (
     // TODO conditional render if auth
     <Button.Group>
-      {/* <Link to={`/post/${post.id}`}>
-        <Button primary>
-          View
-        </Button>
-      </Link> */}
-      {/* <Button.Or /> */}
       <Link to={`/blog/posts/${post.id}/edit`}>
         <Button color="blue">
           Edit
