@@ -121,7 +121,6 @@ const AboutUs = () => {
         . He has been a CEO of multiple technology and medical device companies 
         and is a serial entrepreneur and angel investor.   
         </p>
-            </p>
           </div>
         </StyledSeg>
       </StyledContainer>
