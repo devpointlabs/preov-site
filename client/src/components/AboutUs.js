@@ -15,7 +15,7 @@ return (
   <>
   <StyledContainer text>
         <StyledSeg>
-          <StyledHeader>
+          <StyledHeader align='center'>
         About Us
       </StyledHeader>
     <div>
@@ -29,18 +29,18 @@ return (
       </p>
       <p>
         We began with the
-        <Link to='https://uofuhealth.utah.edu/center-for-medical-innovation/bench-2-bedside/' style={{ margin: '.5em'}}>
+        <a target="_blank" href="https://uofuhealth.utah.edu/center-for-medical-innovation/bench-2-bedside/" style={{ margin: '.5em'}}>
             University of Utah Bench to Bedside Program 
-        </Link>
+          </a>
         where we won the 2018 Grand Prize.
         In January of 2019, we won the 
-        <Link to='https://uofuhealth.utah.edu/center-for-medical-innovation/bench-2-bedside/' style={{ margin: '.5em'}}>
+        <a target="_blank" href="https://lassonde.utah.edu/oq" style={{ margin: '.5em'}}>
         University of Utah Opportunity Quest Grand Prize.
-        </Link>
+        </a>
         In April 2019, we won the 
-        <Link to='https://uofuhealth.utah.edu/center-for-medical-innovation/bench-2-bedside/' style={{ margin: '.5em'}}>
+        <a target="_blank" href="https://www.preovring.com/post/preov-wins-the-fred-lampropoulos-innovation-award-at-bench-to-bedside" style={{ margin: '.5em'}}>
         Fred Lampropoulos Innovation Award
-        </Link>
+        </a>
         at the 2019 University of Utah Bench to Bedside program.
         We have also been busy with product development.  Check back soon for updates.
       </p>
@@ -69,7 +69,6 @@ const StyledSeg = styled(Segment)`
   `
 
 const StyledHeader = styled(Header)`
-display: table-cell;
   vertical-align: middle;
   color: #5d6870 !important;
   font-size: 3em !important;

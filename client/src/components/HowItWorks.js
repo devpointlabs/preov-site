@@ -56,7 +56,6 @@ const StyledSeg = styled(Segment)`
   `
 
 const StyledHeader = styled(Header)`
-display: table-cell;
   vertical-align: middle;
   color: #5d6870 !important;
   font-size: 3em !important;
