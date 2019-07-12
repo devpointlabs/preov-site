@@ -2,8 +2,7 @@ import React from "react"
 import axios from "axios"
 import CategoryForm from "./CategoryForm"
 import CategoriesList from "./CategoriesList"
-import { Container, Header, Button } from "semantic-ui-react"
-import { Link, } from 'react-router-dom'
+import { Container,  } from "semantic-ui-react"
 import styled from 'styled-components'
 
 class Categories extends React.Component {
