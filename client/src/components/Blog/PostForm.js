@@ -114,7 +114,10 @@ class PostForm extends React.Component {
       })
     }else{
     axios.post(`/api/posts?title=${title}&body=${body}`, data)
-      history.push('/blog')
+      .then( res => {
+        const {history } = this.props
+        history.push('/blog')
+      })
       this.setState({title: "", body: "", image: ""})
     }
   }
