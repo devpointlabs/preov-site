@@ -94,7 +94,6 @@ class PostForm extends React.Component {
   };
 
   handleSubmit = (e) => {
-    const {history } = this.props
     e.preventDefault();
     const { post_categories, title, body, image, } = this.state
     let data = new FormData()
@@ -117,6 +116,9 @@ class PostForm extends React.Component {
       .then( res => {
         const {history } = this.props
         history.push('/blog')
+      })
+      .catch(err => {
+        console.log("error")
       })
       this.setState({title: "", body: "", image: ""})
     }
