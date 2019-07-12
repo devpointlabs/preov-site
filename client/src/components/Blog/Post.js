@@ -34,6 +34,15 @@ class Post extends React.Component {
     </>
   )
 
+  deletePost = (id) => {
+    axios.delete(`/api/posts/${id}`)
+    .then(res => {
+      const {history} = this.props
+      history.push('/blog')
+    })
+    .catch( "err" )
+  }
+
   render() {
     const { id, title, body, image, updated_at} = this.state.post;
     // const {created_at} = this.state.post_categories

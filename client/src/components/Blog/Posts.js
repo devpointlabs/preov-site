@@ -26,11 +26,11 @@ class Posts extends React.Component {
 
   postCards = (posts) => (
     <>
-    <Card.Group itemsPerRow={4}>
+    <Card.Group centered mobile={16} tablet={8} computer={4}>
       {posts.map(post => (
         <Card key={post.id}>
           <Link to={`/post/${post.id}`}>
-            <Image src={post.image} style={{ height: "250px", width: "400px" }}/>
+            <Image src={post.image} style={{ height: "200px", width: "500px" }}/>
           </Link>
           <Card.Content>
             <Card.Header>{post.title}</Card.Header>
