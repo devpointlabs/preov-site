@@ -94,7 +94,6 @@ class PostForm extends React.Component {
   };
 
   handleSubmit = (e) => {
-    const {history } = this.props
     e.preventDefault();
     const { post_categories, title, body, image, } = this.state
     let data = new FormData()

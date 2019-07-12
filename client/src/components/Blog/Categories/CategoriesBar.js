@@ -68,31 +68,33 @@ class CategoriesBar extends React.Component {
     return (
       <div>
         <Menu borderless secondary style={{margin: "1em"}}>
-        <Menu.Item
-          name="All Posts"
-          onClick={this.handleAllPosts}
-          >
-        </Menu.Item>
-        <Menu.Item>
-          {this.dropdownCatSelect()}
-        </Menu.Item>
-        <Menu.Item>
-          {/* TODO make this button available only when admin is logged in */}
-          <Button as={Link} to="/categories" color="blue" style={{marginRight: "5px"}}>
-            Add/Edit Categories
-          </Button>
-          <Link to={'/blog/posts/new'}>
-            <Button className='teal'>New Post</Button>
-          </Link>
-        </Menu.Item>
-        <Menu.Menu position='right'>
-          <Input icon='search' placeholder='Search...' />
-        </Menu.Menu>
-      </Menu>
-      <Posts 
-        delete={this.deletePost}
-        posts = {this.state.posts}
-      />
+          <Menu.Item
+            name="All Posts"
+            onClick={this.handleAllPosts}
+            >
+          </Menu.Item>
+          <Menu.Item>
+            {this.dropdownCatSelect()}
+          </Menu.Item>
+          <Menu.Item>
+            {/* TODO make this button available only when admin is logged in */}
+            <Button as={Link} to="/categories" color="blue" style={{marginRight: "5px"}}>
+              Add/Edit Categories
+            </Button>
+          </Menu.Item>
+          <Menu.Item>
+            <Link to={'/blog/posts/new'}>
+              <Button className='teal'>New Post</Button>
+            </Link>
+          </Menu.Item>
+          <Menu.Menu position='right'>
+            <Input icon='search' placeholder='Search...' />
+          </Menu.Menu>
+        </Menu>
+        <Posts 
+          delete={this.deletePost}
+          posts = {this.state.posts}
+        />
       </div>
     )
   }
