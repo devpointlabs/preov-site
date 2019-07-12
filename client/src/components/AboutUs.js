@@ -1,19 +1,16 @@
 // Origin story <div>
 // MEET THE TEAM grid
 
-import React from 'react'
-import { Container, Header, Segment, } from "semantic-ui-react";
-import styled from 'styled-components'
-import { Link, } from 'react-router-dom';
-
+import React from "react";
+import { Container, Header, Segment, Image } from "semantic-ui-react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import owners from "../Images/owners.png";
 
 const AboutUs = () => {
-
-
-
-return (
-  <>
-  <StyledContainer text>
+  return (
+    <>
+      <StyledContainer text>
         <StyledSeg>
           <StyledHeader align='center'>
         About Us
@@ -87,12 +84,10 @@ return (
 )
 };
 
-
-
 const StyledContainer = styled(Container)`
   display: table;
   height: 100% !important;
-`
+`;
 
 const StyledSeg = styled(Segment)`
   border-radius: 0px !important;
@@ -101,13 +96,13 @@ const StyledSeg = styled(Segment)`
   padding: 2.4em !important;
   font-size: 1em !important;
   box-shadow: none !important;
-  `
+  margin: 0 auto !important;
+`;
 
 const StyledHeader = styled(Header)`
   vertical-align: middle;
   color: #5d6870 !important;
   font-size: 3em !important;
-  margin: 1em !important;
   padding-bottom: 1em !important;
   text-align: center;
 
@@ -116,16 +111,10 @@ const StyledHeader = styled(Header)`
     text-align: center;
   }
 `;
-const StyledLink = styled(Link) `
-  text-decoration: none;
-  color: #5d6870;
-  font-weight: 400;
-  font-size: 1.4em;
-  transition: background 0.4s ease;
-  padding: .75em 1em;
 
-  @media(max-width: 602px){
-    font-size: .9em !important;
-  }`
+const StyledImage = styled(Image)`
+  border-radius: 7px;
+  margin-bottom: 2.5em !important;
+`
 
 export default AboutUs;

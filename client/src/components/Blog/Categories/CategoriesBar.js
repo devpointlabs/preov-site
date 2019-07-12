@@ -1,47 +1,47 @@
-import React from "react"
-import axios from "axios"
-import { Link, } from "react-router-dom"
-import { Button, Menu, Dropdown, Input, } from "semantic-ui-react"
-import Posts from "../Posts"
+import React from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import { Button, Menu, Dropdown, Input } from "semantic-ui-react";
+import Posts from "../Posts";
+import styled from "styled-components";
 
 class CategoriesBar extends React.Component {
-  state = { categories: [], posts: []}
+  state = { categories: [], posts: [] };
 
-  componentDidMount(){
-    axios.get('/api/categories')
-    .then( res => {
-      this.setState({ categories: res.data, });
+  componentDidMount() {
+    axios.get("/api/categories").then(res => {
+      this.setState({ categories: res.data });
     });
     axios.get("/api/posts").then(res => {
       this.setState({ posts: res.data });
     });
   }
-  
+
   handleAllPosts = () => {
     axios.get("/api/posts").then(res => {
       this.setState({ posts: res.data });
     });
-  }
-  
-  handleCatPosts = (e, {value}) => {
-    axios.get(`/api/filter_category/${value}`)
-      .then( res => this.setState({ posts: res.data }));
-  }
+  };
 
-  deletePost = (id) => {
-    axios.delete(`/api/posts/${id}`)
-    .then(res => {
-      const {posts} = this.state
-      this.setState({posts: posts.filter(post => post.id !== id)})
-    })
-  } 
+  handleCatPosts = (e, { value }) => {
+    axios
+      .get(`/api/filter_category/${value}`)
+      .then(res => this.setState({ posts: res.data }));
+  };
+
+  deletePost = id => {
+    axios.delete(`/api/posts/${id}`).then(res => {
+      const { posts } = this.state;
+      this.setState({ posts: posts.filter(post => post.id !== id) });
+    });
+  };
 
   dropdownCatSelect = () => {
-    const { categories } = this.state
+    const { categories } = this.state;
     return (
-      <Dropdown 
-        text="Filter by Category" 
-        icon="filter" 
+      <Dropdown
+        text="Filter by Category"
+        icon="filter"
         floating
         labeled
         button
@@ -51,7 +51,7 @@ class CategoriesBar extends React.Component {
           {/* <Dropdown.Header content="Categories" /> */}
           <Dropdown.Menu scrolling>
             {categories.map(cat => (
-              <Dropdown.Item 
+              <Dropdown.Item
                 key={cat.id}
                 text={cat.label}
                 value={cat.id}
@@ -61,40 +61,43 @@ class CategoriesBar extends React.Component {
           </Dropdown.Menu>
         </Dropdown.Menu>
       </Dropdown>
-    )
-  }
+    );
+  };
 
   render() {
     return (
       <div>
-        <Menu borderless secondary style={{margin: "1em"}}>
-        <Menu.Item
-          name="All Posts"
-          onClick={this.handleAllPosts}
-          >
-        </Menu.Item>
-        <Menu.Item>
-          {this.dropdownCatSelect()}
-        </Menu.Item>
-        <Menu.Item>
-          {/* TODO make this button available only when admin is logged in */}
-          <Button as={Link} to="/categories" color="blue" style={{marginRight: "5px"}}>
-            Add/Edit Categories
-          </Button>
-          <Link to={'/blog/posts/new'}>
-            <Button className='teal'>New Post</Button>
-          </Link>
-        </Menu.Item>
-        <Menu.Menu position='right'>
-          <Input icon='search' placeholder='Search...' />
-        </Menu.Menu>
-      </Menu>
-      <Posts 
-        delete={this.deletePost}
-        posts = {this.state.posts}
-      />
+        <Menu borderless secondary style={{ margin: "1em" }}>
+          <Menu.Item name="All Posts" onClick={this.handleAllPosts} />
+          <Menu.Item>{this.dropdownCatSelect()}</Menu.Item>
+          <Menu.Item>
+            {/* TODO make this button available only when admin is logged in */}
+            <Link to={"/categories"}>
+              <BlueButton>Add/Edit Categories</BlueButton>
+            </Link>
+          </Menu.Item>
+          <Menu.Item>
+            <Link to={"/blog/posts/new"}>
+              <GreenButton>New Post</GreenButton>
+            </Link>
+          </Menu.Item>
+          <Menu.Menu position="right">
+            <Input icon="search" placeholder="Search..." />
+          </Menu.Menu>
+        </Menu>
+        <Posts delete={this.deletePost} posts={this.state.posts} />
       </div>
-    )
+    );
   }
 }
+const BlueButton = styled(Button)`
+  background-color: #a5d4ef !important;
+  color: #fff !important;
+  margin-right: 5px;
+`;
+const GreenButton = styled(Button)`
+  background-color: #35e0bb !important;
+  color: #fff !important;
+  margin-right: 5px;
+`;
 export default CategoriesBar;

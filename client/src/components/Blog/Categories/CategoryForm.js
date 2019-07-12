@@ -1,48 +1,66 @@
-import React from "react"
-import { Header, Form, } from "semantic-ui-react"
+import React from "react";
+import styled from "styled-components";
+import { Header, Form, Button, Grid, Container } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 
 class CategoryForm extends React.Component {
-  state = { label: "", };
+  state = { label: "" };
 
   componentDidMount() {
     if (this.props.id) {
-      this.setState({ label: this.props.label })
+      this.setState({ label: this.props.label });
     }
   }
 
-  handleChange = (e) => {
-    this.setState({ label: e.target.value, })
-  }
+  handleChange = e => {
+    this.setState({ label: e.target.value });
+  };
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
     if (this.props.id) {
-      this.props.editCategory({ id: this.props.id, ...this.state, });
+      this.props.editCategory({ id: this.props.id, ...this.state });
       this.props.toggleEdit();
     } else {
       this.props.addCategory(this.state.label);
     }
-    this.setState({ label: "", })
-  }
+    this.setState({ label: "" });
+  };
 
   render() {
     return (
-      <Form onSubmit={this.handleSubmit}>
-        <Header as="h3">
-          { this.props.id ? "Edit Category" : "Create a New Category"}
-        </Header>
-        <Form.Group>
-          <Form.Input 
-            placeholder="Category Label"
-            name="label"
-            value={this.state.label}
-            onChange={this.handleChange}
-          />
-          <Form.Button inverted color="green">Submit</Form.Button>
-        </Form.Group>
-      </Form>
+      <Container>
+        <StyledGrid className="segment centered">
+          <Form onSubmit={this.handleSubmit}>
+            <Header as="h3">
+              {this.props.id ? "Edit Category" : "Create a New Category"}
+            </Header>
+            <Form.Group>
+              <Form.Input
+                placeholder="Category Label"
+                name="label"
+                value={this.state.label}
+                onChange={this.handleChange}
+              />
+              <GreenButton>Submit</GreenButton>
+              <Link to="/blog">
+                <Button>Go Back</Button>
+              </Link>
+            </Form.Group>
+          </Form>
+        </StyledGrid>
+      </Container>
     );
-  };
-};
+  }
+}
 
+const StyledGrid = styled(Grid)`
+  border: none !important;
+  padding: 1em !important;
+`
+const GreenButton = styled(Button)`
+  background-color: #35e0bb !important;
+  color: #fff !important;
+  margin-right: 5px;
+`;
 export default CategoryForm;
