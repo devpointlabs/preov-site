@@ -37,28 +37,33 @@ export default function ContactUs(){
     <table className="ui table">
   <tbody>
     <tr>
+      <td>
+        <i className="building icon"></i>
+      </td>
+      <td>3730 4700 S,
+        <br />
+         Salt Lake City, UT 
+         <br />
+         84129</td>
+    </tr>
+    <tr>
       <td className="collapsing">
-        <i className="phone icon"></i> phone
+        <i className="phone icon"></i>
       </td>
-      <td>00000-0000-000000</td>
+      <td>(801) 581-2121 </td>
   
     </tr>
-    <tr>
-      <td>
-        <i className="home icon"></i>location
-      </td>
-      <td>addressssssssssss</td>
   
-    </tr>
     <tr>
       <td>
-        <i className="computer icon"></i> email
+        <i className="mail icon"></i>
       </td>
-      <td>faker fake fake</td>
+      <td>dplpreov@gmail.com</td>
   
     </tr>
   </tbody>
 </table>
+<br />
       < EmailForm />
     </StyledLeftDiv>
     

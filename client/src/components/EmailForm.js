@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components'
 import { Form, Icon, TextArea, Button, Container, Header } from "semantic-ui-react";
 
 class EmailForm extends React.Component {
@@ -6,13 +7,13 @@ class EmailForm extends React.Component {
   render () {
     return(
       <Container text>
-        <Header as='h3'>We Would Love to Hear From You</Header>
-        <br />
+        <StyledHeader as='h3'>We Would Love to Hear From You</StyledHeader>
+        <hr />
         <br />
       <Form action="https://formspree.io/willardcron@gmail.com" method="POST">
       <Form.Group>
       <Form.Input
-        width={3}
+        width={8}
         label="Name:"
          type="text"
           name="username"
@@ -21,7 +22,7 @@ class EmailForm extends React.Component {
         
         />
         <Form.Input
-        width={7}
+        width={8}
         label="Email:"
         type="email"
         name="reply to"
@@ -32,7 +33,7 @@ class EmailForm extends React.Component {
       </Form.Group>
 
       <Form.Input
-        width={10}
+        width={16}
         control={TextArea}
         label='Message:' 
         name="body"
@@ -50,5 +51,9 @@ class EmailForm extends React.Component {
     )
   }
 }
+
+const StyledHeader = styled(Header) `
+  text-decoration: none;
+  color: #5d6870;`
 
 export default EmailForm;
