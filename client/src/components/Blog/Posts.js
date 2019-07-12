@@ -36,7 +36,7 @@ class Posts extends React.Component {
       {posts.map(post => (
         <Card key={post.id}>
           <Link to={`/post/${post.id}`}>
-            <Image src={post.image} />
+            <Image src={post.image} style={{ height: "250px", width: "400px" }}/>
           </Link>
           <Card.Content>
             <Card.Header>{post.title}</Card.Header>

@@ -40,7 +40,7 @@ class CategoriesBar extends React.Component {
     const { categories } = this.state
     return (
       <Dropdown 
-        text="Filter Posts" 
+        text="Filter by Category" 
         icon="filter" 
         floating
         labeled
@@ -48,7 +48,7 @@ class CategoriesBar extends React.Component {
         className="icon"
       >
         <Dropdown.Menu>
-          <Dropdown.Header content="Categories" />
+          {/* <Dropdown.Header content="Categories" /> */}
           <Dropdown.Menu scrolling>
             {categories.map(cat => (
               <Dropdown.Item 
