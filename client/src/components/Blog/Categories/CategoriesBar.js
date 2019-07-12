@@ -82,7 +82,7 @@ class CategoriesBar extends React.Component {
             Add/Edit Categories
           </Button>
           <Link to={'/blog/posts/new'}>
-            <Button className='green'>New Post</Button>
+            <Button className='teal'>New Post</Button>
           </Link>
         </Menu.Item>
         <Menu.Menu position='right'>
