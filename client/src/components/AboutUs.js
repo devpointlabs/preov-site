@@ -92,23 +92,35 @@ const AboutUs = () => {
               marketing and branding.
             </p>
             
-              <h5>June Chen</h5> <p>Co-Founder and Active Advisor and member of the
-              founding team with a dual background in medicine and English. She
-              is a current Managing Partner at Mountain Pacific Venture Fund,
-              Managing Partner at LDD Partners, and Co-Founder of Church &
-              State. She has extensive experience in business development,
-              strategic communications and angel investing for start-ups and
-              established companies, including life sciences, finance,
-              technology and consumer healthcare.
-            </p>
-          
-              <h5>Ron Heffernan</h5> <p>Co-Founder and Active Advisor and member of
-              the founding team with extensive experience in executive
-              leadership, sales, strategy, finance and capital raising. He is a
-              current Managing Partner at Mountain Pacific Venture Partners,
-              Managing Partner of LDD Partners, and Co-Founder of Church &
-              State. He has been a CEO of multiple technology and medical device
-              companies and is a serial entrepreneur and angel investor.
+              <h5>June Chen</h5><p> Co-Founder and Active Advisor and member of the founding
+               team with a dual background in medicine and English. She is a current Managing
+               Partner at Mountain Pacific Venture Fund, Managing Partner at 
+        < a target="_blank" href="https://ldd.com/" style={{ margin: '.2em'}}>
+          LDD Partners
+        </a>
+        , and Co-Founder of 
+        < a target="_blank" href="https://www.cs1893.com/" style={{ margin: '.2em'}}>
+          Church & State
+        </a>
+        .  She has extensive experience in business development, strategic communications
+        and angel investing for start-ups and established companies, including life sciences,
+        finance, technology and consumer healthcare.      
+        </p>
+        
+        <h5>Ron Heffernan</h5><p> Co-Founder and Active Advisor and member of the founding team
+        with extensive experience in executive leadership, sales, strategy, finance and capital 
+        raising.  He is a current Managing Partner at Mountain Pacific Venture Partners, Managing 
+        Partner of 
+        < a target="_blank" href="https://ldd.com/" style={{ margin: '.2em'}}>
+          LDD Partners
+        </a>
+        , and Co-Founder of 
+        < a target="_blank" href="https://www.cs1893.com/" style={{ margin: '.2em'}}>
+          Church & State
+        </a>
+        . He has been a CEO of multiple technology and medical device companies 
+        and is a serial entrepreneur and angel investor.   
+        </p>
             </p>
           </div>
         </StyledSeg>
