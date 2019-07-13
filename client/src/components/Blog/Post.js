@@ -29,7 +29,7 @@ class Post extends React.Component {
     <StyledContainer>
     <Image size='medium' src={image}></Image>
     <Header as="h2">{title}</Header>
-    Published {this.timeFormat(updated_at)}
+    <p><i>Published {this.timeFormat(updated_at)}</i></p>
     <p>{body}</p>
     </StyledContainer>
   )
@@ -50,7 +50,6 @@ class Post extends React.Component {
 
   render() {
     const { id, title, body, image, updated_at} = this.state.post;
-    // const {created_at} = this.state.post_categories
     return (
       <> 
         {

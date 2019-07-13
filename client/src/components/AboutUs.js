@@ -95,11 +95,11 @@ const AboutUs = () => {
               <h5>June Chen</h5><p> Co-Founder and Active Advisor and member of the founding
                team with a dual background in medicine and English. She is a current Managing
                Partner at Mountain Pacific Venture Fund, Managing Partner at 
-        < a target="_blank" href="https://ldd.com/" style={{ margin: '.2em'}}>
+        < a target="_blank" rel="noopener noreferrer" href="https://ldd.com/" style={{ margin: '.2em'}}>
           LDD Partners
         </a>
         , and Co-Founder of 
-        < a target="_blank" href="https://www.cs1893.com/" style={{ margin: '.2em'}}>
+        < a target="_blank" rel="noopener noreferrer" href="https://www.cs1893.com/" style={{ margin: '.2em'}}>
           Church & State
         </a>
         .  She has extensive experience in business development, strategic communications
@@ -111,11 +111,11 @@ const AboutUs = () => {
         with extensive experience in executive leadership, sales, strategy, finance and capital 
         raising.  He is a current Managing Partner at Mountain Pacific Venture Partners, Managing 
         Partner of 
-        < a target="_blank" href="https://ldd.com/" style={{ margin: '.2em'}}>
+        < a target="_blank" rel="noopener noreferrer" href="https://ldd.com/" style={{ margin: '.2em'}}>
           LDD Partners
         </a>
         , and Co-Founder of 
-        < a target="_blank" href="https://www.cs1893.com/" style={{ margin: '.2em'}}>
+        < a target="_blank" rel="noopener noreferrer" href="https://www.cs1893.com/" style={{ margin: '.2em'}}>
           Church & State
         </a>
         . He has been a CEO of multiple technology and medical device companies 
