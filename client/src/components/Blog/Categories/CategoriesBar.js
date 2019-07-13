@@ -81,9 +81,9 @@ class CategoriesBar extends React.Component {
               <GreenButton>New Post</GreenButton>
             </Link>
           </Menu.Item>
-          <Menu.Menu position="right">
+          <Menu.Item position="right">
             <Input icon="search" placeholder="Search..." />
-          </Menu.Menu>
+          </Menu.Item>
         </Menu>
         <Posts delete={this.deletePost} posts={this.state.posts} />
       </div>
