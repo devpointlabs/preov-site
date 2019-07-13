@@ -43,6 +43,11 @@ class Post extends React.Component {
     .catch( "err" )
   }
 
+  swapPost = (id) => {
+    axios.get(`/api/posts/${id}`)
+    .then(res => this.setState({ post: res.data }));
+  }
+
   render() {
     const { id, title, body, image, updated_at} = this.state.post;
     // const {created_at} = this.state.post_categories
@@ -62,13 +67,15 @@ class Post extends React.Component {
           :
           null
         }
-        <PinkButton>Delete</PinkButton>
+        <PinkButton onClick={() => this.deletePost(id)}>Delete</PinkButton>
         <Link to={{pathname: '/blog'}}>
           <Button>Back</Button>
         </Link>
         <hr />
         <Header as='h3'>Check out more of our posts</Header>
-        <Posts posts={this.state.posts}/> 
+        <Posts posts={this.state.posts}
+          swap = {this.swapPost}
+        /> 
       </>
     );
   }
