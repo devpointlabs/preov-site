@@ -1,18 +1,16 @@
-import React from 'react';
-import { Link, } from 'react-router-dom';
-import Icon from '../Images/PreOvIcon.jpg'
-import { Header, Image } from 'semantic-ui-react';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Header, Container } from "semantic-ui-react";
 
 const NoMatch = () => (
-  <Header as="h1" textAlign="center">
-    <Image src= { Icon } />
-    Page not found return
-    <Link to="/"> Home</Link>
-    <Image src= { Icon }/>
-  </Header>
-)
-
+  <Container style={{margin: '4.5em'}}>
+    <Header as="h1" textAlign="center">
+      We're sorry, this page does not exist yet.
+    </Header>
+    <Header as="h2" textAlign="center">
+      <Link to="/blog"> Return To Our Blog</Link>
+    </Header>
+  </Container>
+);
 
 export default NoMatch;
-
-

@@ -7,16 +7,16 @@ import icon from '../Images/PreOvIcon.jpg'
 const NavBar = () => (
   <StyledList>
       <Image size="tiny" src={icon} style={{display: "inline", marginRight: ".3em"}} />
-    <StyledLink to='/' style={{ margin: '.5em'}}>
+    <StyledLink to='/'>
       Home 
     </StyledLink>
-    <StyledLink to='/about' style={{ margin: '.5em'}}>
+    <StyledLink to='/about'>
       About 
     </StyledLink> 
-    <StyledLink to='/howitworks' style={{ margin: '.5em'}}>
+    <StyledLink to='/howitworks'>
       How It Works
     </StyledLink>
-    <StyledLink to='/blog' style={{ margin: '.5em'}}>
+    <StyledLink to='/blog' >
       Blog
     </StyledLink>
   </StyledList>
@@ -35,6 +35,7 @@ const StyledLink = styled(Link) `
   font-size: 1.4em;
   transition: background 0.4s ease;
   padding: .75em 1em;
+  margin: .5em;
 
   @media(max-width: 602px){
     font-size: .9em !important;

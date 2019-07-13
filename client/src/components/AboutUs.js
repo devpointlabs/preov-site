@@ -1,3 +1,6 @@
+// Origin story <div>
+// MEET THE TEAM grid
+
 import React from "react";
 import { Container, Header, Segment, Image } from "semantic-ui-react";
 import styled from "styled-components";
@@ -54,98 +57,69 @@ const AboutUs = () => {
               updates.
             </p>
             <h3>Meet the Co-Founders</h3>
-            <h5>Joni Aoki</h5>
-            <p>
-              Co-Founder with experience in accounting and finance. She is a
-              Certified Public Accountant and served as a Senior Tax Accountant
-              for Ernst & Young LLP and later as Assistant Director of Financial
-              Planning & Analysis for Sundance Institute. She is a pre-medicine
-              student at the University of Utah. Her major roles involve
-              executive/management, finance, legal, fundraising, regulatory
-              affairs/strategy, marketing, and branding. She serves on the Board
-              of Directors for the Rape Recovery Center and enjoys volunteering
-              at the VA Nursing Home. Joni loves cooking and spending time with
-              her husband and two young boys.
+
+              <h5>Joni Aoki</h5> <p>Co-Founder with experience in accounting and
+              finance. She is a Certified Public Accountant and served as a
+              Senior Tax Accountant for Ernst & Young LLP and later as Assistant
+              Director of Financial Planning & Analysis for Sundance Institute.
+              She is a pre-medicine student at the University of Utah. Her major
+              roles involve executive/management, finance, legal, fundraising,
+              regulatory affairs/strategy, marketing, and branding. She serves
+              on the Board of Directors for the Rape Recovery Center and enjoys
+              volunteering at the VA Nursing Home. Joni loves cooking and
+              spending time with her husband and two young boys.
             </p>
-            <h5>Jeanna Ryan</h5>
-            <p>
-              Co-Founder with a diverse background in technology, education, and
-              the health Sciences. She has a Master of Science in Nutrition,
-              Master of Science in Computer Information Systems with a
-              concentration in health informatics, and a Master of Physician
-              Assistant Studies. Jeanna is a Certified Physician Assistant
-              (PA-C), and Registered Dietitian Nutritionist (RDN) with over 12
-              years of clinical experience in healthcare. She has also won
-              several awards for her excellence in teaching and research. Her
-              major roles involve software, hardware, medical/clinical,
+            
+              <h5>Jeanna Ryan</h5> <p>Co-Founder with a diverse background in
+              technology, education, and the health Sciences. She has a Master
+              of Science in Nutrition, Master of Science in Computer Information
+              Systems with a concentration in health informatics, and a Master
+              of Physician Assistant Studies. Jeanna is a Certified Physician
+              Assistant (PA-C), and Registered Dietitian Nutritionist (RDN) with
+              over 12 years of clinical experience in healthcare. She has also
+              won several awards for her excellence in teaching and research.
+              Her major roles involve software, hardware, medical/clinical,
               website/social media, innovation/technology, regulatory
               affairs/strategy, and fundraising. During her free time, Jeanna
               enjoys hanging out with her husband and 3 daughters.
             </p>
-            <h5>Young Hong</h5>
-            <p>
-              Co-Founder with a background in the health and social sciences
-              with a B.A. in Psychology. She is a pharmacy student in the
-              University of Utah College of Pharmacy. Her major roles involve
-              hardware, engineering, regulatory affairs/strategy, marketing and
-              branding.
+            
+              <h5>Young Hong</h5> <p>Co-Founder with a background in the health and
+              social sciences with a B.A. in Psychology. She is a pharmacy
+              student in the University of Utah College of Pharmacy. Her major
+              roles involve hardware, engineering, regulatory affairs/strategy,
+              marketing and branding.
             </p>
-            <h5>June Chen</h5>
-            <p>
-              {" "}
-              Co-Founder and Active Advisor and member of the founding team with
-              a dual background in medicine and English. She is a current
-              Managing Partner at Mountain Pacific Venture Fund, Managing
-              Partner at
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://ldd.com/"
-                style={{ margin: ".2em" }}
-              >
-                LDD Partners
-              </a>
-              , and Co-Founder of
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.cs1893.com/"
-                style={{ margin: ".2em" }}
-              >
-                Church & State
-              </a>
-              . She has extensive experience in business development, strategic
-              communications and angel investing for start-ups and established
-              companies, including life sciences, finance, technology and
-              consumer healthcare.
-            </p>
-            <h5>Ron Heffernan</h5>
-            <p>
-              {" "}
-              Co-Founder and Active Advisor and member of the founding team with
-              extensive experience in executive leadership, sales, strategy,
-              finance and capital raising. He is a current Managing Partner at
-              Mountain Pacific Venture Partners, Managing Partner of
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://ldd.com/"
-                style={{ margin: ".2em" }}
-              >
-                LDD Partners
-              </a>
-              , and Co-Founder of
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.cs1893.com/"
-                style={{ margin: ".2em" }}
-              >
-                Church & State
-              </a>
-              . He has been a CEO of multiple technology and medical device
-              companies and is a serial entrepreneur and angel investor.
-            </p>
+            
+              <h5>June Chen</h5><p> Co-Founder and Active Advisor and member of the founding
+               team with a dual background in medicine and English. She is a current Managing
+               Partner at Mountain Pacific Venture Fund, Managing Partner at 
+        < a target="_blank" rel="noopener noreferrer" href="https://ldd.com/" style={{ margin: '.2em'}}>
+          LDD Partners
+        </a>
+        , and Co-Founder of 
+        < a target="_blank" rel="noopener noreferrer" href="https://www.cs1893.com/" style={{ margin: '.2em'}}>
+          Church & State
+        </a>
+        .  She has extensive experience in business development, strategic communications
+        and angel investing for start-ups and established companies, including life sciences,
+        finance, technology and consumer healthcare.      
+        </p>
+        
+        <h5>Ron Heffernan</h5><p> Co-Founder and Active Advisor and member of the founding team
+        with extensive experience in executive leadership, sales, strategy, finance and capital 
+        raising.  He is a current Managing Partner at Mountain Pacific Venture Partners, Managing 
+        Partner of 
+        < a target="_blank" rel="noopener noreferrer" href="https://ldd.com/" style={{ margin: '.2em'}}>
+          LDD Partners
+        </a>
+        , and Co-Founder of 
+        < a target="_blank" rel="noopener noreferrer" href="https://www.cs1893.com/" style={{ margin: '.2em'}}>
+          Church & State
+        </a>
+        . He has been a CEO of multiple technology and medical device companies 
+        and is a serial entrepreneur and angel investor.   
+        </p>
           </div>
         </StyledSeg>
       </StyledContainer>
