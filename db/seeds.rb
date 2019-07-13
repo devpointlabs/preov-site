@@ -6,7 +6,7 @@
   5.times do
     post = Post.create(
     title: Faker::Book.title,
-    body: Faker::Lorem.paragraph_by_chars(1000, false),
+    body: Faker::Lorem.paragraph_by_chars(2000, false),
     image: [
       "https://res.cloudinary.com/dplpreov/image/upload/v1562953729/boy-children-couple-2253879_dygbzf.jpg",
       "https://res.cloudinary.com/dplpreov/image/upload/v1562952735/baby-boy-child-1661818_sih1iz.jpg",
