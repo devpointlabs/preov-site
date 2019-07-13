@@ -24,9 +24,8 @@ class Footer extends React.Component {
     let catsArr = this.state.categories;
     catsArr = catsArr.slice(0, 5);
     return catsArr.map(cat => (
-      
-      <Link to={`api/filter_category/${cat.id}`}>
-      <StyledItem>{cat.label}</StyledItem>
+      <Link key={cat.id} to={`api/filter_category/${cat.id}`}>
+      <StyledItem key={cat.id}>{cat.label}</StyledItem>
       </Link>
     ))
     }
