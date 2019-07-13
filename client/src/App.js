@@ -20,12 +20,12 @@ import Categories from "./components/Blog/Categories/Categories"
 // Other Imports
 import { Switch, Route } from "react-router-dom";
 import { Container } from "semantic-ui-react";
-// import FetchUser from './components/FetchUser';
+import FetchUser from './components/FetchUser';
 
 
 const App = () => (
   <>
-  {/* <FetchUser> */}
+  <FetchUser>
   <Navbar />
 
   <Container>
@@ -47,7 +47,7 @@ const App = () => (
   </Container>
 
   <Footer />
-  {/* </FetchUser> */}
+  </FetchUser>
   </>
 );
 
