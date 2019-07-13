@@ -58,7 +58,6 @@ const AboutUs = () => {
             </p>
             <h3>Meet the Co-Founders</h3>
 
-            
               <h5>Joni Aoki</h5> <p>Co-Founder with experience in accounting and
               finance. She is a Certified Public Accountant and served as a
               Senior Tax Accountant for Ernst & Young LLP and later as Assistant
