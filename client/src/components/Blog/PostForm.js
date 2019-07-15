@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { Form, Header, Container } from "semantic-ui-react";
+import { Form, Header, Container, Button } from "semantic-ui-react";
 import ImageUploader from "react-images-upload";
 import { Link } from "react-router-dom";
 import styled from 'styled-components'
@@ -165,17 +165,21 @@ class PostForm extends React.Component {
           <h3 style={{ marginRight:"2em"}}><label>Categories:</label></h3>
           {this.categoryCheckboxes()}
         </Form.Group>
-        <Form.Button primary >
+        <StyledButton >
           {this.props.match.params.id ? "Update Post" : "Post"}
-        </Form.Button>
+        </StyledButton>
         <Link to={{ pathname: "/blog" }}>
-          <Form.Button >Cancel</Form.Button>
+          <Button>Cancel</Button>
         </Link>
       </Form>
        </StyledContainer>
     );
   }
 }
+const StyledButton = styled(Button)`
+  background-color: #35e0bb !important;
+  color: #fff !important;
+`
 
 const StyledImg = styled.img`
 display: block;
