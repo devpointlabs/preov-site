@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { Button, Menu, Dropdown, Input } from "semantic-ui-react";
 import Posts from "../Posts";
+import Search from "../Search"
 import styled from "styled-components";
 
 class CategoriesBar extends React.Component {
@@ -64,6 +65,16 @@ class CategoriesBar extends React.Component {
     );
   };
 
+  searchPosts = (e, search) => {
+    e.preventDefault()
+
+    // TODO Fix route
+    // axios.get(`/api/logs?column=${this.state.column}&search=${search}`)
+    //   .then(res => {
+    //     this.setState({ posts: res.data })
+    //   })
+  }
+
   render() {
     return (
       <div>
@@ -82,7 +93,8 @@ class CategoriesBar extends React.Component {
             </Link>
           </Menu.Item>
           <Menu.Item position="right">
-            <Input icon="search" placeholder="Search..." />
+            <Search searchPosts={this.searchPosts} />
+            {/* <Input icon="search" placeholder="Search..." /> */}
           </Menu.Item>
         </Menu>
         <Posts delete={this.deletePost} posts={this.state.posts} />
