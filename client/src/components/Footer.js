@@ -70,6 +70,12 @@ class Footer extends React.Component {
             <StyledMenu compact vertical>
               <Link to="/">
                 <StyledItem>
+                  <Icon size="big" name="app store" />
+                  Get Our App
+                </StyledItem>
+              </Link>
+              <Link to="/">
+                <StyledItem>
                   <Icon size="big" name="instagram" />
                   Instagram
                 </StyledItem>
@@ -82,14 +88,8 @@ class Footer extends React.Component {
               </Link>
               <Link to="/">
                 <StyledItem>
-                  <Icon size="big" name="twitter" />
+                  <Icon size="big" name="twitter square" />
                   Twitter
-                </StyledItem>
-              </Link>
-              <Link to="/">
-                <StyledItem>
-                  <Icon size="big" name="youtube" />
-                  Youtube
                 </StyledItem>
               </Link>
             </StyledMenu>
