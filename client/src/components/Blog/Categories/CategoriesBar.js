@@ -40,7 +40,7 @@ class CategoriesBar extends React.Component {
     const { categories } = this.state;
     return (
       <Dropdown
-        text="Browse Topics"
+        text="Browse Categories"
         icon="angle down"
         floating
         labeled
