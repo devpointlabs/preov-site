@@ -30,7 +30,7 @@ class Post extends React.Component {
     <Image size='medium' src={image}></Image>
     <Header as="h2">{title}</Header>
     <p><i>Published {this.timeFormat(updated_at)}</i></p>
-    <p>{body}</p>
+    <p><div dangerouslySetInnerHTML={{__html: body}}></div></p>
     </StyledContainer>
   )
 
