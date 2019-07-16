@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :categories
     resources :posts
     get "filter_category/:id", to: "posts#filter_category"
+    get "search_posts", to: "posts#search_posts"
   end
 
 end
