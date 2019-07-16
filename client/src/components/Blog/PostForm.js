@@ -138,13 +138,13 @@ class PostForm extends React.Component {
         <Header>{this.props.match.params.id ? "Edit This Post" : "Create New Post"}</Header>
         {typeof(this.state.image) === "string" ?  <StyledImg src={this.state.image}/> : null }
         <ImageUploader
-          withPreview={true}
           withIcon={true}
           buttonText="Choose image"
           onChange={this.onDrop}
           imgExtension={[".jpg", ".gif", ".png", ".gif"]}
           maxFileSize={5242880}
           singleImage={true}
+          withPreview={true}
           />
         <Form.Input
           label="Title"
@@ -152,7 +152,6 @@ class PostForm extends React.Component {
           name="title"
           value={this.state.title}
           onChange={this.handleChange}
-          required
           />
         <ReactQuill
           theme="snow"
@@ -162,8 +161,8 @@ class PostForm extends React.Component {
           type="text"
           value={this.state.body}
           style={{ height: 500 }}
-          required />
-        <Form.Group inline>
+          />
+        <Form.Group inline style={{marginTop: "4em"}}>
           <h3 style={{ marginRight:"2em"}}><label>Categories:</label></h3>
           {this.categoryCheckboxes()}
         </Form.Group>

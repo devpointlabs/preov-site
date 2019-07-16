@@ -44,7 +44,8 @@ class Category extends React.Component {
 
 const StyledContainer = styled(Container)`
   background-color: white;
-  padding: 1em 10em !important;
+  padding: 1em 8em !important;
+  min-width: 600px !important;
 `
 const PinkButton = styled(Button)`
   background-color: #f4b4b4 !important;
@@ -59,7 +60,8 @@ const styles = {
   segment: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    minWidth: "300px"
   }
 };
 

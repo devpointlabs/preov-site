@@ -34,14 +34,15 @@ const StyledContainer = styled(Container)`
   `
 const StyledDiv = styled.div`
   width: 70%;
-  margin: 2em auto;
-  padding-top: 2em;
+  margin: 0em auto;
+  padding-top: .7em;
   text-align: center;
+  overflow: visible !important
   `
 const StyledHeader = styled(Header)`
 color: #5d6870 !important;
 font-size: 3em !important;
-margin-top: 1em !important;
+margin-top: .6em !important;
 
 @media (max-width: 768px) {
   font-size: 3em !important;
