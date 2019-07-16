@@ -7,7 +7,7 @@ import Search from "../Search"
 import styled from "styled-components";
 
 class CategoriesBar extends React.Component {
-  state = { categories: [], posts: [], searchResults: [] };
+  state = { categories: [], posts: [], };
 
   componentDidMount() {
     axios.get("/api/categories").then(res => {

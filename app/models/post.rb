@@ -15,7 +15,7 @@ class Post < ApplicationRecord
     find_by_sql(["
     SELECT *
     FROM posts
-    WHERE LOWER(title) LIKE LIKE(?) or LOWER(body) LIKE LOWER(?)
+    WHERE LOWER(title) LIKE LOWER(?) or LOWER(body) LIKE LOWER(?)
     ", "%#{title}%", "%#{body}%"])
   end
 end
