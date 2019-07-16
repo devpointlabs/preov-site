@@ -80,16 +80,18 @@ class Login extends React.Component {
 }
 const StyledContainer = styled(Container)`
   display: table;
+  text-align: center;
   height: 100% !important;
 `;
 
 const StyledSeg = styled(Segment)`
-  border-radius: 1px !important;
-  border: 2px !important;
-  padding: 2em !important;
+  border-radius: 2px;
+  border: 6px;
+  display: inline-block;
+  padding: 1em !important;
   font-size: 1em !important;
   box-shadow: none !important;
-  margin: 6px auto !important;
+  margin: 3px auto ;
 `;
 
 const StyledButton = styled(Button)`
