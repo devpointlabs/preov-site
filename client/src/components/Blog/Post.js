@@ -71,7 +71,7 @@ class Post extends React.Component {
           <Button>Back</Button>
         </Link>
         <hr />
-        <Header as='h3'>Check out more of our posts</Header>
+        <Header as='h2' style={{textAlign: "center"}}>Check out more of our posts</Header>
         <Posts posts={this.state.posts}
           swap = {this.swapPost}
         /> 
@@ -90,7 +90,7 @@ const BlueButton = styled(Button)`
   background-color: #a5d4ef !important;
   color: #fff !important;
   margin-right: 5px !important;
-  margin-left: 6em !important;
+  margin-left: 7.3em !important;
 `;
 
 export default Post;

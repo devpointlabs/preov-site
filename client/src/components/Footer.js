@@ -36,7 +36,8 @@ class Footer extends React.Component {
         style={{
           marginTop: "0 !important",
           padding: "0 !important",
-          border: "none"
+          border: "none",
+          overflow: "visible !important"
         }}
       >
         <StyledGrid columns={3} divided>
@@ -74,18 +75,24 @@ class Footer extends React.Component {
                   Get Our App
                 </StyledItem>
               </Link>
-              <Link to="/">
+              <a 
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.instagram.com/preovring/">
                 <StyledItem>
                   <Icon size="big" name="instagram" />
                   Instagram
                 </StyledItem>
-              </Link>
-              <Link to="/">
+              </a>
+              <a 
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.facebook.com/PreOvRing/?modal=admin_todo_tour">
                 <StyledItem>
                   <Icon size="big" name="facebook" />
                   Facebook
                 </StyledItem>
-              </Link>
+              </a>
               <Link to="/">
                 <StyledItem>
                   <Icon size="big" name="twitter square" />
@@ -109,6 +116,7 @@ class Footer extends React.Component {
 const StyledGrid = styled(Grid)`
   background-color: white;
   padding: 2.5em !important;
+  overflow: visible !important;
 `;
 
 const StyledColumn = styled(Grid.Column)`

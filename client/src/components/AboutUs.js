@@ -1,10 +1,8 @@
-// Origin story <div>
-// MEET THE TEAM grid
-
 import React from "react";
 import { Container, Header, Segment, Image } from "semantic-ui-react";
 import styled from "styled-components";
 import owners from "../Images/owners.png";
+import trio from "../Images/trio.png"
 
 const AboutUs = () => {
   return (
@@ -16,7 +14,7 @@ const AboutUs = () => {
           <div>
             <h3>Where It All Started</h3>
             <p>
-              PreOv is a female-led comapny focused on empowering women and
+              PreOv is a female-led company focused on empowering women and
               couples in all stages of life.
             </p>
             <p>
@@ -57,6 +55,7 @@ const AboutUs = () => {
               also been busy with product development. Check back soon for
               updates.
             </p>
+            <StyledImage src={trio} />
             <h3>Meet the Co-Founders</h3>
 
               <h5>Joni Aoki</h5> <p>Co-Founder with experience in accounting and

@@ -29,7 +29,7 @@ class CategoryForm extends React.Component {
 
   render() {
     return (
-      <Container>
+      <StyledContainer>
         <StyledGrid className="segment centered">
           <Form onSubmit={this.handleSubmit}>
             <Header as="h3">
@@ -49,11 +49,13 @@ class CategoryForm extends React.Component {
             </Form.Group>
           </Form>
         </StyledGrid>
-      </Container>
+      </StyledContainer>
     );
   }
 }
-
+const StyledContainer = styled(Container)`
+  min-width: 600px !important;
+`
 const StyledGrid = styled(Grid)`
   border: none !important;
   padding: 1em !important;
