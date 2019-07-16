@@ -32,8 +32,8 @@ class PostForm extends React.Component {
       });
     } else {
       axios.get("/api/categories")
-       .then(res => {
-        this.setState({ ...this.state, categories: res.data, });
+        .then(res => {
+          this.setState({ ...this.state, categories: res.data, });
         })
         .catch(err => {
           console.log("error in componentDidMount");
@@ -173,7 +173,7 @@ class PostForm extends React.Component {
           <Button>Cancel</Button>
         </Link>
       </Form>
-       </StyledContainer>
+      </StyledContainer>
     );
   }
 }

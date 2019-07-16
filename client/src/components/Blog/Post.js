@@ -43,6 +43,13 @@ class Post extends React.Component {
     .catch( "err" )
   }
 
+  deletePostList = id => {
+    axios.delete(`/api/posts/${id}`).then(res => {
+      const { posts } = this.state;
+      this.setState({ posts: posts.filter(post => post.id !== id) });
+    });
+  };
+
   swapPost = (id) => {
     axios.get(`/api/posts/${id}`)
     .then(res => this.setState({ post: res.data }));
@@ -74,6 +81,7 @@ class Post extends React.Component {
         <Header as='h2' style={{textAlign: "center"}}>Check out more of our posts</Header>
         <Posts posts={this.state.posts}
           swap = {this.swapPost}
+          delete = {this.deletePostList}
         /> 
       </>
     );
