@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link, } from 'react-router-dom';
 import { AuthConsumer, } from "../providers/AuthProvider";
-import { Button, Form, Segment, Header, } from 'semantic-ui-react';
+import styled from "styled-components";
+import {Button, Form, Container, Segment, Header, Divider, Grid, Icon } from 'semantic-ui-react';
 
 class Login extends React.Component {
   state = {email: '', password: ''}
@@ -20,11 +22,25 @@ class Login extends React.Component {
     const { email, password, } = this.state;
 
       return(
-        <Segment>
-          <Header as='h1' textAlign='center'> L O G I N </Header>
-          <Form Align = 'center' onSubmit={this.handleSubmit}>
+          <>
+          <StyledContainer >
+          <Header as='h1' textAlign='center' style={{color: 'rgb(165, 212, 239)'}}> 
+          L O G I N 
+          </Header>
+
+          <Header as='h3' icon textAlign='center' style={{color: 'rgb(165, 212, 239)'}}>
+         <Icon name='users' circular style={{color: 'rgb(165, 212, 239)'}}/>
+            <Header.Content>Join the Family</Header.Content>
+            </Header>
+
+            <StyledSeg placeholder>
+              <Grid columns={2} relaxed='very' stackable>
+                <Grid.Column>
+
+          <Form onSubmit={this.handleSubmit}>
             <Form.Input
-            width='10'
+            icon='user'
+            iconPosition='left'
             label="Email"
             autoFocus
             required
@@ -34,7 +50,8 @@ class Login extends React.Component {
             onChange={this.handleChange}
             />
             <Form.Input
-            width='10'
+            icon='lock' 
+            iconPosition='left'
             label="Password"
             required
             name='password'
@@ -43,15 +60,57 @@ class Login extends React.Component {
             type='password'
             onChange={this.handleChange}
             />
-            <Segment textAlign= 'center' basic>
-              <Button primary type='submit'>Submit</Button>
-            </Segment>
-          </Form>
-        </Segment>
+              <Button as={StyledButton} content='Login' primary />
+              </Form>
+            </Grid.Column>
+
+              <Grid.Column verticalAlign='middle'>
+              <Link to="/register">
+              <Button as={StyledButton} content='Register' icon='signup' size='big' />
+              </Link>
+             </Grid.Column>
+            </Grid>
+
+          <Divider vertical style={{color: 'rgb(165, 212, 239)'}}>Or</Divider>
+        </StyledSeg>
+        </StyledContainer>
+        </>
       )
   }
 }
+const StyledContainer = styled(Container)`
+  display: table;
+  text-align: center;
+  height: 100% !important;
+`;
 
+const StyledSeg = styled(Segment)`
+  border-radius: 2px;
+  border: 6px;
+  display: inline-block;
+  padding: 1em !important;
+  font-size: 1em !important;
+  box-shadow: none !important;
+  margin: 3px auto ;
+`;
+
+const StyledButton = styled(Button)`
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2) !important;
+  background-color: #f7b1b7 !important;
+  color: white !important;
+  font-size: 1.4em !important;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: #f8c3cd !important;
+    transition: background 0.3s ease;
+  }
+    @media (max-width: 768px) {
+    display: block !important;
+    margin: 2em auto !important;
+    font-size: 1em !important;
+  }
+`;
 export default class ConnectedLogin extends React.Component {
   render() {
     return (
