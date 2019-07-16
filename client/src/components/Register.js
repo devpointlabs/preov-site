@@ -1,6 +1,7 @@
 import React from 'react';
 import { AuthConsumer, } from "../providers/AuthProvider";
-import { Button, Form, Segment, Header, } from 'semantic-ui-react';
+import styled from "styled-components";
+import { Button, Form, Segment, Header, Container } from 'semantic-ui-react';
 
 class Register extends React.Component {
   state = { email: '', password: '', passwordConfirmation: '', };
@@ -25,12 +26,14 @@ class Register extends React.Component {
     const { firstname, lastname, email, password, passwordConfirmation, } = this.state;
 
     return ( 
-      <Segment basic>
-        <Header as='h1' textAlign='center'> R E G I S T E R </Header>
+      <>
+      <StyledContainer >
+        <StyledSeg>
+
+      <Header as='h1' textAlign='center' style={{color: 'rgb(165, 212, 239)'}}> R E G I S T E R </Header>
         <Form align='center' onSubmit={this.handleSubmit}>
         <Form.Group >
         <Form.Input
-            width='5'
             label="FirstName"
             required
             autoFocus
@@ -40,7 +43,6 @@ class Register extends React.Component {
             onChange={this.handleChange}
             />
           <Form.Input
-            width='5'
             label="LastName"
             required
             autoFocus
@@ -51,7 +53,6 @@ class Register extends React.Component {
             />
           </Form.Group>
         <Form.Input
-            width='10'
             label="Email"
             required
             autoFocus
@@ -63,7 +64,6 @@ class Register extends React.Component {
           <Form.Group>
 
           <Form.Input
-            width='5'
             label="Password"
             required
             name='password'
@@ -73,7 +73,6 @@ class Register extends React.Component {
             onChange={this.handleChange}
             />
           <Form.Input
-            width='5'
             label="Password Confirmation"
             required
             name='passwordConfirmation'
@@ -82,16 +81,53 @@ class Register extends React.Component {
             type='password'
             onChange={this.handleChange}
             />
+
             </Form.Group>
           <Segment textAlign='center' basic>
-            <Button primary type='submit'>Submit</Button>
+            <Button as={StyledButton} primary>Submit</Button>
           </Segment>
-        </Form>
-        
-      </Segment>
+          </Form>
+            </StyledSeg>
+        </StyledContainer>
+        </>
     )
   }
 }
+
+
+const StyledContainer = styled(Container)`
+  display: table;
+  text-align: center;
+  height: 100% !important;
+`;
+const StyledSeg = styled(Segment)`
+  border-radius: 1px !important;
+  border: 2px !important;
+  display: inline-block;
+  background-color: rgb(165, 212, 239);
+  padding: 1em !important;
+  font-size: 1em !important;
+  box-shadow: none !important;
+  margin:1em auto !important;
+  align-items: center;
+`;
+const StyledButton = styled(Button)`
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2) !important;
+  background-color: #f7b1b7 !important;
+  color: white !important;
+  font-size: 1.4em !important;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: #f8c3cd !important;
+    transition: background 0.3s ease;
+  }
+    @media (max-width: 768px) {
+    display: block !important;
+    margin: 2em auto !important;
+    font-size: 1em !important;
+  }
+`;
 
 export default class ConnectedRegister extends React.Component {
   render() {
