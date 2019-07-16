@@ -68,6 +68,6 @@ const StyledDiv = styled.div`
 const StyledContainer = styled(Container)`
   background-color: #f8f8f8;
   padding: 0em 10em !important;
-`;
+`;  
 
 export default Categories;

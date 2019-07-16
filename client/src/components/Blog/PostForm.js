@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import styled from 'styled-components'
 import ReactQuill from "react-quill";
 import 'react-quill/dist/quill.snow.css';
+import placeholder from '../../Images/ring.png'
+
 class PostForm extends React.Component {
   state = {
     title: "",
@@ -134,7 +136,7 @@ class PostForm extends React.Component {
       <StyledContainer>
       <Form onSubmit={this.handleSubmit}>
         <Header>{this.props.match.params.id ? "Edit This Post" : "Create New Post"}</Header>
-        {typeof(this.state.image) === "string" ? null : <StyledImg src={this.state.image} /> }
+        {typeof(this.state.image) === "string" ?  <StyledImg src={this.state.image}/> : null }
         <ImageUploader
           withPreview={true}
           withIcon={true}
