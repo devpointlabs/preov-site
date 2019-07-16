@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Card, Image, Button } from "semantic-ui-react";
 import styled from 'styled-components'
+import {AuthConsumer, } from '../../providers/AuthProvider'
 
 class Posts extends React.Component {
   timeFormat = (props) => {
@@ -24,7 +25,7 @@ class Posts extends React.Component {
     </Button.Group>
   );
 
-  postCards = (posts) => (
+  postCards = (posts, authenticated) => (
     <>
     <Card.Group centered mobile={16} tablet={8} computer={4}>
       {posts.map(post => (
@@ -49,7 +50,11 @@ class Posts extends React.Component {
               Published {this.timeFormat(post.updated_at)}
             </Card.Meta>
           </Card.Content>
-          <Card.Content extra>{this.adminButtons(post)}</Card.Content>
+          {authenticated ? 
+          <Card.Content extra>{this.adminButtons(post, authenticated)}</Card.Content>
+          :
+          null
+          }
         </Card>
         ))}
       </Card.Group>
@@ -57,10 +62,11 @@ class Posts extends React.Component {
   )
   
   render() {
+    const {authenticated} = this.props.auth;
     const { posts } = this.props;
     return (
       <StyledDiv>
-      {this.postCards(posts)}
+      {this.postCards(posts, authenticated)}
       </StyledDiv>
     );
   }
@@ -77,4 +83,13 @@ const BlueButton = styled(Button)`
 const StyledDiv = styled.div`
   margin: 1em;
 `
-export default Posts;
+export default class ConnectedPosts extends React.Component{
+  render(){
+    return(
+      <AuthConsumer>
+        {auth => <Posts {...this.props} auth={auth}/>}
+      </AuthConsumer>
+    )
+  }
+
+}

@@ -33,6 +33,12 @@ const StyledContainer = styled(Container)`
     width: 100%;
     height: 100% !important;
   }
+  @media (max-width: 425px) {
+    overflow: visible !important;
+    display: block !important;
+    width: 100%;
+    height: 100% !important;
+  }
 `;
 
 const StyledLeftDiv = styled.div`
@@ -41,6 +47,10 @@ const StyledLeftDiv = styled.div`
   padding: 1em 1em 1em 2em;
 
   @media (max-width: 768px) {
+    display: block;
+    width: 100%;
+  }
+  @media (max-width: 425px) {
     display: block;
     width: 100%;
   }
@@ -54,6 +64,14 @@ const StyledHeader = styled(Header)`
     font-size: 6em !important;
     text-align: center;
   }
+  @media (max-width: 425px) {
+    font-size: em !important;
+    text-align: center;
+  }
+  @media (max-width: 320px) {
+    font-size: 1.5em !important;
+    text-align: center;
+  }
 `;
 const StyledParagraph = styled.p`
   font-size: 20px;
@@ -62,6 +80,11 @@ const StyledParagraph = styled.p`
 
   @media (max-width: 768px) {
     font-size: 2em !important;
+    text-align: center;
+  }
+
+  @media (max-width: 425px) {
+    font-size: 1em !important;
     text-align: center;
   }
 `;
@@ -88,6 +111,11 @@ const StyledButton = styled(Button)`
     display: block !important;
     margin: 2em auto !important;
     font-size: 1.2em !important;
+  }
+
+  @media (max-width: 425px) {
+    font-size: .9em !important;
+    margin: 0 auto !important;
   }
 `;
 const StyledRightDiv = styled.div`

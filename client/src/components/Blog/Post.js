@@ -5,6 +5,8 @@ import {Header, Image, Button, Container} from 'semantic-ui-react'
 import Posts from './Posts'
 import PostForm from './PostForm'
 import styled from 'styled-components'
+import {AuthConsumer, } from '../../providers/AuthProvider'
+
 
 class Post extends React.Component {
   state = { posts: [], post: {}, editing: false };
@@ -25,12 +27,20 @@ class Post extends React.Component {
     return newDate.toDateString();
   };
 
-  renderPost = (title, body, image, updated_at) => (
+  renderPost = (id, title, body, image, updated_at, authenticated) => (
     <StyledContainer>
-    <Image size='medium' src={image}></Image>
-    <Header as="h2" style={{marginBottom: "0"}}>{title}</Header>
-    <p><i>Published {this.timeFormat(updated_at)}</i></p>
-    <p><div dangerouslySetInnerHTML={{__html: body}}></div></p>
+      <Image size='medium' src={image}></Image>
+      <Header as="h2" style={{marginBottom: "0"}}>{title}</Header>
+      <p><i>Published {this.timeFormat(updated_at)}</i></p>
+      <p><div dangerouslySetInnerHTML={{__html: body}}></div></p>
+      {authenticated ? 
+        this.adminButtons(id)
+        :
+        null
+        }
+      <Link to={{pathname: '/blog'}}>
+        <Button>Back</Button>
+      </Link>
     </StyledContainer>
   )
 
@@ -48,28 +58,29 @@ class Post extends React.Component {
     .then(res => this.setState({ post: res.data }));
   }
 
+  adminButtons = (id) => (
+    <>
+    <Link to={`/blog/posts/${id}/edit`}>
+    <BlueButton onClick={this.toggleEdit}>Edit</BlueButton>
+    </Link>
+    <PinkButton onClick={() => this.deletePost(id)}>Delete</PinkButton>
+    </>
+  )
+
   render() {
     const { id, title, body, image, updated_at} = this.state.post;
+    const {authenticated} = this.props.auth
+
     return (
       <> 
         {
           this.state.editing ? 
           <PostForm />
           :
-          this.renderPost(title, body, image, updated_at)
+          this.renderPost(id, title, body, image, updated_at, authenticated)
         }
         
-        { !this.state.editing ?
-        <Link to={`/blog/posts/${id}/edit`}>
-        <BlueButton onClick={this.toggleEdit}>Edit</BlueButton>
-        </Link>
-          :
-          null
-        }
-        <PinkButton onClick={() => this.deletePost(id)}>Delete</PinkButton>
-        <Link to={{pathname: '/blog'}}>
-          <Button>Back</Button>
-        </Link>
+
         <hr />
         <Header as='h2' style={{textAlign: "center"}}>Check out more of our posts</Header>
         <Posts posts={this.state.posts}
@@ -90,7 +101,15 @@ const BlueButton = styled(Button)`
   background-color: #a5d4ef !important;
   color: #fff !important;
   margin-right: 5px !important;
-  margin-left: 7.3em !important;
 `;
 
-export default Post;
+export default class ConnectedPost extends React.Component{
+  render(){
+    return(
+      <AuthConsumer>
+        {auth => <Post {...this.props} auth={auth}/>}
+      </AuthConsumer>
+    )
+  }
+
+}
