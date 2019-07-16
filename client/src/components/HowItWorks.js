@@ -1,9 +1,7 @@
-// images or hardware illustractions?
-// a footer with reviews?
-
 import React from "react";
 import { Container, Header, Segment } from "semantic-ui-react";
 import styled from 'styled-components'
+import device from '../Images/device.png'
 
 const HowItWorks = () => {
   return (
@@ -13,6 +11,7 @@ const HowItWorks = () => {
           <StyledHeader>
             How The PreOv Device Works
           </StyledHeader>
+          <StyledImg src={device}></StyledImg>
           <div>
             <p>
               PreOv Helps women and couples achieve their family planning goals.
@@ -60,7 +59,7 @@ const StyledHeader = styled(Header)`
   color: #5d6870 !important;
   font-size: 3em !important;
   margin: 1em !important;
-  padding-bottom: 1em !important;
+  padding-bottom: 0em !important;
   text-align: center;
 
   @media (max-width: 768px) {
@@ -68,5 +67,12 @@ const StyledHeader = styled(Header)`
     text-align: center;
   }
 `;
+
+const StyledImg = styled.img`
+  width: 40% !important;
+  display: block;
+  margin: 0 auto !important;
+padding-bottom: 1em;
+`
 
 export default HowItWorks;

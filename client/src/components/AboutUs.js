@@ -11,9 +11,10 @@ const AboutUs = () => {
     <>
       <StyledContainer text>
         <StyledSeg>
-          <StyledHeader>Where It All Started</StyledHeader>
+          <StyledHeader>About Us</StyledHeader>
           <StyledImage src={owners} />
           <div>
+            <h3>Where It All Started</h3>
             <p>
               PreOv is a female-led comapny focused on empowering women and
               couples in all stages of life.
