@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Button, Menu, Dropdown, } from "semantic-ui-react";
 import Posts from "../Posts";
 import Search from "../Search"
+import { AuthConsumer } from '../../../providers/AuthProvider'
 import styled from "styled-components";
 
 class CategoriesBar extends React.Component {
@@ -51,6 +52,11 @@ class CategoriesBar extends React.Component {
         <Dropdown.Menu>
           {/* <Dropdown.Header content="Categories" /> */}
           <Dropdown.Menu scrolling>
+            <Dropdown.Item 
+              text="All Posts"
+              onClick={this.handleAllPosts}
+            />
+            <Dropdown.Divider />
             {categories.map(cat => (
               <Dropdown.Item
                 key={cat.id}
@@ -74,23 +80,28 @@ class CategoriesBar extends React.Component {
   }
 
   render() {
+    const { authenticated} = this.props.auth
     return (
       <div>
         <Menu borderless secondary style={{ margin: "1em" }}>
-          <Menu.Item name="All Posts" onClick={this.handleAllPosts} />
+          {/* <Menu.Item name="All Posts" onClick={this.handleAllPosts} /> */}
           <Menu.Item>{this.dropdownCatSelect()}</Menu.Item>
-          <Menu.Item>
-            {/* TODO make this button available only when admin is logged in */}
-            <Link to={"/categories"}>
-              <BlueButton>Add/Edit Categories</BlueButton>
-            </Link>
-          </Menu.Item>
-          <Menu.Item>
-            <Link to={"/blog/posts/new"}>
-              <GreenButton>New Post</GreenButton>
-              {}
-            </Link>
-          </Menu.Item>
+          {authenticated ?
+          <>
+            <Menu.Item>
+              <Link to={"/categories"}>
+                <BlueButton>Add/Edit Categories</BlueButton>
+              </Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link to={"/blog/posts/new"}>
+                <GreenButton>New Post</GreenButton>
+              </Link>
+            </Menu.Item>
+            </>
+            :
+            null
+            }
           <Menu.Item position="right">
             <Search searchPosts={this.searchPosts} />
           </Menu.Item>
@@ -116,4 +127,12 @@ const GreenButton = styled(Button)`
   color: #fff !important;
   margin-right: 5px;
 `;
-export default CategoriesBar;
+export default class ConnectedCategoriesBar extends React.Component{
+  render(){
+      return(
+      <AuthConsumer>
+        {auth => <CategoriesBar {...this.props} auth={auth}/>}
+      </AuthConsumer>
+        )
+      }
+}
