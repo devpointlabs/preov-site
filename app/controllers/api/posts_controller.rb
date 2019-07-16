@@ -95,6 +95,10 @@ end
     render json: Post.filter_category(params[:id])
   end
 
+  def search_posts
+    render json: Post.search_posts(params[:search], params[:search])
+  end
+
   private
   def set_post
     @post = Post.find(params[:id])

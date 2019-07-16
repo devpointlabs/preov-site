@@ -1,12 +1,13 @@
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { Button, Menu, Dropdown, Input } from "semantic-ui-react";
+import { Button, Menu, Dropdown, } from "semantic-ui-react";
 import Posts from "../Posts";
+import Search from "../Search"
 import styled from "styled-components";
 
 class CategoriesBar extends React.Component {
-  state = { categories: [], posts: [] };
+  state = { categories: [], posts: [], };
 
   componentDidMount() {
     axios.get("/api/categories").then(res => {
@@ -64,6 +65,14 @@ class CategoriesBar extends React.Component {
     );
   };
 
+  searchPosts = (e, search) => {
+    e.preventDefault()
+    axios.get(`/api/search_posts?search=${search}`)
+      .then(res => {
+        this.setState({ posts: res.data })
+      })
+  }
+
   render() {
     return (
       <div>
@@ -79,13 +88,20 @@ class CategoriesBar extends React.Component {
           <Menu.Item>
             <Link to={"/blog/posts/new"}>
               <GreenButton>New Post</GreenButton>
+              {}
             </Link>
           </Menu.Item>
           <Menu.Item position="right">
-            <Input icon="search" placeholder="Search..." />
+            <Search searchPosts={this.searchPosts} />
           </Menu.Item>
         </Menu>
-        <Posts delete={this.deletePost} posts={this.state.posts} />
+        { this.state.posts.length > 0 ? 
+          <Posts delete={this.deletePost} posts={this.state.posts} /> 
+        : 
+          <h1 style={{textAlign: "center"}}>
+            No Results Found
+          </h1>
+        }
       </div>
     );
   }
