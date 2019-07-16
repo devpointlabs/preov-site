@@ -19,6 +19,17 @@ class Categories extends React.Component {
       });
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.categories !== prevState.categories) {
+      //sort the categories automagically 
+      this.setState({ categories: this.state.categories.sort((a,b) => {
+        if(a.label < b.label) { return -1; }
+        if(a.label > b.label) { return 1; }
+        return 0;
+      }) });
+    }
+  }
+
   addCategory = label => {
     axios.post("/api/categories", { label }).then(res => {
       const { categories } = this.state;
@@ -42,7 +53,7 @@ class Categories extends React.Component {
       this.setState({ categories: categories.filter(cat => cat.id !== id) });
     });
   };
-
+ 
   render() {
     return (
       <StyledDiv>
