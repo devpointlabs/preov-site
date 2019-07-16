@@ -1,10 +1,11 @@
 import React from "react";
 import axios from "axios";
-import { Form, Header, Container } from "semantic-ui-react";
+import { Form, Header, Container, Button } from "semantic-ui-react";
 import ImageUploader from "react-images-upload";
 import { Link } from "react-router-dom";
 import styled from 'styled-components'
-
+import ReactQuill from "react-quill";
+import 'react-quill/dist/quill.snow.css';
 class PostForm extends React.Component {
   state = {
     title: "",
@@ -93,6 +94,10 @@ class PostForm extends React.Component {
     this.setState({ [name]: value } );
   };
 
+  handleQuillChange = (html) => {
+  	this.setState({ body: html });
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
     const { post_categories, title, body, image, } = this.state
@@ -129,7 +134,7 @@ class PostForm extends React.Component {
       <StyledContainer>
       <Form onSubmit={this.handleSubmit}>
         <Header>{this.props.match.params.id ? "Edit This Post" : "Create New Post"}</Header>
-        {this.state.image === "" ? null : <StyledImg src={this.state.image} alt={this.state.image.name} /> }
+        {typeof(this.state.image) === "string" ? null : <StyledImg src={this.state.image} /> }
         <ImageUploader
           withPreview={true}
           withIcon={true}
@@ -147,35 +152,40 @@ class PostForm extends React.Component {
           onChange={this.handleChange}
           required
           />
-        <Form.TextArea
+        <ReactQuill
+          theme="snow"
+          onChange={this.handleQuillChange}
           label="Body"
-          placeholder="Body"
           name="body"
+          type="text"
           value={this.state.body}
-          onChange={this.handleChange}
-          style={{ minHeight: 200 }}
-          required
-          />
+          style={{ height: 500 }}
+          required />
         <Form.Group inline>
-          <h3 style={{ marginRight:"1.4em"}}><label>Categories:</label></h3>
+          <h3 style={{ marginRight:"2em"}}><label>Categories:</label></h3>
           {this.categoryCheckboxes()}
         </Form.Group>
-        <Form.Button primary>{this.props.match.params.id ? "Update Post" : "Post"}</Form.Button>
+        <StyledButton >
+          {this.props.match.params.id ? "Update Post" : "Post"}
+        </StyledButton>
         <Link to={{ pathname: "/blog" }}>
-          <Form.Button>Cancel</Form.Button>
+          <Button>Cancel</Button>
         </Link>
       </Form>
        </StyledContainer>
     );
   }
 }
+const StyledButton = styled(Button)`
+  background-color: #35e0bb !important;
+  color: #fff !important;
+`
 
 const StyledImg = styled.img`
 display: block;
 margin: 0 auto;
 height: 300px;
 width: 300px;
-border: 1px dotted grey;
 `
 const StyledContainer = styled(Container)`
   background-color: white;

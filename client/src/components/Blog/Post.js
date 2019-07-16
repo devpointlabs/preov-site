@@ -28,9 +28,9 @@ class Post extends React.Component {
   renderPost = (title, body, image, updated_at) => (
     <StyledContainer>
     <Image size='medium' src={image}></Image>
-    <Header as="h2">{title}</Header>
+    <Header as="h2" style={{marginBottom: "0"}}>{title}</Header>
     <p><i>Published {this.timeFormat(updated_at)}</i></p>
-    <p>{body}</p>
+    <p><div dangerouslySetInnerHTML={{__html: body}}></div></p>
     </StyledContainer>
   )
 
@@ -82,7 +82,6 @@ class Post extends React.Component {
 const StyledContainer = styled(Container)`
   padding: 5em 6em;
 `
-
 const PinkButton = styled(Button)`
   background-color: #f4b4b4 !important;
   color: #fff !important;
@@ -90,7 +89,8 @@ const PinkButton = styled(Button)`
 const BlueButton = styled(Button)`
   background-color: #a5d4ef !important;
   color: #fff !important;
-  margin-right: 5px;
+  margin-right: 5px !important;
+  margin-left: 6em !important;
 `;
 
 export default Post;
