@@ -104,7 +104,7 @@ const StyledSeg = styled(Segment)`
   border-radius: 1px !important;
   border: 2px !important;
   display: inline-block;
-  background-color: rgb(165, 212, 239);
+  background-color: blue !important;
   padding: 1em !important;
   font-size: 1em !important;
   box-shadow: none !important;
@@ -113,7 +113,7 @@ const StyledSeg = styled(Segment)`
 `;
 const StyledButton = styled(Button)`
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2) !important;
-  background-color: #f7b1b7 !important;
+  background-color:;
   color: white !important;
   font-size: 1.4em !important;
   transition: background 0.3s ease;
