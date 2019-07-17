@@ -8,6 +8,7 @@ class Post < ApplicationRecord
       LEFT JOIN categories_posts as cp on categories.id = cp.category_id
       LEFT JOIN posts on cp.post_id = posts.id
       WHERE categories.id = ?
+      ORDER BY updated_at DESC
       ", id])
   end
 
@@ -16,6 +17,7 @@ class Post < ApplicationRecord
     SELECT *
     FROM posts
     WHERE LOWER(title) LIKE LOWER(?) OR LOWER(body) LIKE LOWER(?)
+    ORDER BY updated_at DESC
     ", "%#{title}%", "%#{body}%"])
   end
 end

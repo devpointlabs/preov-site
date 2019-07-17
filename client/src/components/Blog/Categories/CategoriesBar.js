@@ -6,6 +6,7 @@ import Posts from "../Posts";
 import Search from "../Search"
 import { AuthConsumer } from '../../../providers/AuthProvider'
 import styled from "styled-components";
+// import NoMatch from '../../NoMatch'
 
 class CategoriesBar extends React.Component {
   state = { categories: [], posts: [], };
@@ -109,9 +110,10 @@ class CategoriesBar extends React.Component {
         { this.state.posts.length > 0 ? 
           <Posts delete={this.deletePost} posts={this.state.posts} /> 
         : 
-          <h1 style={{textAlign: "center"}}>
-            No Results Found
-          </h1>
+          <div style={{margin: "5em", textAlign: "center"}}>
+            <h1 style={{color: "black"}}>No Results Found</h1>
+            <StyledLink onClick={this.handleAllPosts}>Go Back To All Posts</StyledLink>
+          </div>
         }
       </div>
     );
@@ -136,3 +138,6 @@ export default class ConnectedCategoriesBar extends React.Component{
         )
       }
 }
+const StyledLink = styled(Link)`
+  font-weight: bold;
+`

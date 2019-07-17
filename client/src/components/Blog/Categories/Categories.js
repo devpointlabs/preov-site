@@ -2,7 +2,8 @@ import React from "react";
 import axios from "axios";
 import CategoryForm from "./CategoryForm";
 import CategoriesList from "./CategoriesList";
-import { Container } from "semantic-ui-react";
+import { Container, Button } from "semantic-ui-react";
+import {Link, } from 'react-router-dom'
 import styled from "styled-components";
 
 class Categories extends React.Component {
@@ -60,6 +61,9 @@ class Categories extends React.Component {
         <StyledContainer>
           <br />
           <CategoryForm addCategory={this.addCategory} />
+          <Link to="/blog">
+            <Button floated="right">Go Back</Button>
+          </Link>
           <br />
           <br />
           <CategoriesList
