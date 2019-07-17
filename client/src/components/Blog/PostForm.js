@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import styled from 'styled-components'
 import ReactQuill from "react-quill";
 import 'react-quill/dist/quill.snow.css';
-import placeholder from '../../Images/ring.png'
 
 class PostForm extends React.Component {
   state = {
@@ -120,12 +119,14 @@ class PostForm extends React.Component {
       })
     }else{
     axios.post(`/api/posts?title=${title}&body=${body}`, data)
-      .then( res => {
+    .then( res => {
         const {history } = this.props
         history.push('/blog')
       })
       .catch(err => {
-        console.log("error")
+        console.log("error in new post .catch")
+        const {history } = this.props
+        history.push('/blog')
       })
       this.setState({title: "", body: "", image: ""})
     }

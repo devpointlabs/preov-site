@@ -52,7 +52,7 @@ class Footer extends React.Component {
               <Link to="/howitworks">
                 <StyledItem>How It Works</StyledItem>
               </Link>
-              <Link to="/blogs">
+              <Link to="/blog">
                 <StyledItem>Blog</StyledItem>
               </Link>
               <Link to="/contactus">

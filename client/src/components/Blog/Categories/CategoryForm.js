@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { Header, Form, Button, Grid, Container } from "semantic-ui-react";
-import { Link } from "react-router-dom";
 
 class CategoryForm extends React.Component {
   state = { label: "" };
@@ -43,9 +42,6 @@ class CategoryForm extends React.Component {
                 onChange={this.handleChange}
               />
               <GreenButton>Submit</GreenButton>
-              <Link to="/blog">
-                <Button>Go Back</Button>
-              </Link>
             </Form.Group>
           </Form>
         </StyledGrid>

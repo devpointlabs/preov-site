@@ -1,4 +1,4 @@
-import React, { useState, } from "react"
+import React, { useState, useEffect} from "react"
 // import axios from "axios"
 import { Form, Input, Button, Icon, } from "semantic-ui-react"
 
@@ -13,6 +13,10 @@ const Search = (props) => {
 //       query: this.search.value
 //     })
 //   }
+
+  // useEffect(() =>{
+  //   setSearch=""
+  // })
   
   return (
     <Form onSubmit={props.searchPosts}>
