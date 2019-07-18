@@ -2,31 +2,34 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PreIcon from "../Images/PreOvIcon.jpg";
 import { Menu, Grid, Image, Icon, Segment, Header } from "semantic-ui-react";
-import axios from "axios";
+// import axios from "axios";
 import styled from "styled-components";
+import { PostCatConsumer } from '../providers/PostCatProvider'
 // ! how to link to filtered posts from footer category
 
 class Footer extends React.Component {
-  state = { categories: [] };
+  state = { categories: this.props.postcat.categories };
 
-  componentDidMount() {
-    axios
-      .get("/api/categories")
-      .then(res => {
-        this.setState({ categories: res.data });
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }
+  // componentDidMount() {
+  //   axios
+  //     .get("/api/categories")
+  //     .then(res => {
+  //       this.setState({ categories: res.data });
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     });
+  // }
 
   renderCats = () => {
     let catsArr = this.state.categories;
     catsArr = catsArr.slice(0, 5);
     return catsArr.map(cat => (
-      <Link key={cat.id} to={`api/filter_category/${cat.id}`}>
-      <StyledItem key={cat.id}>{cat.label}</StyledItem>
-      </Link>
+      <StyledItem 
+        key={cat.id}
+        onClick={()=> this.props.postcat.handleCatPosts(cat.id)}>
+        {cat.label}
+      </StyledItem>
     ))
     }
 
@@ -135,4 +138,13 @@ const StyledItem = styled(Menu.Item)`
   position: static !important;
 `;
 
-export default Footer;
+
+export default class ConnectedFooter extends React.Component {
+  render() {
+    return (
+        <PostCatConsumer>
+        {postcat => <Footer {...this.props} postcat={postcat} />}
+        </PostCatConsumer>  
+    );
+  }
+}

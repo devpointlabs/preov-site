@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Card, Image, Button, Icon } from "semantic-ui-react";
 import styled from "styled-components";
 import { AuthConsumer } from "../../providers/AuthProvider";
+import { PostCatConsumer } from "../../providers/PostCatProvider";
 
 class Posts extends React.Component {
   timeFormat = props => {
@@ -11,7 +12,6 @@ class Posts extends React.Component {
   };
 
   adminButtons = post => (
-    // TODO conditional render if auth
     <>
       <Link to={`/blog/posts/${post.id}/edit`}>
         <BlueButton animated>
@@ -68,7 +68,7 @@ class Posts extends React.Component {
 
   render() {
     const { authenticated } = this.props.auth;
-    const { posts } = this.props;
+    const { posts } = this.props.postcat;
     return <StyledDiv>{this.postCards(posts, authenticated)}</StyledDiv>;
   }
 }
@@ -89,7 +89,13 @@ export default class ConnectedPosts extends React.Component {
   render() {
     return (
       <AuthConsumer>
-        {auth => <Posts {...this.props} auth={auth} />}
+        {auth => (
+          <PostCatConsumer>
+            {postcat => (
+              <Posts {...this.props} auth={auth} postcat={postcat} />
+            )}
+          </PostCatConsumer>
+        )}      
       </AuthConsumer>
     );
   }
