@@ -6,19 +6,20 @@ import Posts from './Posts'
 import PostForm from './PostForm'
 import styled from 'styled-components'
 import {AuthConsumer, } from '../../providers/AuthProvider'
+import {PostCatConsumer, } from '../../providers/PostCatProvider'
 
 
 class Post extends React.Component {
-  state = { posts: [], post: {}, editing: false };
+  state = { posts: this.props.postcat.posts, post: {}, editing: false };
 
   componentDidMount() {
     axios.get(`/api/posts/${this.props.match.params.id}`)
       .then(res => {
         this.setState({ post: res.data, editing: false });
     });
-    axios.get("/api/posts").then(res => {
-          this.setState({ posts: res.data });
-        });
+  //   axios.get("/api/posts").then(res => {
+  //         this.setState({ posts: res.data });
+  //       });
   }
   toggleEdit = () => {this.setState({editing: !this.state.editing})}
 
@@ -44,21 +45,21 @@ class Post extends React.Component {
     </StyledContainer>
   )
 
-  deletePost = (id) => {
-    axios.delete(`/api/posts/${id}`)
-    .then(res => {
-      const {history} = this.props
-      history.push('/blog')
-    })
-    .catch( "err" )
-  }
+  // deletePost = (id) => {
+  //   axios.delete(`/api/posts/${id}`)
+  //   .then(res => {
+  //     const {history} = this.props
+  //     history.push('/blog')
+  //   })
+  //   .catch( "err" )
+  // }
 
-  deletePostList = id => {
-    axios.delete(`/api/posts/${id}`).then(res => {
-      const { posts } = this.state;
-      this.setState({ posts: posts.filter(post => post.id !== id) });
-    });
-  };
+  // deletePostList = id => {
+  //   axios.delete(`/api/posts/${id}`).then(res => {
+  //     const { posts } = this.state;
+  //     this.setState({ posts: posts.filter(post => post.id !== id) });
+  //   });
+  // };
 
   swapPost = (id) => {
     axios.get(`/api/posts/${id}`)
@@ -70,7 +71,11 @@ class Post extends React.Component {
     <Link to={`/blog/posts/${id}/edit`}>
     <BlueButton onClick={this.toggleEdit}>Edit</BlueButton>
     </Link>
-    <PinkButton onClick={() => this.deletePost(id)}>Delete</PinkButton>
+    <PinkButton 
+      onClick={() => this.props.postcat.deletePost(id, this.props.history )}
+    >
+      Delete
+    </PinkButton>
     </>
   )
 
@@ -92,7 +97,7 @@ class Post extends React.Component {
         <Header as='h2' style={{textAlign: "center"}}>Check out more of our posts</Header>
         <Posts posts={this.state.posts}
           swap = {this.swapPost}
-          delete = {this.deletePostList}
+          delete = {this.props.postcat.deletePost}
         /> 
       </>
     );
@@ -115,9 +120,14 @@ export default class ConnectedPost extends React.Component{
   render(){
     return(
       <AuthConsumer>
-        {auth => <Post {...this.props} auth={auth}/>}
+        {auth => (
+          <PostCatConsumer>
+            {postcat => (
+              <Post {...this.props} auth={auth} postcat={postcat} />
+            )}
+          </PostCatConsumer>
+        )}      
       </AuthConsumer>
     )
   }
-
 }
