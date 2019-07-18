@@ -4,6 +4,7 @@ import { Card, Image, Button, Icon } from "semantic-ui-react";
 import styled from "styled-components";
 import { AuthConsumer } from "../../providers/AuthProvider";
 import { PostCatConsumer } from "../../providers/PostCatProvider";
+import { withRouter } from 'react-router-dom';
 
 class Posts extends React.Component {
   timeFormat = props => {
@@ -11,7 +12,7 @@ class Posts extends React.Component {
     return newDate.toDateString();
   };
 
-  adminButtons = post => (
+  adminButtons = (post, authenticated, history) => (
     <>
       <Link to={`/blog/posts/${post.id}/edit`}>
         <BlueButton animated>
@@ -21,7 +22,7 @@ class Posts extends React.Component {
           </Button.Content>
         </BlueButton>
       </Link>
-      <PinkButton animated onClick={() => this.props.delete(post.id)}>
+      <PinkButton animated onClick={() => this.props.delete(post.id, history)}>
         <Button.Content visible>Delete</Button.Content>
         <Button.Content hidden>
           <Icon name="trash" />
@@ -30,7 +31,7 @@ class Posts extends React.Component {
     </>
   );
 
-  postCards = (posts, authenticated) => (
+  postCards = (posts, authenticated, history) => (
     <>
       <Card.Group centered mobile={16} tablet={8} computer={4}>
         {posts.map(post => (
@@ -57,7 +58,7 @@ class Posts extends React.Component {
             </Card.Content>
             {authenticated ? (
               <Card.Content extra>
-                {this.adminButtons(post, authenticated)}
+                {this.adminButtons(post, authenticated, history)}
               </Card.Content>
             ) : null}
           </Card>
@@ -69,7 +70,8 @@ class Posts extends React.Component {
   render() {
     const { authenticated } = this.props.auth;
     const { posts } = this.props.postcat;
-    return <StyledDiv>{this.postCards(posts, authenticated)}</StyledDiv>;
+    const {history} = this.props
+    return <StyledDiv>{this.postCards(posts, authenticated, history)}</StyledDiv>;
   }
 }
 const PinkButton = styled(Button)`
@@ -85,7 +87,7 @@ const BlueButton = styled(Button)`
 const StyledDiv = styled.div`
   margin: 1em;
 `;
-export default class ConnectedPosts extends React.Component {
+class ConnectedPosts extends React.Component {
   render() {
     return (
       <AuthConsumer>
@@ -100,3 +102,4 @@ export default class ConnectedPosts extends React.Component {
     );
   }
 }
+export default withRouter(ConnectedPosts)

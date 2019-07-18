@@ -71,7 +71,11 @@ class Post extends React.Component {
     <Link to={`/blog/posts/${id}/edit`}>
     <BlueButton onClick={this.toggleEdit}>Edit</BlueButton>
     </Link>
-    <PinkButton onClick={() => this.props.postcat.deletePost(id)}>Delete</PinkButton>
+    <PinkButton 
+      onClick={() => this.props.postcat.deletePost(id, this.props.history )}
+    >
+      Delete
+    </PinkButton>
     </>
   )
 

@@ -30,17 +30,20 @@ export class PostCatProvider extends React.Component {
     });
   };
 
-  deletePost = (id) => {
-    debugger
-    axios.delete(`/api/posts/${id}`).then(res => {
+  deletePost = (id, history) => {
+    axios.delete(`/api/posts/${id}`)
+    .then(res => {
       const { posts } = this.state;
       this.setState({ posts: posts.filter(post => post.id !== id) });
+      history.push('/blog')
+      
     });
   };
 
   searchPosts = (e, search) => {
     e.preventDefault();
-    axios.get(`/api/search_posts?search=${search}`).then(res => {
+    axios.get(`/api/search_posts?search=${search}`)
+    .then(res => {
       this.setState({ posts: res.data });
     });
   };
