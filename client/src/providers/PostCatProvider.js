@@ -15,6 +15,32 @@ export class PostCatProvider extends React.Component {
     });
   }
 
+  addCategory = (label, history) => {
+    axios.post("/api/categories", { label }).then(res => {
+      const { categories } = this.state;
+      this.setState({ categories: [...categories, res.data] });
+      history.push('/blog')
+    });
+  };
+
+  editCategory = category => {
+    axios.put(`/api/categories/${category.id}`, category).then(res => {
+      const categories = this.state.categories.map(cat => {
+        if (cat.id === category.id) return res.data;
+        return cat;
+      });
+      this.setState({ categories });
+    });
+  };
+
+  deleteCategory = (id) => {
+    axios.delete(`/api/categories/${id}`).then(res => {
+      const { categories } = this.state;
+      this.setState({ categories: categories.filter(cat => cat.id !== id) });
+      // history.push('/categories')
+    });
+  };
+
   handleCatPosts = (value) => {
     axios
     .get(`/api/filter_category/${value}`)
@@ -48,6 +74,7 @@ export class PostCatProvider extends React.Component {
     });
   };
 
+
   render() {
     return (
       <PostCatContext.Provider
@@ -57,6 +84,11 @@ export class PostCatProvider extends React.Component {
           handleAllPosts: this.handleAllPosts,
           searchPosts: this.searchPosts,
           deletePost: this.deletePost,
+          addCategory: this.addCategory,
+          editCategory: this.editCategory,
+          deleteCategory: this.deleteCategory,
+
+
 
           // setSearch
         }}

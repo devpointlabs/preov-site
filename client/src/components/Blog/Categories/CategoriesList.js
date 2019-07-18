@@ -7,8 +7,8 @@ const CategoriesList = ({ categories, editCategory, deleteCategory, }) => (
       <Category
         key={category.id}
         {...category}
-        editCategory={editCategory}
-        deleteCategory={deleteCategory}
+        // editCategory={editCategory}
+        // deleteCategory={deleteCategory}
       />
     )}
   </div>

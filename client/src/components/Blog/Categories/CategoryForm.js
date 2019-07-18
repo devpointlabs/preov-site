@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { Header, Form, Button, Grid, Container } from "semantic-ui-react";
+import {withRouter} from 'react-router-dom'
+import {PostCatConsumer} from '../../../providers/PostCatProvider'
 
 class CategoryForm extends React.Component {
   state = { label: "" };
@@ -21,7 +23,7 @@ class CategoryForm extends React.Component {
       this.props.editCategory({ id: this.props.id, ...this.state });
       this.props.toggleEdit();
     } else {
-      this.props.addCategory(this.state.label);
+      this.props.postcat.addCategory(this.state.label, this.props.history);
     }
     this.setState({ label: "" });
   };
@@ -61,4 +63,19 @@ const GreenButton = styled(Button)`
   color: #fff !important;
   margin-right: 5px;
 `;
-export default CategoryForm;
+
+
+  class ConnectedCategoryForm extends React.Component{
+  render(){
+    return(
+      <PostCatConsumer>
+        {postcat => (
+          <CategoryForm {...this.props} postcat={postcat}/>
+        )}
+      </PostCatConsumer>
+    )
+  }
+
+}
+
+export default withRouter(ConnectedCategoryForm);

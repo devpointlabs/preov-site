@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Button, Header, Icon, Segment } from "semantic-ui-react";
 import CategoryForm from "./CategoryForm";
 import styled from "styled-components";
+import {withRouter} from 'react-router-dom'
 
 class Category extends React.Component {
   state = { editing: false };
@@ -65,4 +66,4 @@ const styles = {
   }
 };
 
-export default Category;
+export default withRouter(Category);
