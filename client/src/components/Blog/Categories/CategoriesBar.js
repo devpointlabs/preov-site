@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { Button, Menu, Dropdown, } from "semantic-ui-react";
+import { Button, Menu, Dropdown, Form, Input, Icon, } from "semantic-ui-react";
 import Posts from "../Posts";
 import Search from "../Search"
 import { AuthConsumer } from '../../../providers/AuthProvider'
@@ -9,7 +9,7 @@ import styled from "styled-components";
 // import NoMatch from '../../NoMatch'
 
 class CategoriesBar extends React.Component {
-  state = { categories: [], posts: [], };
+  state = { categories: [], posts: [], search: '' };
 
   componentDidMount() {
     axios.get("/api/categories").then(res => {
@@ -23,6 +23,7 @@ class CategoriesBar extends React.Component {
   handleAllPosts = () => {
     axios.get("/api/posts").then(res => {
       this.setState({ posts: res.data });
+      this.setState({ search: "" });
     });
   };
 
@@ -30,6 +31,7 @@ class CategoriesBar extends React.Component {
     axios
       .get(`/api/filter_category/${value}`)
       .then(res => this.setState({ posts: res.data }));
+      this.setState({ search: "" });
   };
 
   deletePost = id => {
@@ -72,6 +74,10 @@ class CategoriesBar extends React.Component {
     );
   };
 
+  handleSearchChange = (e, { name, value }) => {
+    this.setState({ [name]: value, });
+  }
+
   searchPosts = (e, search) => {
     e.preventDefault()
     axios.get(`/api/search_posts?search=${search}`)
@@ -82,10 +88,11 @@ class CategoriesBar extends React.Component {
 
   render() {
     const { authenticated} = this.props.auth
+    const { search } = this.state
     return (
       <div>
         <Menu borderless secondary style={{ margin: "1em" }}>
-          {/* <Menu.Item name="All Posts" onClick={this.handleAllPosts} /> */}
+          <Menu.Item name="All Posts" onClick={this.handleAllPosts} />
           <Menu.Item>{this.dropdownCatSelect()}</Menu.Item>
           {authenticated ?
           <>
@@ -104,7 +111,20 @@ class CategoriesBar extends React.Component {
             null
             }
           <Menu.Item position="right">
-            <Search searchPosts={this.searchPosts} />
+            <Form>
+              <Input
+                placeholder="Search for..."
+                onChange={this.handleSearchChange}
+                value={search}
+                name="search"
+              />
+              <Button 
+                floated="right" 
+                onClick={(e) => this.searchPosts(e, search)}
+              >
+                <Icon name="search" />
+              </Button>
+            </Form>
           </Menu.Item>
         </Menu>
         { this.state.posts.length > 0 ? 
