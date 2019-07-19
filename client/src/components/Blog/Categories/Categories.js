@@ -1,10 +1,10 @@
 import React from "react";
 import axios from "axios";
 import CategoryForm from "./CategoryForm";
-import CategoriesList from "./CategoriesList";
 import { Container, Button } from "semantic-ui-react";
 import {Link, } from 'react-router-dom'
 import styled from "styled-components";
+import Category from './Category'
 
 class Categories extends React.Component {
   state = { categories: [] };
@@ -66,11 +66,15 @@ class Categories extends React.Component {
           </Link>
           <br />
           <br />
-          <CategoriesList
-            categories={this.state.categories}
-            editCategory={this.editCategory}
-            deleteCategory={this.deleteCategory}
-          />
+          {this.state.categories.map (category => 
+            <Category
+              key={category.id}
+              { ...category}
+              categories={this.state.categories}
+              editCategory={this.editCategory}
+              deleteCategory={this.deleteCategory}
+            />
+          )}
         </StyledContainer>
       </StyledDiv>
     );

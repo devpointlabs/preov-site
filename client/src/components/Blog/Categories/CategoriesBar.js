@@ -45,7 +45,7 @@ class CategoriesBar extends React.Component {
     const { categories } = this.state;
     return (
       <Dropdown
-        text="Browse Categories"
+        text="Browse Topics"
         icon="angle down"
         floating
         labeled
@@ -92,13 +92,15 @@ class CategoriesBar extends React.Component {
     return (
       <div>
         <Menu borderless secondary style={{ margin: "1em" }}>
-          <Menu.Item name="All Posts" onClick={this.handleAllPosts} />
+          <Menu.Item name="All Posts" >
+            <PinkButton onClick={this.handleAllPosts}>All Posts</PinkButton>
+          </Menu.Item>
           <Menu.Item>{this.dropdownCatSelect()}</Menu.Item>
           {authenticated ?
           <>
             <Menu.Item>
               <Link to={"/categories"}>
-                <BlueButton>Add/Edit Categories</BlueButton>
+                <BlueButton>Add/Edit Topics</BlueButton>
               </Link>
             </Menu.Item>
             <Menu.Item>
@@ -139,6 +141,12 @@ class CategoriesBar extends React.Component {
     );
   }
 }
+
+const PinkButton = styled(Button)`
+  background-color: #f4b4b4 !important;
+  color: #fff !important;
+`
+
 const BlueButton = styled(Button)`
   background-color: #a5d4ef !important;
   color: #fff !important;

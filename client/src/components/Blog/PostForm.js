@@ -164,7 +164,7 @@ class PostForm extends React.Component {
           style={{ height: 500 }}
           />
         <Form.Group inline style={{marginTop: "4em"}}>
-          <h3 style={{ marginRight:"2em"}}><label>Categories:</label></h3>
+          <h3 style={{ marginRight:"2em"}}><label>Topics:</label></h3>
           {this.categoryCheckboxes()}
         </Form.Group>
         <StyledButton >
