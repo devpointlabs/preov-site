@@ -3,7 +3,6 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { Button, Menu, Dropdown, Form, Input, Icon, } from "semantic-ui-react";
 import Posts from "../Posts";
-import Search from "../Search"
 import { AuthConsumer } from '../../../providers/AuthProvider'
 import styled from "styled-components";
 // import NoMatch from '../../NoMatch'
