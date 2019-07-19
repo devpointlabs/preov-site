@@ -1,17 +1,23 @@
 import React from 'react';
-import {withGoogleMap, withScriptjs, GoogleMap,} from 'react-google-maps';
+import {withGoogleMap, withScriptjs, GoogleMap, Marker, InfoWindow} from 'react-google-maps';
 import EmailForm from "./EmailForm";
 import styled from "styled-components";
 import MapStyles from "./MapStyles";
 
 function Map(){
-  return(
-    <GoogleMap 
-    defaultZoom={12}
-    defaultCenter={{ lat: 40.7719, lng: -111.8370 }}
-    defaultOptions={{ styles: MapStyles }}
 
+  const Markers = ({ lat: 40.7519, lng: -111.8730});
+
+  return(
+    <>
+    <GoogleMap 
+    defaultZoom={13}
+    defaultCenter={{ lat: 40.7519, lng: -111.8730 }}
+    defaultOptions={{ styles: MapStyles }}
+  
     />
+   
+    </>
   )
 }
 
@@ -27,10 +33,10 @@ const StyledRightDiv = styled.div`
   display: flex;
   justify-content: center;
   align-content: center;
-  margin: 0 !important;
 `;
 
 export default function ContactUs(){
+  
   return  (
       <>
     <StyledLeftDiv>
@@ -68,7 +74,7 @@ export default function ContactUs(){
     </StyledLeftDiv>
     
     <StyledRightDiv>
-      <div style={{ width: "60vw", height: "100vh", }}>
+      <div style={{ width: "60vw", height: "92vh", marginTop: "20px", marginBottom: "10px", marginRight: "2em"}}>
       <MapWrapped
           googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&
           libraries=geometry,drawing,places&key=AIzaSyBlhCtxXLRDH1kdqfNQTBZuB8YF3OJWUP8`}
