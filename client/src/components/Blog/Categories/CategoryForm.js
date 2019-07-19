@@ -32,11 +32,11 @@ class CategoryForm extends React.Component {
         <StyledGrid className="segment centered">
           <Form onSubmit={this.handleSubmit}>
             <Header as="h3">
-              {this.props.id ? "Edit Category" : "Create a New Category"}
+              {this.props.id ? "Edit Topic" : "Create a New Topic"}
             </Header>
             <Form.Group>
               <Form.Input
-                placeholder="Category Label"
+                placeholder="Topic Label"
                 name="label"
                 value={this.state.label}
                 onChange={this.handleChange}
