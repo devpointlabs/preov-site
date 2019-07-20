@@ -23,7 +23,7 @@
       <p>Nevertheless, before setting out on that errand, he went down into the garden and took a long look at all the land which had been walled in. It might be as good as ever, for a garden, but it had a queer, shut-up appearance.</p>
       <p>“Where’s Billy?” he inquired, aloud. “Hullo. There he is, out on the avenue. How did the old rascal foot it up that wall?”</p>
       <p>There was Billy, indeed, with his toes on the very edge, and with a wisp of something green sticking out at one side of his mouth.</p>
-      <p>“Greens!” exclaimed Rodney. “He can steal from a grocer’s wagon better than any other goat I know of.—We used to have a garden. Tell you what, we can make garden of our lots and all the others, too, if we can only have it ploughed. But how would a horse and plough ever get down here?”</p>
+      <p>“Greens!” exclaimed Rodney. “He can steal from a grocer’s wagon better than any other goat I know of. We used to have a garden. Tell you what, we can make garden of our lots and all the others, too, if we can only have it ploughed. But how would a horse and plough ever get down here?”</p>
       <p>It was a pretty deep question and he gave it up, for that time. In a minute more he was upstairs and out through the window, on his errand to Pat. So far as he knew, he left the house without a living soul in it, but before he reached the next corner, the door of the little back bedroom, at the head of the stairs, went to with a sharp slam. It must have been a strong draft of air that did it, or else the door shut itself.</p>,"
     
 
