@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Header, Form, Button, Grid, Container } from "semantic-ui-react";
+import { Header, Form, Button, Grid, Container, Icon } from "semantic-ui-react";
 
 class CategoryForm extends React.Component {
   state = { label: "" };
@@ -41,7 +41,14 @@ class CategoryForm extends React.Component {
                 value={this.state.label}
                 onChange={this.handleChange}
               />
-              <GreenButton>Submit</GreenButton>
+              <GreenButton animated>
+                <Button.Content visible>
+                  <Icon name="add" />
+                  </Button.Content>
+                <Button.Content hidden>
+                  Add
+                </Button.Content>
+              </GreenButton>
             </Form.Group>
           </Form>
         </StyledGrid>
@@ -50,12 +57,15 @@ class CategoryForm extends React.Component {
   }
 }
 const StyledContainer = styled(Container)`
-  min-width: 600px !important;
-`
+  min-width: 100% !important;
+  text-align: center !important;
+  margin: 0 auto !important;
+`;
 const StyledGrid = styled(Grid)`
   border: none !important;
   padding: 1em !important;
-`
+  margin: 0 auto !important;
+`;
 const GreenButton = styled(Button)`
   background-color: #35e0bb !important;
   color: #fff !important;

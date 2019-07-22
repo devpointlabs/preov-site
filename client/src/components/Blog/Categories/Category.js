@@ -26,6 +26,10 @@ class Category extends React.Component {
             </div>
           )}
           <div>
+            { this.state.editing ?
+            null
+            :
+            <>
             <BlueButton onClick={this.toggleEdit}>
               <Icon name="edit outline" />
             </BlueButton>
@@ -35,6 +39,8 @@ class Category extends React.Component {
             >
               <Icon name="trash alternate outline" />
             </PinkButton>
+            </>
+            }
           </div>
         </Segment>
       </StyledContainer>
@@ -61,7 +67,7 @@ const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
-    minWidth: "300px"
+    minWidth: "300px",
   }
 };
 

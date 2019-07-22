@@ -133,7 +133,7 @@ class CategoriesBar extends React.Component {
         : 
           <div style={{margin: "5em", textAlign: "center"}}>
             <h1 style={{color: "black"}}>No Results Found</h1>
-            <StyledLink onClick={this.handleAllPosts}>Go Back To All Posts</StyledLink>
+            <PinkButton onClick={this.handleAllPosts}>Go Back To All Posts</PinkButton>
           </div>
         }
       </div>
@@ -165,6 +165,3 @@ export default class ConnectedCategoriesBar extends React.Component{
         )
       }
 }
-const StyledLink = styled(Link)`
-  font-weight: bold;
-`

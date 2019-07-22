@@ -26,6 +26,7 @@ before_action :set_post, only:[:show, :destroy]
     post.body = params[:body] ? params[:body] : post.body
   
     file = params[:file]
+
     if file
       begin
         ext = File.extname(file.tempfile)

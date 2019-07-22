@@ -15,16 +15,20 @@ class Posts extends React.Component {
     <>
       <Link to={`/blog/posts/${post.id}/edit`}>
         <BlueButton animated>
-          <Button.Content visible>Edit</Button.Content>
-          <Button.Content hidden>
+          <Button.Content visible>
             <Icon name="edit" />
+          </Button.Content>
+          <Button.Content hidden>
+            Edit
           </Button.Content>
         </BlueButton>
       </Link>
       <PinkButton animated onClick={() => this.props.delete(post.id)}>
-        <Button.Content visible>Delete</Button.Content>
-        <Button.Content hidden>
+        <Button.Content visible>
           <Icon name="trash" />
+        </Button.Content>
+        <Button.Content hidden>
+          Delete
         </Button.Content>
       </PinkButton>
     </>
