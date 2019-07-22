@@ -113,7 +113,7 @@ const StyledSeg = styled(Segment)`
 `;
 const StyledButton = styled(Button)`
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2) !important;
-  background-color:;
+  background-color: #a5d4ef !important;
   color: white !important;
   font-size: 1.4em !important;
   transition: background 0.3s ease;
