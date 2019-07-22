@@ -7,8 +7,7 @@ class EmailForm extends React.Component {
   render () {
     return(
       <Container text>
-        <Segment textAlign='center'>
-
+        <Segment textAlign='center' style={{ marginTop: '15px'}}>  
         <Header  as='h3' style={{color: 'rgb(165, 212, 239)'}}>
           We Would Love to Hear From You
           </Header>
