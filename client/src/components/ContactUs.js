@@ -1,22 +1,23 @@
 import React from 'react';
-import {withGoogleMap, withScriptjs, GoogleMap, Marker, InfoWindow} from 'react-google-maps';
+import {withGoogleMap, withScriptjs, GoogleMap, Marker,} from 'react-google-maps';
 import EmailForm from "./EmailForm";
 import styled from "styled-components";
 import MapStyles from "./MapStyles";
 
 function Map(){
 
-  const Markers = ({ lat: 40.7519, lng: -111.8730});
-
   return(
     <>
     <GoogleMap 
     defaultZoom={13}
-    defaultCenter={{ lat: 40.7519, lng: -111.8730 }}
+    defaultCenter={{ lat: 40.7619, lng: -111.8570 }}
     defaultOptions={{ styles: MapStyles }}
-  
     />
+   <Marker
+   position = {{ lat: 40.7643925, lng: -111.8450127}}
    
+   >
+   </Marker>
     </>
   )
 }
@@ -46,11 +47,11 @@ export default function ContactUs(){
       <td>
         <i className="building icon"></i>
       </td>
-      <td>3730 4700 S,
+      <td>50 N Medical Dr.
         <br />
          Salt Lake City, UT 
          <br />
-         84129</td>
+         84132</td>
     </tr>
     <tr>
       <td className="collapsing">
@@ -74,7 +75,7 @@ export default function ContactUs(){
     </StyledLeftDiv>
     
     <StyledRightDiv>
-      <div style={{ width: "60vw", height: "92vh", marginTop: "20px", marginBottom: "10px", marginRight: "2em"}}>
+      <div style={{ width: "60vw", height: "94.5vh", marginTop: "20px", marginBottom: "10px", marginRight: "2em"}}>
       <MapWrapped
           googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&
           libraries=geometry,drawing,places&key=AIzaSyBlhCtxXLRDH1kdqfNQTBZuB8YF3OJWUP8`}
