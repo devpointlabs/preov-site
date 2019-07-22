@@ -104,7 +104,7 @@ const StyledSeg = styled(Segment)`
   border-radius: 1px !important;
   border: 2px !important;
   display: inline-block;
-  background-color: blue !important;
+  background-color: white !important;
   padding: 1em !important;
   font-size: 1em !important;
   box-shadow: none !important;

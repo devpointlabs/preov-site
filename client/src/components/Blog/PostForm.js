@@ -21,7 +21,6 @@ class PostForm extends React.Component {
     this.onDrop = this.onDrop.bind(this);
   }
 
-  // TODO check if editing
   componentDidMount() {
     const post_id = this.props.match.params.id;
     if (post_id) {
@@ -62,7 +61,7 @@ class PostForm extends React.Component {
     let checked = false;
     post_categories.map( c => {
       if (c.id === cat)
-        checked = true;
+        return checked = true;
     })
     return checked;
   };

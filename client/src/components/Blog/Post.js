@@ -32,14 +32,14 @@ class Post extends React.Component {
       <Image size='medium' src={image}></Image>
       <Header as="h2" style={{marginBottom: "0"}}>{title}</Header>
       <p><i>Published {this.timeFormat(updated_at)}</i></p>
-      <p><div dangerouslySetInnerHTML={{__html: body}}></div></p>
+      <div dangerouslySetInnerHTML={{__html: body}}></div>
       {authenticated ? 
         this.adminButtons(id)
         :
         null
         }
       <Link to={{pathname: '/blog'}}>
-        <Button>Back</Button>
+        <Button style={{marginTop: "1em"}}>Back</Button>
       </Link>
     </StyledContainer>
   )

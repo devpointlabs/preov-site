@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import CategoryForm from "./CategoryForm";
-import { Container, Button } from "semantic-ui-react";
+import { Button } from "semantic-ui-react";
 import {Link, } from 'react-router-dom'
 import styled from "styled-components";
 import Category from './Category'
@@ -58,11 +58,10 @@ class Categories extends React.Component {
   render() {
     return (
       <StyledDiv>
-        <StyledContainer>
           <br />
           <CategoryForm addCategory={this.addCategory} />
           <Link to="/blog">
-            <Button floated="right">Go Back</Button>
+            <Button floated="right" style={{margin: ".5em"}}>Go Back</Button>
           </Link>
           <br />
           <br />
@@ -75,18 +74,15 @@ class Categories extends React.Component {
               deleteCategory={this.deleteCategory}
             />
           )}
-        </StyledContainer>
       </StyledDiv>
     );
   }
 }
 
 const StyledDiv = styled.div`
+background-color: #f8f8f8;
+padding: 0em 10em !important;
 `
 
-const StyledContainer = styled(Container)`
-  background-color: #f8f8f8;
-  padding: 0em 10em !important;
-`;  
 
 export default Categories;
