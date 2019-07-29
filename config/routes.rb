@@ -9,4 +9,6 @@ Rails.application.routes.draw do
     get "search_posts", to: "posts#search_posts"
   end
 
+  get '*other', to: 'static#index'
+
 end
